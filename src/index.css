@@ -1,0 +1,35 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800");
+
+html {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  position: relative;
+  font-family: "Open Sans", sans-serif;
+  background-color: #fcfcfc;
+  overflow-x: hidden;
+}
+
+.skip-link {
+  position: absolute;
+  top: -1000px;
+  left: -1000px;
+  height: 1px;
+  width: 1px;
+  text-align: left;
+  overflow: hidden;
+}
+a.skip-link:active,
+a.skip-link:focus,
+a.skip-link:hover {
+  left: 0;
+  top: 0;
+  width: auto;
+  height: auto;
+  overflow: visible;
+  color: #0066b3;
+}

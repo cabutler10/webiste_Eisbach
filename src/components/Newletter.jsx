@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import jsonp from "jsonp";
 
 import { withStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
@@ -67,6 +68,48 @@ const styles = theme => ({
   }
 });
 
+const subscribeEmailToMailchimp = url =>
+  new Promise((resolve, reject) => {
+    // `param` object avoids CORS issues
+    // timeout to 3.5s so user isn't waiting forever
+    // usually occurs w/ privacy plugins enabled
+    // 3.5s is a bit longer than the time it would take on a Slow 3G connection
+    return jsonp(url, { param: "c", timeout: 3500 }, (err, data) => {
+      if (err) reject(err);
+      if (data) resolve(data);
+    });
+  });
+
+const convertListFields = fields => {
+  let queryParams = "";
+  for (const field in fields) {
+    queryParams = queryParams.concat(
+      `&${field.toUpperCase()}=${fields[field]}`
+    );
+  }
+  return queryParams;
+};
+
+const addToMailchimp = (email, fields) => {
+  // const isEmailValid = validate(email)
+  const emailEncoded = encodeURIComponent(email);
+  // if (!isEmailValid) {
+  //   return Promise.resolve({
+  //     result: "error",
+  //     msg: "The email you entered is not valid."
+  //   });
+  // }
+
+  // generate Mailchimp endpoint for jsonp request
+  // note, we change `/post` to `/post-json`
+  // otherwise, Mailchimp returns an error
+  const endpoint = JSON.stringify(
+    "https://eisbach-riders.us19.list-manage.com/subscribe/post-json?u=37a2f35f3b8bc53ace7af50eb&amp;id=7bdc6b47ed"
+  );
+  const queryParams = `&EMAIL=${emailEncoded}${convertListFields(fields)}`;
+  const url = `${endpoint}${queryParams}`;
+  return subscribeEmailToMailchimp(url);
+};
 class Newsletter extends Component {
   state = {
     email: "Email Address",
@@ -77,62 +120,24 @@ class Newsletter extends Component {
   };
 
   handleSubmit = () => {
-    fetch(
-      "https://eisbach-riders.us19.list-manage.com/subscribe/post?u=37a2f35f3b8bc53ace7af50eb&amp;id=7bdc6b47ed",
-      {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-          EMAIL: this.state.email,
-          FNAME: this.state.name
-        })
-      }
-    )
-      .then(response => {
-        console.log(response);
-        if (response.status === 200) {
-          this.setState({
-            isSnackbarOpen: true,
-            snackbarMessage: "success"
-          });
-        }
-        // else {
-        //   this.setState({
-        //     isSnackbarOpen: true,
-        //     snackbarMessage: result.msg.includes("<a")
-        //       ? result.msg.split("<a")[0]
-        //       : result.msg
-        //   });
-        // }
-      })
-      .catch(err => {
-        this.setState({
-          isSnackbarOpen: true,
-          notification: "error"
-        });
-      });
-
-    //"https://eisbach-riders.us19.list-manage.com/subscribe/post?u=37a2f35f3b8bc53ace7af50eb&amp;id=7bdc6b47ed"
     // e.preventDefault;
-    // const result = await addToMailchimp(this.state.email, {
-    //   FNAME: this.state.name,
-    // })
-    // if (result.result === 'error') {
-    //   this.setState({
-    //     isSnackbarOpen: true,
-    //     snackbarMessage: result.msg.includes('<a')
-    //       ? result.msg.split('<a')[0]
-    //       : result.msg,
-    //   })
-    // } else {
-    //   this.setState({
-    //     isSnackbarOpen: true,
-    //     snackbarMessage: 'success',
-    //   })
-    // }
+    const result = addToMailchimp(this.state.email, {
+      FNAME: this.state.name
+    });
+    console.log(result);
+    if (result.result === "error") {
+      this.setState({
+        isSnackbarOpen: true,
+        snackbarMessage: result.msg.includes("<a")
+          ? result.msg.split("<a")[0]
+          : result.msg
+      });
+    } else {
+      this.setState({
+        isSnackbarOpen: true,
+        snackbarMessage: "success"
+      });
+    }
   };
 
   handleSnackbarClose = (event, reason) => {

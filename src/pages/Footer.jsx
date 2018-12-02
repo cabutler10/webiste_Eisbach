@@ -345,10 +345,16 @@ class Footer extends Component {
           </div>
 
           <div className={classes.flexItem}>
-            <Typography className={classes.textHeading}>about us</Typography>
+            <Typography className={classes.textHeading}>
+              Any Questions?
+            </Typography>
             <Typography className={classes.text}>
-              Eisbach Riders was started in Munich Germany by 2 locals who love
-              to surf.
+              If you have any question about our products, fullfillment or what
+              is the best time to go surfing in Munich, drop us a message. We
+              are happy to help!
+            </Typography>
+            <Typography className={classes.text}>
+              You can also get in touch with us via Facebook or Instagram.
             </Typography>
             <div className={classes.iconContainer}>
               <Button

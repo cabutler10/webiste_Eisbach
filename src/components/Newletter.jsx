@@ -23,6 +23,9 @@ const styles = theme => ({
   },
   textNewsletter: {
     textTransform: "uppercase",
+    paddingBottom: 5
+  },
+  subtitleNewsletter: {
     paddingBottom: 30
   },
   form: {
@@ -164,7 +167,11 @@ class Newsletter extends Component {
           }
         />
         <Typography className={classes.textNewsletter} variant="h5">
-          sign up for our newsletter
+          Let's stay in touch!
+        </Typography>
+        <Typography className={classes.subtitleNewsletter}>
+          Sign up for our monthly newsletter to be the first to hear about the
+          latest products and ongoings at Eisbach Riders.
         </Typography>
         <Button
           variant="contained"

@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import PropTypes from "prop-types";
 import SwipeableViews from "react-swipeable-views";
 import { withStyles } from "@material-ui/core/styles";
@@ -24,15 +24,16 @@ const styles = theme => ({
     width: "50%"
   },
   dialogContainer: {
-    display: "flex"
+    display: "flex",
+    justifyContent: "space-between"
   },
   dialogImg: {
-    flexBasis: "60%",
     paddingRight: 60,
-    paddingLeft: 60
+    paddingLeft: 60,
+    flexBasis: "40%"
   },
   dialogContent: {
-    flexBasis: "40%"
+    flexBasis: "50%"
   },
   dialogTitle: {
     textAlign: "center"
@@ -59,7 +60,8 @@ const styles = theme => ({
   listItem: {
     alignItems: "flex-start",
     paddingLeft: 0,
-    paddingRight: 0
+    paddingRight: 0,
+    paddingBottom: 0
   },
   listItemTextRoot: {
     paddingLeft: 0,
@@ -142,7 +144,7 @@ class ProductDialog extends Component {
     const { isDialogOpen, activeStep } = this.state;
 
     return (
-      <div className={classes.root}>
+      <Fragment>
         <Button
           variant="outlined"
           className={classes.more}
@@ -262,7 +264,7 @@ class ProductDialog extends Component {
             </div>
           </DialogContent>
         </Dialog>
-      </div>
+      </Fragment>
     );
   }
 }

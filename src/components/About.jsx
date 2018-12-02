@@ -7,36 +7,29 @@ import img from "../assets/images/homepage1.png";
 const styles = theme => ({
   container: {
     display: "flex",
+    justifyContent: "space-between",
     flexWrap: "wrap",
-    height: 500,
+    height: 400,
     background: theme.status.black
   },
   img: {
-    height: 500
-  },
-  imgContainer1: {
-    flexBasis: "50%"
+    width: "45%",
+    height: 400
   },
   textContainer: {
-    flexBasis: "50%",
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center"
+    flexBasis: "45%",
+    paddingTop: 45,
+    paddingRight: 60,
+    textAlign: "center"
   },
   title: {
     textTransform: "uppercase",
-    width: "100%",
-    textAlign: "center",
     letterSpacing: 3,
     paddingBottom: 30,
     color: theme.palette.primary.main
   },
-
   text: {
-    color: theme.palette.common.white,
-    paddingLeft: 30,
-    paddingRight: 30,
-    textAlign: "center"
+    color: theme.palette.common.white
   }
 });
 
@@ -44,14 +37,12 @@ const About = props => {
   const { classes } = props;
   return (
     <div className={classes.container} id="about">
-      <div className={classes.imgContainer}>
-        <img src={img} className={classes.img} alt="" />
-      </div>
+      <img src={img} className={classes.img} alt="" />
       <div className={classes.textContainer}>
         <Typography className={classes.title} variant="h5">
           who we are
         </Typography>
-        <Typography className={classes.text} variant="subtitle1">
+        <Typography className={classes.text} variant="body1">
           Eisbach Riders is a young local surf brand from Munich and offers
           equipment for surfing. Whether you are in the sea, in the river or on
           the city wave. We, Michael and Robin, are passionate surfers ourselves

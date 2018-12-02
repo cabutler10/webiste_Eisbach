@@ -35,11 +35,11 @@ const styles = theme => ({
     zIndex: 2,
     background: "none",
     padding: 0,
+    width: "95%",
     left: 15,
     bottom: 15,
     [theme.breakpoints.up("md")]: {
       background: "none",
-      width: "100%",
       bottom: 150
     }
   },

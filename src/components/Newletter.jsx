@@ -104,9 +104,8 @@ const addToMailchimp = (email, fields) => {
   // generate Mailchimp endpoint for jsonp request
   // note, we change `/post` to `/post-json`
   // otherwise, Mailchimp returns an error
-  const endpoint = JSON.stringify(
-    "https://eisbach-riders.us19.list-manage.com/subscribe/post-json?u=37a2f35f3b8bc53ace7af50eb&amp;id=7bdc6b47ed"
-  );
+  const endpoint =
+    "https://eisbach-riders.us19.list-manage.com/subscribe/post-json?u=37a2f35f3b8bc53ace7af50eb&amp;id=7bdc6b47ed";
   const queryParams = `&EMAIL=${emailEncoded}${convertListFields(fields)}`;
   const url = `${endpoint}${queryParams}`;
   return subscribeEmailToMailchimp(url);
@@ -124,7 +123,6 @@ class Newsletter extends Component {
     const result = addToMailchimp(this.state.email, {
       FNAME: this.state.name
     });
-    console.log(result);
     if (result.result === "error") {
       this.setState({
         isSnackbarOpen: true,

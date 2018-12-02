@@ -75,6 +75,7 @@ const subscribeEmailToMailchimp = url =>
     // usually occurs w/ privacy plugins enabled
     // 3.5s is a bit longer than the time it would take on a Slow 3G connection
     return jsonp(url, { param: "c", timeout: 3500 }, (err, data) => {
+      console.log(err, data);
       if (err) reject(err);
       if (data) resolve(data);
     });
@@ -120,7 +121,6 @@ class Newsletter extends Component {
   };
 
   handleSubmit = () => {
-    // e.preventDefault;
     const result = addToMailchimp(this.state.email, {
       FNAME: this.state.name
     });
@@ -182,7 +182,7 @@ class Newsletter extends Component {
             horizontal: "left"
           }}
           open={isSnackbarOpen}
-          autoHideDuration={6000}
+          autoHideDuration={3000}
           onClose={this.handleSnackbarClose}
           ContentProps={{
             "aria-describedby": "message-id",
@@ -269,11 +269,12 @@ class Newsletter extends Component {
             </Button>
             <Button
               onClick={() => {
-                this.handleSubmit(email);
+                this.handleSubmit();
                 this.handleDialogClose();
               }}
               color="primary"
               autoFocus
+              type="submit"
             >
               Subscribe to List
             </Button>

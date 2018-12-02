@@ -394,8 +394,16 @@ class Footer extends Component {
           <button
             onClick={() => handlePageChange("/legal")}
             className={classes.link}
+            href="#legal"
           >
             imprint
+          </button>
+          <button
+            onClick={() => handlePageChange("/privacy")}
+            className={classes.link}
+            href="#privacy"
+          >
+            {`| privacy`}
           </button>
         </Typography>
       </div>

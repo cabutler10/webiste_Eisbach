@@ -3,13 +3,13 @@ import Header from "./pages/Header";
 import Footer from "./pages/Footer";
 import Homepage from "./pages/Homepage";
 import Legal from "./pages/Legal";
+import Privacy from "./pages/Privacy";
 
 class App extends Component {
   state = {
     activePage: "/"
   };
   handlePageChange = activePage => {
-    console.log(activePage);
     this.setState({
       activePage
     });
@@ -25,6 +25,7 @@ class App extends Component {
         />
         {activePage === "/" && <Homepage />}
         {activePage === "/legal" && <Legal />}
+        {activePage === "/privacy" && <Privacy />}
         <Footer handlePageChange={this.handlePageChange} />
       </Fragment>
     );

@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import PropTypes from "prop-types";
 
 import classnames from "classnames";
@@ -90,7 +90,9 @@ class Template extends Component {
         <AppBar
           position="static"
           className={
-            activePage === "/legal" ? classes.appbarDarkTheme : classes.appbar
+            activePage === "/legal" || activePage === "/privacy"
+              ? classes.appbarDarkTheme
+              : classes.appbar
           }
         >
           <Toolbar className={classes.toolbar}>
@@ -111,22 +113,28 @@ class Template extends Component {
                   <MenuIcon className={classes.menuIcon} />
                 </Button>
               </div>
-              {activePage !== "/legal" && (
-                <Drawer
-                  anchor="right"
-                  open={isOpen}
-                  onClose={this.handleDrawer}
-                >
-                  <div
-                    tabIndex={0}
-                    role="button"
-                    onClick={this.handleDrawer}
-                    onKeyDown={this.handleDrawer}
-                  >
-                    <MobileHeaderList links={links} linkLabels={linkLabels} />
-                  </div>
-                </Drawer>
-              )}
+              <Fragment>
+                {activePage !== "/legal" &&
+                  (activePage !== "/privacy" && (
+                    <Drawer
+                      anchor="right"
+                      open={isOpen}
+                      onClose={this.handleDrawer}
+                    >
+                      <div
+                        tabIndex={0}
+                        role="button"
+                        onClick={this.handleDrawer}
+                        onKeyDown={this.handleDrawer}
+                      >
+                        <MobileHeaderList
+                          links={links}
+                          linkLabels={linkLabels}
+                        />
+                      </div>
+                    </Drawer>
+                  ))}
+              </Fragment>
             </Hidden>
             <Hidden xsDown>
               <IconButton
@@ -136,19 +144,22 @@ class Template extends Component {
               >
                 <img alt="" src={logoWhite} className={classes.logo} />
               </IconButton>
-              {activePage !== "/legal" && (
-                <div>
-                  {links.map((link, idx) => (
-                    <Button
-                      className={classes.button}
-                      key={`link_${link}`}
-                      href={`#${linkLabels[idx]}`}
-                    >
-                      {linkLabels[idx]}
-                    </Button>
+              <Fragment>
+                {activePage !== "/legal" &&
+                  (activePage !== "/privacy" && (
+                    <div>
+                      {links.map((link, idx) => (
+                        <Button
+                          className={classes.button}
+                          key={`link_${link}`}
+                          href={`#${linkLabels[idx]}`}
+                        >
+                          {linkLabels[idx]}
+                        </Button>
+                      ))}
+                    </div>
                   ))}
-                </div>
-              )}
+              </Fragment>
             </Hidden>
           </Toolbar>
         </AppBar>

@@ -76,9 +76,47 @@ class Newsletter extends Component {
     snackbarMessage: null
   };
 
-  handleSubmit = async e => {
+  handleSubmit = () => {
+    fetch(
+      "https://eisbach-riders.us19.list-manage.com/subscribe/post?u=37a2f35f3b8bc53ace7af50eb&amp;id=7bdc6b47ed",
+      {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          EMAIL: this.state.email,
+          FNAME: this.state.name
+        })
+      }
+    )
+      .then(response => {
+        console.log(response);
+        if (response.status === 200) {
+          this.setState({
+            isSnackbarOpen: true,
+            snackbarMessage: "success"
+          });
+        }
+        // else {
+        //   this.setState({
+        //     isSnackbarOpen: true,
+        //     snackbarMessage: result.msg.includes("<a")
+        //       ? result.msg.split("<a")[0]
+        //       : result.msg
+        //   });
+        // }
+      })
+      .catch(err => {
+        this.setState({
+          isSnackbarOpen: true,
+          notification: "error"
+        });
+      });
+
+    //"https://eisbach-riders.us19.list-manage.com/subscribe/post?u=37a2f35f3b8bc53ace7af50eb&amp;id=7bdc6b47ed"
     // e.preventDefault;
-    console.log("here");
     // const result = await addToMailchimp(this.state.email, {
     //   FNAME: this.state.name,
     // })

@@ -10,9 +10,9 @@ const status = {
   teal: "#66fcf1",
   ocean: "#006994",
   tealDk: "#45a29e",
-  green: "#66fca6",
+  green: "#00942b",
   yellow: "#fcf166",
-  red: "#e25b65"
+  red: "#FF0012"
 };
 
 const theme = createMuiTheme({

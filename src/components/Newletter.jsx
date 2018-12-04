@@ -11,10 +11,10 @@ import DialogContent from "@material-ui/core/DialogContent";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import TextField from "@material-ui/core/TextField";
 import Snackbar from "@material-ui/core/Snackbar";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
+import Checkbox from "@material-ui/core/Checkbox";
 import IconButton from "@material-ui/core/IconButton";
 import CloseIcon from "@material-ui/icons/Close";
-
-import mailchimpLegal from "../assets/images/mailchimpLegal.png";
 
 const styles = theme => ({
   containerNewsletter: {
@@ -51,11 +51,11 @@ const styles = theme => ({
   },
   legal: {
     fontSize: 11,
-    flexGrow: 1
+    marginTop: 15
   },
   legalContainer: {
     display: "flex",
-    marginTop: 15
+    alignItems: "center"
   },
   img: {
     marginRight: 15,
@@ -64,7 +64,17 @@ const styles = theme => ({
   },
   dialogActions: {
     marginLeft: 30,
-    marginRight: 30
+    marginRight: 30,
+    marginBottom: 30
+  },
+  close: {
+    float: "right"
+  },
+  actionButton: {
+    margin: 0
+  },
+  error: {
+    color: theme.palette.error.main
   }
 });
 
@@ -75,7 +85,6 @@ const subscribeEmailToMailchimp = url =>
     // usually occurs w/ privacy plugins enabled
     // 3.5s is a bit longer than the time it would take on a Slow 3G connection
     return jsonp(url, { param: "c", timeout: 3500 }, (err, data) => {
-      console.log(err, data);
       if (err) reject(err);
       if (data) resolve(data);
     });
@@ -92,14 +101,7 @@ const convertListFields = fields => {
 };
 
 const addToMailchimp = (email, fields) => {
-  // const isEmailValid = validate(email)
   const emailEncoded = encodeURIComponent(email);
-  // if (!isEmailValid) {
-  //   return Promise.resolve({
-  //     result: "error",
-  //     msg: "The email you entered is not valid."
-  //   });
-  // }
 
   // generate Mailchimp endpoint for jsonp request
   // note, we change `/post` to `/post-json`
@@ -110,30 +112,62 @@ const addToMailchimp = (email, fields) => {
   const url = `${endpoint}${queryParams}`;
   return subscribeEmailToMailchimp(url);
 };
+
+const pattern = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/;
 class Newsletter extends Component {
   state = {
-    email: "Email Address",
-    name: "Name",
+    email: "",
+    name: "",
+    isEmailValid: null,
+    isNameValid: null,
+    isCheckboxOpen: false,
     isDialogOpen: false,
     isSnackbarOpen: false,
-    snackbarMessage: null
+    snackbarMessage: null,
+    error: false
   };
 
-  handleSubmit = () => {
-    const result = addToMailchimp(this.state.email, {
-      FNAME: this.state.name
-    });
-    if (result.result === "error") {
-      this.setState({
-        isSnackbarOpen: true,
-        snackbarMessage: result.msg.includes("<a")
-          ? result.msg.split("<a")[0]
-          : result.msg
+  handleSubmit = async e => {
+    if (
+      this.state.isCheckboxOpen &&
+      this.state.isEmailValid &&
+      this.state.isNameValid
+    ) {
+      const result = await addToMailchimp(this.state.email, {
+        FNAME: this.state.name,
+        gdpr_26529: true
       });
-    } else {
+      this.handleDialogClose();
+      if (result.result === "error") {
+        this.setState({
+          isSnackbarOpen: true,
+          snackbarMessage: result.msg.includes("<a")
+            ? result.msg.split("<a")[0]
+            : result.msg
+        });
+      } else {
+        this.setState({
+          isSnackbarOpen: true,
+          error: false,
+          isEmailValid: true,
+          isNameValid: true,
+          snackbarMessage: "success"
+        });
+      }
+    }
+    if (!this.state.isCheckboxOpen) {
       this.setState({
-        isSnackbarOpen: true,
-        snackbarMessage: "success"
+        error: true
+      });
+    }
+    if (!pattern.test(this.state.email)) {
+      this.setState({
+        isEmailValid: false
+      });
+    }
+    if (this.state.name.length <= 500) {
+      this.setState({
+        isNameValid: false
       });
     }
   };
@@ -142,7 +176,6 @@ class Newsletter extends Component {
     if (reason === "clickaway") {
       return;
     }
-
     this.setState({ isSnackbarOpen: false });
   };
 
@@ -157,8 +190,36 @@ class Newsletter extends Component {
   };
 
   handleChange = name => event => {
+    if (name === "email") {
+      if (!pattern.test(event.target.value)) {
+        this.setState({
+          isEmailValid: false,
+          email: event.target.value
+        });
+      } else {
+        this.setState({
+          isEmailValid: true,
+          email: event.target.value
+        });
+      }
+    }
+    if (name === "name") {
+      if (event.target.value.length > 500) {
+        this.setState({
+          isNameValid: false
+        });
+      } else {
+        this.setState({
+          isNameValid: true,
+          name: event.target.value
+        });
+      }
+    }
+  };
+
+  handleCheckbox = event => {
     this.setState({
-      [name]: event.target.value
+      isCheckboxOpen: event.target.checked
     });
   };
 
@@ -169,9 +230,12 @@ class Newsletter extends Component {
       name,
       isDialogOpen,
       isSnackbarOpen,
+      isCheckboxOpen,
+      error,
+      isEmailValid,
+      isNameValid,
       snackbarMessage
     } = this.state;
-
     return (
       <div className={classes.containerNewsletter}>
         <Snackbar
@@ -180,7 +244,7 @@ class Newsletter extends Component {
             horizontal: "left"
           }}
           open={isSnackbarOpen}
-          autoHideDuration={1600}
+          autoHideDuration={3000}
           onClose={this.handleSnackbarClose}
           ContentProps={{
             "aria-describedby": "message-id",
@@ -223,13 +287,26 @@ class Newsletter extends Component {
           Sign Up
         </Button>
         <Dialog open={isDialogOpen} onClose={this.handleDialogClose}>
-          <DialogTitle id="dialog-title">{"Newsletter"}</DialogTitle>
+          <DialogTitle id="dialog-title">
+            Newsletter
+            <IconButton
+              key="close"
+              aria-label="Close"
+              className={classes.close}
+              color="inherit"
+              onClick={this.handleDialogClose}
+            >
+              <CloseIcon />
+            </IconButton>
+          </DialogTitle>
           <DialogContent className={classes.dialogContent}>
             <form className={classes.form}>
               <TextField
                 required
                 id="email"
                 label="Email"
+                error={isEmailValid === null ? null : !isEmailValid}
+                placeholder="Email Address"
                 value={email}
                 onChange={this.handleChange("email")}
                 className={classes.textField}
@@ -240,6 +317,8 @@ class Newsletter extends Component {
                 required
                 id="name"
                 label="Name"
+                error={isNameValid === null ? null : !isNameValid}
+                placeholder="Name"
                 value={name}
                 onChange={this.handleChange("name")}
                 className={classes.textField}
@@ -248,28 +327,45 @@ class Newsletter extends Component {
               />
             </form>
             <div className={classes.legalContainer}>
-              <img src={mailchimpLegal} className={classes.img} alt="legal" />
-              <Typography className={classes.legal}>
-                You can unsubscribe at any time by clicking the link in the
-                footer of our emails. We use Mailchimp as our marketing
-                platform. By clicking below to subscribe, you acknowledge that
-                your information will be transferred to Mailchimp for
-                processing.{" "}
-                <a href="https://mailchimp.com/legal/">
-                  Learn more about Mailchimp's privacy practives here.
-                </a>
-              </Typography>
+              <FormControlLabel
+                classes={{
+                  label: error && !isCheckboxOpen ? classes.error : null
+                }}
+                control={
+                  <Checkbox
+                    checked={isCheckboxOpen}
+                    onChange={this.handleCheckbox}
+                    className={error ? classes.error : null}
+                    value="consent"
+                    color="primary"
+                  />
+                }
+                label="Yes, I would like to recieve emails from Eisbach Riders."
+              />
             </div>
+            <Typography className={classes.legal}>
+              You can unsubscribe at any time by clicking the link in the footer
+              of our emails. We use Mailchimp as our marketing platform. By
+              clicking below to subscribe, you acknowledge that your information
+              will be transferred to Mailchimp for processing.{" "}
+              <a href="https://mailchimp.com/legal/">
+                Learn more about Mailchimp's privacy practives here.
+              </a>
+            </Typography>
           </DialogContent>
           <DialogActions className={classes.dialogActions}>
-            <Button onClick={this.handleDialogClose} color="primary">
+            <Button
+              onClick={this.handleDialogClose}
+              color="primary"
+              className={classes.actionButton}
+            >
               Cancel
             </Button>
             <Button
               onClick={() => {
                 this.handleSubmit();
-                this.handleDialogClose();
               }}
+              className={classes.actionButton}
               color="primary"
               autoFocus
               type="submit"

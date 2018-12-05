@@ -7,7 +7,7 @@ import Privacy from "./pages/Privacy";
 
 class App extends Component {
   state = {
-    activePage: "/privacy"
+    activePage: "/"
   };
   handlePageChange = activePage => {
     this.setState({

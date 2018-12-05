@@ -10,10 +10,14 @@ const styles = {
     paddingLeft: "15%",
     paddingRight: "15%"
   },
-
   title: {
     paddingTop: 45,
-    paddingBottom: 30
+    paddingBottom: 30,
+    textAlign: "center"
+  },
+  text: {
+    fontSize: 12,
+    paddingLeft: 30
   }
 };
 
@@ -21,10 +25,11 @@ const Legal = props => {
   const { classes } = props;
   return (
     <div className={classes.container} id="legal">
-      <Typography variant="h6" className={classes.title}>
+      <Typography variant="h5" className={classes.title}>
         Imprint
       </Typography>
       <Typography className={classes.text}>
+        Eisbach Riders <br />
         Robin Eisenhardt & Michael Schmidt GbR <br />
         Lothstr. 72 <br />
         80797 München <br />

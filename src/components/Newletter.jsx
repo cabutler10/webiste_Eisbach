@@ -244,7 +244,7 @@ class Newsletter extends Component {
             horizontal: "left"
           }}
           open={isSnackbarOpen}
-          autoHideDuration={3000}
+          autoHideDuration={5000}
           onClose={this.handleSnackbarClose}
           ContentProps={{
             "aria-describedby": "message-id",

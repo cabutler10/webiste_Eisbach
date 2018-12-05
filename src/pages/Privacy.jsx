@@ -15,7 +15,15 @@ const styles = {
   },
   title: {
     paddingTop: 45,
-    paddingBottom: 30
+    paddingBottom: 30,
+    textAlign: "center"
+  },
+  text: {
+    fontSize: 12,
+    paddingLeft: 30
+  },
+  listItem: {
+    padding: 0
   }
 };
 
@@ -69,26 +77,47 @@ const Privacy = props => {
       </Typography>
 
       <List>
-        <ListItem>
-          <ListItemText primary="- Our visited website" />
+        <ListItem className={classes.listItem}>
+          <ListItemText
+            classes={{ primary: classes.text }}
+            primary="- Our visited website"
+          />
         </ListItem>
-        <ListItem>
-          <ListItemText primary="- Date and time at the moment of access" />
+        <ListItem className={classes.listItem}>
+          <ListItemText
+            classes={{ primary: classes.text }}
+            primary="- Date and time at the moment of access"
+          />
         </ListItem>
-        <ListItem>
-          <ListItemText primary="- Amount of data sent in bytes" />
+        <ListItem className={classes.listItem}>
+          <ListItemText
+            classes={{ primary: classes.text }}
+            primary="- Amount of data sent in bytes"
+          />
         </ListItem>
-        <ListItem>
-          <ListItemText primary="- Source/reference from which you came to the page" />
+        <ListItem className={classes.listItem}>
+          <ListItemText
+            classes={{ primary: classes.text }}
+            primary="- Source/reference from which you came to the page"
+          />
         </ListItem>
-        <ListItem>
-          <ListItemText primary="- Browser used" />
+        <ListItem className={classes.listItem}>
+          <ListItemText
+            classes={{ primary: classes.text }}
+            primary="- Browser used"
+          />
         </ListItem>
-        <ListItem>
-          <ListItemText primary="- Operating system used" />
+        <ListItem className={classes.listItem}>
+          <ListItemText
+            classes={{ primary: classes.text }}
+            primary="- Operating system used"
+          />
         </ListItem>
-        <ListItem>
-          <ListItemText primary="- IP address used (if applicable: in anonymized form)" />
+        <ListItem className={classes.listItem}>
+          <ListItemText
+            classes={{ primary: classes.text }}
+            primary="- IP address used (if applicable: in anonymized form)"
+          />
         </ListItem>
       </List>
       <Typography className={classes.text}>
@@ -144,32 +173,37 @@ const Privacy = props => {
         these for the respective browsers under the following links:
       </Typography>
       <List>
-        <ListItem>
+        <ListItem className={classes.listItem}>
           <ListItemText
+            classes={{ primary: classes.text }}
             primary="- Internet Explorer: https://support.microsoft.com/en-us/help/17442/windows-internet-explorer-delete-manage-cookies
             "
           />
         </ListItem>
-        <ListItem>
+        <ListItem className={classes.listItem}>
           <ListItemText
+            classes={{ primary: classes.text }}
             primary="- Firefox: https://www.mozilla.org/en-US/privacy/websites/#cookies
             "
           />
         </ListItem>
-        <ListItem>
+        <ListItem className={classes.listItem}>
           <ListItemText
+            classes={{ primary: classes.text }}
             primary="- Chrome: https://support.google.com/accounts/answer/61416?co=GENIE.Platform%3DDesktop&hl=en
             "
           />
         </ListItem>
-        <ListItem>
+        <ListItem className={classes.listItem}>
           <ListItemText
+            classes={{ primary: classes.text }}
             primary="- Safari: https://support.apple.com/en-gb/guide/safari/manage-cookies-and-website-data-sfri11471/mac
             "
           />
         </ListItem>
-        <ListItem>
+        <ListItem className={classes.listItem}>
           <ListItemText
+            classes={{ primary: classes.text }}
             primary="- Opera: https://help.opera.com/en/latest/web-preferences/#cookies
             "
           />
@@ -444,29 +478,53 @@ const Privacy = props => {
         processing of your personal data:
       </Typography>
       <List>
-        <ListItem>
-          <ListItemText primary="- Right of access by the data subject pursuant to Art. 15 GDPR" />
+        <ListItem className={classes.listItem}>
+          <ListItemText
+            classes={{ primary: classes.text }}
+            primary="- Right of access by the data subject pursuant to Art. 15 GDPR"
+          />
         </ListItem>
-        <ListItem>
-          <ListItemText primary="- Right to rectification pursuant to Art. 16 GDPR" />{" "}
+        <ListItem className={classes.listItem}>
+          <ListItemText
+            classes={{ primary: classes.text }}
+            primary="- Right to rectification pursuant to Art. 16 GDPR"
+          />{" "}
         </ListItem>
-        <ListItem>
-          <ListItemText primary="- Right to erase (“right to be forgotten”) pursuant to Art. 17 GDPR" />{" "}
+        <ListItem className={classes.listItem}>
+          <ListItemText
+            classes={{ primary: classes.text }}
+            primary="- Right to erase (“right to be forgotten”) pursuant to Art. 17 GDPR"
+          />{" "}
         </ListItem>
-        <ListItem>
-          <ListItemText primary="- Right to restriction of processing pursuant to Art. 18 GDPR" />{" "}
+        <ListItem className={classes.listItem}>
+          <ListItemText
+            classes={{ primary: classes.text }}
+            primary="- Right to restriction of processing pursuant to Art. 18 GDPR"
+          />{" "}
         </ListItem>
-        <ListItem>
-          <ListItemText primary="- Right to be informed pursuant to Art. 19 GDPR" />{" "}
+        <ListItem className={classes.listItem}>
+          <ListItemText
+            classes={{ primary: classes.text }}
+            primary="- Right to be informed pursuant to Art. 19 GDPR"
+          />{" "}
         </ListItem>
-        <ListItem>
-          <ListItemText primary="- Right to data portability pursuant to Art. 20 GDPR" />{" "}
+        <ListItem className={classes.listItem}>
+          <ListItemText
+            classes={{ primary: classes.text }}
+            primary="- Right to data portability pursuant to Art. 20 GDPR"
+          />{" "}
         </ListItem>
-        <ListItem>
-          <ListItemText primary="- Right to withdraw a given consent pursuant to Art. 7 (3) GDPR" />{" "}
+        <ListItem className={classes.listItem}>
+          <ListItemText
+            classes={{ primary: classes.text }}
+            primary="- Right to withdraw a given consent pursuant to Art. 7 (3) GDPR"
+          />{" "}
         </ListItem>
-        <ListItem>
-          <ListItemText primary="- Right to lodge a complaint pursuant to Art. 77 GDPR" />{" "}
+        <ListItem className={classes.listItem}>
+          <ListItemText
+            classes={{ primary: classes.text }}
+            primary="- Right to lodge a complaint pursuant to Art. 77 GDPR"
+          />{" "}
         </ListItem>
       </List>
 

@@ -5,7 +5,7 @@ import { withStyles } from "@material-ui/core/styles";
 import Hidden from "@material-ui/core/Hidden";
 import Typography from "@material-ui/core/Typography";
 import HeroMobile from "./HeroMobile";
-import img from "../assets/images/backsplash.jpg";
+import img from "../assets/images/backsplash.webp";
 
 const styles = theme => ({
   root: {

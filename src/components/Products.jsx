@@ -10,16 +10,25 @@ import { products } from "../data/ProductData";
 
 const styles = theme => ({
   root: {
-    paddingTop: 45,
-    paddingBottom: 45,
-    paddingLeft: 170,
-    paddingRight: 170,
-    background: theme.palette.common.white
+    paddingTop: 30,
+    paddingBottom: 30,
+    paddingLeft: 15,
+    paddingRight: 15,
+    background: theme.palette.common.white,
+    [theme.breakpoints.up("sm")]: {
+      paddingLeft: 60,
+      paddingRight: 60
+    },
+    [theme.breakpoints.up("md")]: {
+      paddingTop: 45,
+      paddingBottom: 45,
+      paddingLeft: 170,
+      paddingRight: 170
+    }
   },
   container: {
     display: "flex",
-    justifyContent: "space-between",
-    flexWrap: "wrap"
+    justifyContent: "space-between"
   },
   title: {
     textTransform: "uppercase",

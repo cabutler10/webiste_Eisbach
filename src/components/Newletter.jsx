@@ -19,12 +19,31 @@ import CloseIcon from "@material-ui/icons/Close";
 const styles = theme => ({
   containerNewsletter: {
     background: theme.status.white,
-    padding: 90,
-    textAlign: "center"
+    paddingLeft: 15,
+    paddingRight: 15,
+    paddingBottom: 30,
+    paddingTop: 30,
+    textAlign: "center",
+    [theme.breakpoints.up("sm")]: {
+      paddingLeft: 60,
+      paddingRight: 60,
+      paddingBottom: 30,
+      paddingTop: 30
+    },
+    [theme.breakpoints.up("md")]: {
+      paddingLeft: 90,
+      paddingRight: 90,
+      paddingBottom: 90,
+      paddingTop: 90
+    }
   },
   textNewsletter: {
     textTransform: "uppercase",
-    paddingBottom: 5
+    paddingBottom: 5,
+    fontSize: 18,
+    [theme.breakpoints.up("md")]: {
+      fontSize: 24
+    }
   },
   subtitleNewsletter: {
     paddingBottom: 30
@@ -37,8 +56,12 @@ const styles = theme => ({
     marginBottom: 15
   },
   button: {
-    padding: "16px 48px",
-    fontSize: "18px"
+    padding: "9px 27px",
+    fontSize: 14,
+    [theme.breakpoints.up("md")]: {
+      padding: "16px 48px",
+      fontSize: 18
+    }
   },
   snackbarError: {
     background: theme.status.red

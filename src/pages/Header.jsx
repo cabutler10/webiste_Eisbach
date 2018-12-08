@@ -1,18 +1,13 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 import PropTypes from "prop-types";
-
-import classnames from "classnames";
 import { withStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Hidden from "@material-ui/core/Hidden";
 import IconButton from "@material-ui/core/IconButton";
 import Button from "@material-ui/core/Button";
-import Drawer from "@material-ui/core/Drawer";
-import MenuIcon from "@material-ui/icons/Menu";
 
 import logoWhite from "../assets/logos/logoWhite_small.png";
-import MobileHeaderList from "./MobileHeaderList";
 
 const styles = theme => ({
   grow: {
@@ -47,6 +42,7 @@ const styles = theme => ({
   button: {
     color: theme.palette.common.white,
     fontSize: 18,
+    textShadow: "1px 1px 1px black",
     letterSpacing: 1.5,
     "&:hover": {
       color: theme.palette.primary.main
@@ -60,6 +56,7 @@ const styles = theme => ({
   },
   mobileButton: {
     flexBasis: "50%",
+    background: theme.palette.common.black,
     borderRadius: 0,
     height: 57,
     boxShadow: "none"
@@ -69,19 +66,8 @@ const styles = theme => ({
   }
 });
 class Template extends Component {
-  state = {
-    isOpen: false
-  };
-
-  handleDrawer = () => {
-    this.setState({
-      isOpen: !this.state.isOpen
-    });
-  };
-
   render() {
     const { handlePageChange, activePage, classes } = this.props;
-    const { isOpen } = this.state;
     const links = ["/About/", "/Products/", "contact"];
     const linkLabels = ["about", "products", "contact"];
 
@@ -96,46 +82,6 @@ class Template extends Component {
           }
         >
           <Toolbar className={classes.toolbar}>
-            <Hidden smUp>
-              <div className={classes.containerXS}>
-                <Button
-                  className={classes.mobileButton}
-                  aria-label="Open drawer"
-                >
-                  <img alt="" src={logoWhite} className={classes.logo} />
-                </Button>
-                <Button
-                  aria-label="menu"
-                  className={classnames(classes.mobileButton, classes.primary)}
-                  onClick={this.handleDrawer}
-                  color="primary"
-                >
-                  <MenuIcon className={classes.menuIcon} />
-                </Button>
-              </div>
-              <Fragment>
-                {activePage !== "/legal" &&
-                  (activePage !== "/privacy" && (
-                    <Drawer
-                      anchor="right"
-                      open={isOpen}
-                      onClose={this.handleDrawer}
-                    >
-                      <div
-                        tabIndex={0}
-                        role="button"
-                        onClick={this.handleDrawer}
-                        onKeyDown={this.handleDrawer}
-                      >
-                        <MobileHeaderList
-                          links={links}
-                          linkLabels={linkLabels}
-                        />
-                      </div>
-                    </Drawer>
-                  ))}
-              </Fragment>
-            </Hidden>
             <Hidden xsDown>
               <IconButton
                 className={classes.logoButton}
@@ -144,22 +90,20 @@ class Template extends Component {
               >
                 <img alt="" src={logoWhite} className={classes.logo} />
               </IconButton>
-              <Fragment>
-                {activePage !== "/legal" &&
-                  (activePage !== "/privacy" && (
-                    <div>
-                      {links.map((link, idx) => (
-                        <Button
-                          className={classes.button}
-                          key={`link_${link}`}
-                          href={`#${linkLabels[idx]}`}
-                        >
-                          {linkLabels[idx]}
-                        </Button>
-                      ))}
-                    </div>
-                  ))}
-              </Fragment>
+              {activePage !== "/legal" &&
+                (activePage !== "/privacy" && (
+                  <div>
+                    {links.map((link, idx) => (
+                      <Button
+                        className={classes.button}
+                        key={`link_${link}`}
+                        href={`#${linkLabels[idx]}`}
+                      >
+                        {linkLabels[idx]}
+                      </Button>
+                    ))}
+                  </div>
+                ))}
             </Hidden>
           </Toolbar>
         </AppBar>

@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { withNamespaces } from "react-i18next";
 import classnames from "classnames";
 import { withStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
@@ -66,7 +67,7 @@ const styles = theme => ({
 });
 
 const Hero = props => {
-  const { classes } = props;
+  const { classes, t } = props;
 
   return (
     <div className={classes.root}>
@@ -82,7 +83,7 @@ const Hero = props => {
           Eisbach Riders
         </Typography>
         <Typography className={classnames(classes.text, classes.subtitle)}>
-          Surf equipment accessories from Munich
+          {t("hero.subtitle")}
         </Typography>
       </div>
     </div>
@@ -93,4 +94,4 @@ Hero.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
-export default withStyles(styles)(Hero);
+export default withNamespaces()(withStyles(styles)(Hero));

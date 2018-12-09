@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import jsonp from "jsonp";
-
+import { withNamespaces } from "react-i18next";
 import { withStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
@@ -247,7 +247,7 @@ class Newsletter extends Component {
   };
 
   render() {
-    const { classes } = this.props;
+    const { classes, t } = this.props;
     const {
       email,
       name,
@@ -278,7 +278,7 @@ class Newsletter extends Component {
           }}
           message={
             snackbarMessage === "success" ? (
-              <span id="message-id">Success! Thanks for joining.</span>
+              <span id="message-id">{t("newsletter.success")}</span>
             ) : (
               <span id="message-id">{snackbarMessage}</span>
             )
@@ -286,7 +286,7 @@ class Newsletter extends Component {
           action={
             <IconButton
               key="close"
-              aria-label="Close"
+              aria-label={t("common.close")}
               color="inherit"
               onClick={this.handleSnackbarClose}
             >
@@ -295,11 +295,10 @@ class Newsletter extends Component {
           }
         />
         <Typography className={classes.textNewsletter} variant="h5">
-          Let's stay in touch!
+          {t("newsletter.sectionTitle")}
         </Typography>
         <Typography className={classes.subtitleNewsletter}>
-          Sign up for our monthly newsletter to be the first to hear about the
-          latest products and ongoings at Eisbach Riders.
+          {t("newsletter.message")}
         </Typography>
         <Button
           variant="contained"
@@ -307,14 +306,14 @@ class Newsletter extends Component {
           className={classes.button}
           onClick={this.handleDialogOpen}
         >
-          Sign Up
+          {t("newsletter.signUp")}
         </Button>
         <Dialog open={isDialogOpen} onClose={this.handleDialogClose}>
           <DialogTitle id="dialog-title">
-            Newsletter
+            {t("newsletter.newsletter")}
             <IconButton
               key="close"
-              aria-label="Close"
+              aria-label={t("common.close")}
               className={classes.close}
               color="inherit"
               onClick={this.handleDialogClose}
@@ -329,7 +328,7 @@ class Newsletter extends Component {
                 id="email"
                 label="Email"
                 error={isEmailValid === null ? null : !isEmailValid}
-                placeholder="Email Address"
+                placeholder={t("common.email")}
                 value={email}
                 onChange={this.handleChange("email")}
                 className={classes.textField}
@@ -341,7 +340,7 @@ class Newsletter extends Component {
                 id="name"
                 label="Name"
                 error={isNameValid === null ? null : !isNameValid}
-                placeholder="Name"
+                placeholder={t("common.name")}
                 value={name}
                 onChange={this.handleChange("name")}
                 className={classes.textField}
@@ -367,12 +366,9 @@ class Newsletter extends Component {
               />
             </div>
             <Typography className={classes.legal}>
-              You can unsubscribe at any time by clicking the link in the footer
-              of our emails. We use Mailchimp as our marketing platform. By
-              clicking below to subscribe, you acknowledge that your information
-              will be transferred to Mailchimp for processing.{" "}
+              {t("newsletter.legal1")}
               <a href="https://mailchimp.com/legal/">
-                Learn more about Mailchimp's privacy practives here.
+                {t("newsletter.legal2")}
               </a>
             </Typography>
           </DialogContent>
@@ -382,7 +378,7 @@ class Newsletter extends Component {
               color="primary"
               className={classes.actionButton}
             >
-              Cancel
+              {t("common.cancel")}
             </Button>
             <Button
               onClick={() => {
@@ -393,7 +389,7 @@ class Newsletter extends Component {
               autoFocus
               type="submit"
             >
-              Subscribe to List
+              {t("newsletter.subscribe")}
             </Button>
           </DialogActions>
         </Dialog>
@@ -406,4 +402,4 @@ Newsletter.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
-export default withStyles(styles)(Newsletter);
+export default withNamespaces()(withStyles(styles)(Newsletter));

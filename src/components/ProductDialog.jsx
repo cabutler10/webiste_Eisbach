@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from "react";
 import PropTypes from "prop-types";
+import { withNamespaces } from "react-i18next";
 import SwipeableViews from "react-swipeable-views";
 import { withStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
@@ -164,7 +165,7 @@ class ProductDialog extends Component {
   };
 
   render() {
-    const { product, classes } = this.props;
+    const { product, classes, t } = this.props;
     const { isDialogOpen, activeStep } = this.state;
 
     return (
@@ -174,7 +175,7 @@ class ProductDialog extends Component {
           className={classes.more}
           onClick={this.handleDialogOpen}
         >
-          More
+          {t("products.more")}
         </Button>
         <Dialog
           open={isDialogOpen}
@@ -186,7 +187,7 @@ class ProductDialog extends Component {
             {product.name}
             <IconButton
               key="close"
-              aria-label="Close"
+              aria-label={t("common.close")}
               color="inherit"
               onClick={this.handleDialogClose}
               className={classes.closeButton}
@@ -219,6 +220,7 @@ class ProductDialog extends Component {
                   nextButton={
                     <IconButton
                       size="small"
+                      aria-label={t("common.scrollLeft")}
                       onClick={this.handleNext}
                       disabled={activeStep === product.images.length - 1}
                     >
@@ -228,6 +230,7 @@ class ProductDialog extends Component {
                   backButton={
                     <IconButton
                       size="small"
+                      aria-label={t("common.scrollRight")}
                       onClick={this.handleBack}
                       disabled={activeStep === 0}
                     >
@@ -298,4 +301,4 @@ ProductDialog.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
-export default withStyles(styles)(ProductDialog);
+export default withNamespaces()(withStyles(styles)(ProductDialog));

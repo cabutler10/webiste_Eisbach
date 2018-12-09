@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { withNamespaces } from "react-i18next";
 import { withStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import Hidden from "@material-ui/core/Hidden";
@@ -70,7 +71,7 @@ const styles = theme => ({
 });
 
 const About = props => {
-  const { classes } = props;
+  const { classes, t } = props;
   return (
     <div className={classes.container} id="about">
       <Hidden xsDown>
@@ -78,16 +79,10 @@ const About = props => {
       </Hidden>
       <div className={classes.textContainer}>
         <Typography className={classes.title} variant="h5">
-          who we are
+          {t("about.sectionTitle")}
         </Typography>
         <Typography className={classes.text} variant="body1">
-          Eisbach Riders is a young local surf brand from Munich and offers
-          equipment for surfing. Whether you are in the sea, in the river or on
-          the city wave. We, Michael and Robin, are passionate surfers ourselves
-          and value quality products at comparable prices. Packed in sustainable
-          and environmentally friendly packaging, we will ship as fast as
-          possible so that you can jump right back into the water with a smile
-          on your face.
+          {t("about.message")}
         </Typography>
       </div>
     </div>
@@ -98,4 +93,4 @@ About.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
-export default withStyles(styles)(About);
+export default withNamespaces()(withStyles(styles)(About));

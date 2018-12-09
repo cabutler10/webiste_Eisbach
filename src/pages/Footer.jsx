@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-
+import { withNamespaces } from "react-i18next";
 import { withStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
@@ -243,7 +243,7 @@ class Footer extends Component {
     }
   };
   render() {
-    const { handlePageChange, classes } = this.props;
+    const { handlePageChange, classes, t } = this.props;
     const {
       emailAddress,
       name,
@@ -281,7 +281,7 @@ class Footer extends Component {
           <div className={classes.flexItem}>
             <form noValidate autoComplete="off">
               <Typography className={classes.textHeading}>
-                send us a message
+                {t("footer.message")}
               </Typography>
               <div className={classes.inputContainer}>
                 <TextField
@@ -294,7 +294,7 @@ class Footer extends Component {
                     classes: { input: classes.textArea }
                   }}
                   value={name}
-                  placeholder="name"
+                  placeholder={t("common.name")}
                   onChange={this.handleChange("name")}
                   margin="normal"
                   required
@@ -312,7 +312,7 @@ class Footer extends Component {
                     classes: { input: classes.textArea }
                   }}
                   value={emailAddress}
-                  placeholder="email"
+                  placeholder={t("common.email")}
                   onChange={this.handleChange("emailAddress")}
                   margin="normal"
                   required
@@ -329,7 +329,7 @@ class Footer extends Component {
                   classes: { input: classes.textArea }
                 }}
                 value={message}
-                placeholder="your message"
+                placeholder={t("footer.message")}
                 onChange={this.handleChange("message")}
                 margin="normal"
                 fullWidth
@@ -343,22 +343,20 @@ class Footer extends Component {
                 fullWidth
                 onClick={this.handleSubmit}
               >
-                Send
+                {t("footer.send")}
               </Button>
             </form>
           </div>
 
           <div className={classes.flexItem}>
             <Typography className={classes.textHeading}>
-              Any Questions?
+              {`${t("footer.questions")}?`}
             </Typography>
             <Typography className={classes.text}>
-              If you have any question about our products, fullfillment or what
-              is the best time to go surfing in Munich, drop us a message. We
-              are happy to help!
+              {t("footer.questionsMessage")}
             </Typography>
             <Typography className={classes.text}>
-              You can also get in touch with us via Facebook or Instagram.
+              {t("footer.getInTouch")}
             </Typography>
             <div className={classes.iconContainer}>
               <Button
@@ -400,7 +398,7 @@ class Footer extends Component {
               className={classes.link}
               href="#legal"
             >
-              imprint
+              {t("footer.imprint")}
             </button>
             |{" "}
             <button
@@ -408,7 +406,7 @@ class Footer extends Component {
               className={classes.link}
               href="#privacy"
             >
-              {`privacy`}
+              {t("footer.privacy")}
             </button>
           </Typography>
         </div>
@@ -421,4 +419,4 @@ Footer.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
-export default withStyles(styles)(Footer);
+export default withNamespaces()(withStyles(styles)(Footer));

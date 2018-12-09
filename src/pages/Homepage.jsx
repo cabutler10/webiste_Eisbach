@@ -1,6 +1,6 @@
 import React from "react";
 import Products from "../components/Products";
-import Newletter from "../components/Newletter";
+import Newsletter from "../components/Newsletter";
 import About from "../components/About";
 import Hero from "../components/Hero";
 
@@ -8,7 +8,7 @@ const Homepage = () => {
   return (
     <div id="body">
       <Hero />
-      <Newletter />
+      <Newsletter />
       <About />
       <Products />
     </div>

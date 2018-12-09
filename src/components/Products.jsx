@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import { withNamespaces } from "react-i18next";
 import SwipeableViews from "react-swipeable-views";
 import classnames from "classnames";
 import { withStyles } from "@material-ui/core/styles";
@@ -138,13 +139,13 @@ class Products extends Component {
     }));
   };
   render() {
-    const { classes } = this.props;
+    const { classes, t } = this.props;
     const { activeStep } = this.state;
 
     return (
       <div className={classes.root} id="products">
         <Typography className={classes.title} variant="h5">
-          essential surf equipment
+          {t("products.sectionTitle")}
         </Typography>
         <div className={classes.container}>
           <Hidden xsDown>
@@ -261,6 +262,7 @@ class Products extends Component {
               nextButton={
                 <IconButton
                   size="small"
+                  aria-label={t("common.scrollLeft")}
                   onClick={this.handleNext}
                   disabled={activeStep === 2}
                 >
@@ -270,6 +272,7 @@ class Products extends Component {
               backButton={
                 <IconButton
                   size="small"
+                  aria-label={t("common.scrollRight")}
                   onClick={this.handleBack}
                   disabled={activeStep === 0}
                 >
@@ -288,4 +291,4 @@ Products.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
-export default withStyles(styles)(Products);
+export default withNamespaces()(withStyles(styles)(Products));

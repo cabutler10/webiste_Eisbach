@@ -1,12 +1,12 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import PropTypes from "prop-types";
+import { withNamespaces } from "react-i18next";
 import { withStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Hidden from "@material-ui/core/Hidden";
 import IconButton from "@material-ui/core/IconButton";
 import Button from "@material-ui/core/Button";
-
 import logoWhite from "../assets/logos/logoWhite_small.png";
 
 const styles = theme => ({
@@ -67,9 +67,20 @@ const styles = theme => ({
 });
 class Template extends Component {
   render() {
-    const { handlePageChange, activePage, classes } = this.props;
+    const {
+      handlePageChange,
+      activePage,
+      handleLanguageChange,
+      language,
+      classes,
+      t
+    } = this.props;
     const links = ["/About/", "/Products/", "contact"];
-    const linkLabels = ["about", "products", "contact"];
+    const linkLabels = [
+      t("header.about"),
+      t("header.products"),
+      t("header.contact")
+    ];
 
     return (
       <div className={classes.root}>
@@ -90,20 +101,28 @@ class Template extends Component {
               >
                 <img alt="" src={logoWhite} className={classes.logo} />
               </IconButton>
-              {activePage !== "/legal" &&
-                (activePage !== "/privacy" && (
-                  <div>
-                    {links.map((link, idx) => (
-                      <Button
-                        className={classes.button}
-                        key={`link_${link}`}
-                        href={`#${linkLabels[idx]}`}
-                      >
-                        {linkLabels[idx]}
-                      </Button>
-                    ))}
-                  </div>
-                ))}
+              <div>
+                {activePage !== "/legal" &&
+                  (activePage !== "/privacy" && (
+                    <Fragment>
+                      {links.map((link, idx) => (
+                        <Button
+                          className={classes.button}
+                          key={`link_${link}`}
+                          href={`#${linkLabels[idx]}`}
+                        >
+                          {linkLabels[idx]}
+                        </Button>
+                      ))}
+                    </Fragment>
+                  ))}
+                <Button
+                  className={classes.button}
+                  onClick={handleLanguageChange}
+                >
+                  {language}
+                </Button>
+              </div>
             </Hidden>
           </Toolbar>
         </AppBar>
@@ -116,4 +135,4 @@ Template.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
-export default withStyles(styles)(Template);
+export default withNamespaces()(withStyles(styles)(Template));

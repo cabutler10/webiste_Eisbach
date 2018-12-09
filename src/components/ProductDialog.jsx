@@ -21,7 +21,10 @@ import { AmazonIcon, EbayIcon } from "../assets/icons/icons";
 
 const styles = theme => ({
   more: {
-    width: "50%"
+    width: "100%",
+    [theme.breakpoints.up("md")]: {
+      width: "50%"
+    }
   },
   dialogContainer: {
     display: "flex",

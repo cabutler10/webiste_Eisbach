@@ -14,9 +14,13 @@ const styles = theme => ({
     backgroundColor: theme.status.grey,
     width: "100%"
   },
+  legal: {
+    backgroundColor: theme.palette.common.black
+  },
   copyright: {
     fontSize: 12,
     textTransform: "capitalize",
+    color: theme.palette.common.white,
     paddingTop: 15,
     paddingBottom: 15
   },
@@ -26,7 +30,10 @@ const styles = theme => ({
     justifyContent: "space-between",
     padding: 15,
     [theme.breakpoints.up("sm")]: {
-      padding: 45
+      paddingTop: 30,
+      paddingBottom: 30,
+      paddingLeft: 60,
+      paddingRight: 60
     },
     [theme.breakpoints.up("md")]: {
       paddingTop: 45,
@@ -82,7 +89,7 @@ const styles = theme => ({
     borderRadius: 0,
     minWidth: 0,
     padding: 8,
-    marginRight: 0,
+    marginRight: 30,
     [theme.breakpoints.up("sm")]: {
       marginRight: 15
     }
@@ -94,18 +101,15 @@ const styles = theme => ({
   },
   iconContainer: {
     display: "flex",
-    justifyContent: "space-between",
-    paddingTop: 15,
-    [theme.breakpoints.up("sm")]: {
-      justifyContent: "flex-end"
-    }
+    justifyContent: "flex-end",
+    paddingTop: 15
   },
   buttonSend: {
     borderRadius: 0,
     boxShadow: "none",
     marginTop: 15,
-    backgroundColor: theme.palette.primary.main,
-    color: theme.status.white,
+    backgroundColor: theme.palette.secondary.main,
+    color: theme.palette.common.black,
     opacity: 0.8
   },
   inputContainer: {
@@ -113,7 +117,7 @@ const styles = theme => ({
     justifyContent: "space-between"
   },
   link: {
-    color: theme.palette.primary.main,
+    color: theme.palette.common.white,
     border: "none",
     background: "transparent",
     cursor: "pointer"
@@ -384,28 +388,30 @@ class Footer extends Component {
             </div>
           </div>
         </div>
-        <div className={classes.divider} />
-        <Typography
-          variant="body2"
-          align="center"
-          className={classes.copyright}
-        >
-          &copy; Eisbach Riders |{" "}
-          <button
-            onClick={() => handlePageChange("/legal")}
-            className={classes.link}
-            href="#legal"
+        <div className={classes.legal}>
+          <Typography
+            variant="body2"
+            align="center"
+            className={classes.copyright}
           >
-            imprint
-          </button>
-          <button
-            onClick={() => handlePageChange("/privacy")}
-            className={classes.link}
-            href="#privacy"
-          >
-            {`| privacy`}
-          </button>
-        </Typography>
+            &copy; Eisbach Riders |{" "}
+            <button
+              onClick={() => handlePageChange("/legal")}
+              className={classes.link}
+              href="#legal"
+            >
+              imprint
+            </button>
+            |{" "}
+            <button
+              onClick={() => handlePageChange("/privacy")}
+              className={classes.link}
+              href="#privacy"
+            >
+              {`privacy`}
+            </button>
+          </Typography>
+        </div>
       </div>
     );
   }

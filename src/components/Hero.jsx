@@ -9,9 +9,11 @@ import logo from "../assets/logos/logoWhite_small.png";
 const styles = theme => ({
   root: {
     height: 250,
-    position: "relative",
+    width: "100%",
+    backgroundImage: `url(${img})`,
+    backgroundSize: "cover",
+    backgroundRepeat: "no-repeat",
     marginTop: -65,
-    zIndex: -1,
     [theme.breakpoints.up("sm")]: {
       height: 300
     },
@@ -19,35 +21,16 @@ const styles = theme => ({
       height: 700
     }
   },
-  img: {
-    height: 350,
-    overflowY: "hidden",
-    [theme.breakpoints.up("sm")]: {
-      height: 300,
-      width: "100%"
-    },
-    [theme.breakpoints.up("md")]: {
-      height: 700
-    }
-  },
   container: {
-    position: "absolute",
+    paddingTop: 40,
+    paddingLeft: 15,
+    paddingRight: 15,
     textAlign: "center",
-    background: "none",
-    width: "100%",
-    padding: 0,
-    zIndex: 2,
-    left: 0,
-    bottom: 40,
     [theme.breakpoints.up("sm")]: {
-      background: "none",
-      width: "95%",
-      bottom: 70,
-      left: 15
+      paddingTop: 130
     },
     [theme.breakpoints.up("md")]: {
-      background: "none",
-      bottom: 150
+      paddingTop: 250
     }
   },
   text: {
@@ -58,7 +41,7 @@ const styles = theme => ({
     textShadow: "2px 2px 4px #404040"
   },
   title: {
-    fontSize: 36,
+    fontSize: 35,
     [theme.breakpoints.up("sm")]: {
       fontSize: 48
     },
@@ -77,7 +60,7 @@ const styles = theme => ({
   },
   logo: {
     width: 90,
-    paddingBottom: 30,
+    paddingBottom: 20,
     textAlign: "center"
   }
 });
@@ -87,7 +70,6 @@ const Hero = props => {
 
   return (
     <div className={classes.root}>
-      <img src={img} className={classes.img} alt="" />
       <div className={classes.container}>
         <Hidden smUp>
           <img src={logo} className={classes.logo} alt="" />

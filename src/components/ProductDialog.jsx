@@ -26,14 +26,29 @@ const styles = theme => ({
       width: "50%"
     }
   },
+  paper: {
+    margin: 15,
+    [theme.breakpoints.up("sm")]: {
+      margin: 48
+    }
+  },
   dialogContainer: {
     display: "flex",
-    justifyContent: "space-between"
+    justifyContent: "flex-start",
+    flexDirection: "column",
+    [theme.breakpoints.up("sm")]: {
+      justifyContent: "space-between",
+      flexDirection: "row"
+    }
   },
   dialogImg: {
-    paddingRight: 60,
-    paddingLeft: 60,
-    flexBasis: "40%"
+    paddingRight: 0,
+    paddingLeft: 0,
+    flexBasis: "40%",
+    [theme.breakpoints.up("md")]: {
+      paddingRight: 60,
+      paddingLeft: 60
+    }
   },
   dialogContent: {
     flexBasis: "50%"
@@ -85,9 +100,12 @@ const styles = theme => ({
     background: theme.status.white
   },
   scroll: {
-    height: "55vh",
     paddingBottom: 30,
-    overflowY: "auto",
+    overflowY: "hidden",
+    [theme.breakpoints.up("sm")]: {
+      height: "55vh",
+      overflowY: "auto"
+    },
     "&::-webkit-scrollbar-track": {
       WebkitBoxShadow: "inset 0 0 6px rgba(0, 0, 0, 0.1)",
       borderRadius: 4,
@@ -104,7 +122,10 @@ const styles = theme => ({
     }
   },
   dialogRoot: {
-    overflowY: "hidden"
+    overflowY: "auto",
+    [theme.breakpoints.up("md")]: {
+      overflowY: "hidden"
+    }
   }
 });
 
@@ -159,6 +180,7 @@ class ProductDialog extends Component {
           open={isDialogOpen}
           onClose={this.handleDialogClose}
           maxWidth="md"
+          classes={{ paper: classes.paper }}
         >
           <DialogTitle id="dialog-title" className={classes.dialogTitle}>
             {product.name}

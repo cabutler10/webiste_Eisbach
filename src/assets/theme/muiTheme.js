@@ -21,7 +21,7 @@ const theme = createMuiTheme({
     primary: {
       light: status.ocean,
       main: status.ocean,
-      dark: status.tealDk
+      dark: status.teal
     },
     secondary: {
       light: status.teal,

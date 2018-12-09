@@ -45,7 +45,7 @@ const styles = theme => ({
     textShadow: "1px 1px 1px black",
     letterSpacing: 1.5,
     "&:hover": {
-      color: theme.palette.primary.main
+      color: theme.palette.secondary.main
     }
   },
   logoButton: {

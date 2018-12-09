@@ -3,23 +3,34 @@ import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import Hidden from "@material-ui/core/Hidden";
-import img from "../assets/images/homepage1.png";
+import img from "../assets/images/homepage1.webp";
 
 const styles = theme => ({
   container: {
     display: "flex",
     justifyContent: "center",
-    height: 200,
+    height: 215,
     background: theme.status.black,
+    [theme.breakpoints.up("sm")]: {
+      height: 250,
+      justifyContent: "space-between"
+    },
     [theme.breakpoints.up("md")]: {
-      justifyContent: "space-between",
       height: 400
     }
   },
   img: {
-    width: "45%",
-    height: 400,
-    background: theme.status.black
+    height: 250,
+    width: "100%",
+    flexBasis: "50%",
+    backgroundImage: `url(${img})`,
+    backgroundSize: "cover",
+    backgroundRepeat: "no-repeat",
+    backgroundPosition: "center",
+    background: theme.status.black,
+    [theme.breakpoints.up("md")]: {
+      height: 400
+    }
   },
   textContainer: {
     flexBasis: "100%",
@@ -29,11 +40,11 @@ const styles = theme => ({
     paddingLeft: 15,
     textAlign: "center",
     [theme.breakpoints.up("sm")]: {
+      flexBasis: "50%",
       paddingRight: 60,
       paddingLeft: 60
     },
     [theme.breakpoints.up("md")]: {
-      flexBasis: "45%",
       paddingTop: 45,
       paddingRight: 60
     }
@@ -62,8 +73,8 @@ const About = props => {
   const { classes } = props;
   return (
     <div className={classes.container} id="about">
-      <Hidden smDown>
-        <img src={img} className={classes.img} alt="" />
+      <Hidden xsDown>
+        <div className={classes.img} />
       </Hidden>
       <div className={classes.textContainer}>
         <Typography className={classes.title} variant="h5">

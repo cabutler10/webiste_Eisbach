@@ -121,6 +121,7 @@ class Products extends Component {
   state = {
     activeStep: 0
   };
+
   handleIndexChange = activeStep => {
     this.setState({
       activeStep
@@ -138,6 +139,7 @@ class Products extends Component {
       activeStep: prevState.activeStep - 1
     }));
   };
+
   render() {
     const { classes, t } = this.props;
     const { activeStep } = this.state;
@@ -200,7 +202,7 @@ class Products extends Component {
             <SwipeableViews
               enableMouseEvents
               index={activeStep}
-              onChangeIndex={this.handleChangeIndex}
+              onChangeIndex={this.handleIndexChange}
             >
               {products.map((elem, idx) => (
                 <div className={classes.itemContainer} key={`product${idx}`}>

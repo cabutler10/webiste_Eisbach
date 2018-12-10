@@ -285,7 +285,7 @@ class Newsletter extends Component {
           }
           action={
             <IconButton
-              key="close"
+              key="closeNewsletter"
               aria-label={t("common.close")}
               color="inherit"
               onClick={this.handleSnackbarClose}
@@ -312,7 +312,6 @@ class Newsletter extends Component {
           <DialogTitle id="dialog-title">
             {t("newsletter.newsletter")}
             <IconButton
-              key="close"
               aria-label={t("common.close")}
               className={classes.close}
               color="inherit"
@@ -326,6 +325,7 @@ class Newsletter extends Component {
               <TextField
                 required
                 id="email"
+                type="text"
                 label="Email"
                 error={isEmailValid === null ? null : !isEmailValid}
                 placeholder={t("common.email")}
@@ -338,6 +338,7 @@ class Newsletter extends Component {
               <TextField
                 required
                 id="name"
+                type="text"
                 label="Name"
                 error={isNameValid === null ? null : !isNameValid}
                 placeholder={t("common.name")}

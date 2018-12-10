@@ -287,6 +287,7 @@ class Footer extends Component {
                 <TextField
                   id="name"
                   name="name"
+                  type="text"
                   className={classes.textField}
                   InputProps={{
                     className: isNameValid ? classes.input : classes.inputError,
@@ -321,6 +322,7 @@ class Footer extends Component {
               <TextField
                 id="message"
                 name="message"
+                type="text"
                 InputProps={{
                   className: isMessageValid
                     ? classes.input

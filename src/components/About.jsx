@@ -4,7 +4,7 @@ import { withNamespaces } from "react-i18next";
 import { withStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import Hidden from "@material-ui/core/Hidden";
-import img from "../assets/images/homepage1.webp";
+import img from "../assets/images/homepage1.jpg";
 
 const styles = theme => ({
   container: {

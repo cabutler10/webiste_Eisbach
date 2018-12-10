@@ -5,7 +5,7 @@ import classnames from "classnames";
 import { withStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import Hidden from "@material-ui/core/Hidden";
-import img from "../assets/images/backsplash.webp";
+import img from "../assets/images/backsplash.jpg";
 import logo from "../assets/logos/logoWhite_small.png";
 const styles = theme => ({
   root: {

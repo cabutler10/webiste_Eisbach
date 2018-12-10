@@ -186,7 +186,6 @@ class ProductDialog extends Component {
           <DialogTitle id="dialog-title" className={classes.dialogTitle}>
             {product.name}
             <IconButton
-              key="close"
               aria-label={t("common.close")}
               color="inherit"
               onClick={this.handleDialogClose}

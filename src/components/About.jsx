@@ -47,7 +47,10 @@ const styles = theme => ({
     },
     [theme.breakpoints.up("md")]: {
       paddingTop: 45,
-      paddingRight: 60
+      paddingRight: 60,
+      display: "flex",
+      flexDirection: "column",
+      justifyContent: "center"
     }
   },
   title: {

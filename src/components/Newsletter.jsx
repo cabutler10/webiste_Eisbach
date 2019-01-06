@@ -141,24 +141,24 @@ class Newsletter extends Component {
   state = {
     email: "",
     name: "",
-    isEmailValid: null,
-    isNameValid: null,
+    errorEmail: null,
+    errorName: null,
     isCheckboxOpen: false,
     isDialogOpen: false,
     isSnackbarOpen: false,
     snackbarMessage: null,
-    error: false
+    errorCheckbox: false
   };
 
   handleSubmit = async e => {
     if (
       this.state.isCheckboxOpen &&
-      this.state.isEmailValid &&
-      this.state.isNameValid
+      !this.state.errorEmail &&
+      !this.state.errorName
     ) {
       const result = await addToMailchimp(this.state.email, {
         FNAME: this.state.name,
-        gdpr_26529: true,
+        gdpr_26529: true
       });
       this.handleDialogClose();
       if (result.result === "error") {
@@ -171,26 +171,26 @@ class Newsletter extends Component {
       } else {
         this.setState({
           isSnackbarOpen: true,
-          error: false,
-          isEmailValid: true,
-          isNameValid: true,
+          errorCheckbox: false,
+          errorEmail: false,
+          errorName: false,
           snackbarMessage: "success"
         });
       }
     }
     if (!this.state.isCheckboxOpen) {
       this.setState({
-        error: true
+        errorCheckbox: true
       });
     }
     if (!pattern.test(this.state.email)) {
       this.setState({
-        isEmailValid: false
+        errorEmail: true
       });
     }
-    if (this.state.name.length <= 500) {
+    if (this.state.name.length <= 500 || this.state.name === "") {
       this.setState({
-        isNameValid: false
+        errorName: true
       });
     }
   };
@@ -209,31 +209,39 @@ class Newsletter extends Component {
   };
 
   handleDialogClose = () => {
-    this.setState({ isDialogOpen: false });
+    this.setState({
+      isDialogOpen: false,
+      errorCheckbox: false,
+      errorEmail: false,
+      errorName: false,
+      email: "",
+      name: "",
+      isCheckboxOpen: false
+    });
   };
 
   handleChange = name => event => {
     if (name === "email") {
       if (!pattern.test(event.target.value)) {
         this.setState({
-          isEmailValid: false,
+          errorEmail: true,
           email: event.target.value
         });
       } else {
         this.setState({
-          isEmailValid: true,
+          errorEmail: false,
           email: event.target.value
         });
       }
     }
     if (name === "name") {
-      if (event.target.value.length > 500) {
+      if (event.target.value.length > 500 && event.target.value !== "") {
         this.setState({
-          isNameValid: false
+          errorName: true
         });
       } else {
         this.setState({
-          isNameValid: true,
+          errorName: false,
           name: event.target.value
         });
       }
@@ -254,11 +262,12 @@ class Newsletter extends Component {
       isDialogOpen,
       isSnackbarOpen,
       isCheckboxOpen,
-      error,
-      isEmailValid,
-      isNameValid,
+      errorCheckbox,
+      errorEmail,
+      errorName,
       snackbarMessage
     } = this.state;
+
     return (
       <div className={classes.containerNewsletter}>
         <Snackbar
@@ -327,7 +336,7 @@ class Newsletter extends Component {
                 id="email"
                 type="text"
                 label="Email"
-                error={isEmailValid === null ? null : !isEmailValid}
+                error={errorEmail}
                 placeholder={t("common.email")}
                 value={email}
                 onChange={this.handleChange("email")}
@@ -340,7 +349,7 @@ class Newsletter extends Component {
                 id="name"
                 type="text"
                 label="Name"
-                error={isNameValid === null ? null : !isNameValid}
+                error={errorName}
                 placeholder={t("common.name")}
                 value={name}
                 onChange={this.handleChange("name")}
@@ -352,13 +361,13 @@ class Newsletter extends Component {
             <div className={classes.legalContainer}>
               <FormControlLabel
                 classes={{
-                  label: error && !isCheckboxOpen ? classes.error : null
+                  label: errorCheckbox && !isCheckboxOpen ? classes.error : null
                 }}
                 control={
                   <Checkbox
                     checked={isCheckboxOpen}
                     onChange={this.handleCheckbox}
-                    className={error ? classes.error : null}
+                    className={errorCheckbox ? classes.error : null}
                     value="consent"
                     color="primary"
                   />

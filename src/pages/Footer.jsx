@@ -127,7 +127,8 @@ const styles = theme => ({
   },
   inputLabel: {
     fontSize: 12,
-    paddingLeft: 20
+    paddingLeft: 20,
+    color: theme.palette.common.black
   }
 });
 

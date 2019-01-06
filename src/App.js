@@ -17,6 +17,7 @@ class App extends Component {
     this.setState({
       activePage
     });
+    window.scrollTo(0, 0);
   };
 
   handleLanguageChange = () => {

@@ -124,6 +124,10 @@ const styles = theme => ({
   },
   textArea: {
     paddingLeft: 20
+  },
+  inputLabel: {
+    fontSize: 12,
+    paddingLeft: 20
   }
 });
 
@@ -287,12 +291,16 @@ class Footer extends Component {
                 <TextField
                   id="name"
                   name="name"
+                  label="name"
                   type="text"
                   className={classes.textField}
                   InputProps={{
                     className: isNameValid ? classes.input : classes.inputError,
                     disableUnderline: true,
                     classes: { input: classes.textArea }
+                  }}
+                  InputLabelProps={{
+                    className: classes.inputLabel
                   }}
                   value={name}
                   placeholder={t("common.name")}
@@ -304,6 +312,7 @@ class Footer extends Component {
                   id="emailAddress"
                   name="emailAddress"
                   type="email"
+                  label="email"
                   className={classes.textField}
                   InputProps={{
                     className: isEmailValid
@@ -311,6 +320,9 @@ class Footer extends Component {
                       : classes.inputError,
                     disableUnderline: true,
                     classes: { input: classes.textArea }
+                  }}
+                  InputLabelProps={{
+                    className: classes.inputLabel
                   }}
                   value={emailAddress}
                   placeholder={t("common.email")}
@@ -323,12 +335,16 @@ class Footer extends Component {
                 id="message"
                 name="message"
                 type="text"
+                label="message"
                 InputProps={{
                   className: isMessageValid
                     ? classes.input
                     : classes.inputError,
                   disableUnderline: true,
                   classes: { input: classes.textArea }
+                }}
+                InputLabelProps={{
+                  className: classes.inputLabel
                 }}
                 value={message}
                 placeholder={t("footer.message")}

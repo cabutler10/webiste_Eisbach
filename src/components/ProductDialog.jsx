@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from "react";
 import PropTypes from "prop-types";
+import i18n from "../i18n/i18n";
 import { withNamespaces } from "react-i18next";
 import SwipeableViews from "react-swipeable-views";
 import { withStyles } from "@material-ui/core/styles";
@@ -132,18 +133,7 @@ const styles = theme => ({
 
 class ProductDialog extends Component {
   state = {
-    isDialogOpen: false,
     activeStep: 0
-  };
-
-  handleDialogOpen = idx => {
-    this.setState({
-      isDialogOpen: true
-    });
-  };
-
-  handleDialogClose = () => {
-    this.setState({ isDialogOpen: false });
   };
 
   handleIndexChange = activeStep => {
@@ -165,21 +155,30 @@ class ProductDialog extends Component {
   };
 
   render() {
-    const { product, classes, t } = this.props;
-    const { isDialogOpen, activeStep } = this.state;
+    const {
+      handleDialogOpen,
+      handleDialogClose,
+      isDialogOpen,
+      idx,
+      product,
+      classes,
+      t
+    } = this.props;
+    const { activeStep } = this.state;
+    const lng = i18n.language;
 
     return (
       <Fragment>
         <Button
           variant="outlined"
           className={classes.more}
-          onClick={this.handleDialogOpen}
+          onClick={() => handleDialogOpen(idx)}
         >
-          {t("products.more")}
+          {t("products.features")}
         </Button>
         <Dialog
           open={isDialogOpen}
-          onClose={this.handleDialogClose}
+          onClose={handleDialogClose}
           maxWidth="md"
           classes={{ paper: classes.paper }}
         >
@@ -188,7 +187,7 @@ class ProductDialog extends Component {
             <IconButton
               aria-label={t("common.close")}
               color="inherit"
-              onClick={this.handleDialogClose}
+              onClick={handleDialogClose}
               className={classes.closeButton}
             >
               <CloseIcon />
@@ -269,7 +268,7 @@ class ProductDialog extends Component {
                   </div>
                 </div>
                 <List disablePadding className={classes.scroll}>
-                  {product.more.map((item, idx) => (
+                  {product.more[lng].map((item, idx) => (
                     <ListItem
                       key={`listItem${idx}`}
                       className={classes.listItem}

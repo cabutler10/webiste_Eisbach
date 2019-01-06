@@ -120,7 +120,7 @@ class Template extends Component {
                   className={classes.button}
                   onClick={handleLanguageChange}
                 >
-                  {language}
+                  {language=== "en" ? "de" : "en"}
                 </Button>
               </div>
             </Hidden>

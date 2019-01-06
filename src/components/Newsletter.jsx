@@ -158,7 +158,7 @@ class Newsletter extends Component {
     ) {
       const result = await addToMailchimp(this.state.email, {
         FNAME: this.state.name,
-        gdpr_26529: true
+        gdpr_26529: true,
       });
       this.handleDialogClose();
       if (result.result === "error") {

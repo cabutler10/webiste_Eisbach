@@ -29,33 +29,57 @@ export const products = [
       product1_img5
     ],
     price: "19.90",
-    ebay: "http://www.ebay.de/itm/183498144801",
-    amazon: "https://www.amazon.de/dp/B07K8W2TKK",
-    more: [
-      "Set of 3 fins with center fin and the two side fins (right and left) with inside profile in standard size G5 / M5.",
-      "Fits any surfboard with double tab FCS1 plug system - whether bodyboard, shortboard, funboard or kiteboard, making it ideal for surfing, river surfing, paddle boarding or water sports in general.",
-      "High quality materials make the fins durable and flexible.",
-      "All our products come in a sustainable and environmentally friendly packaging.",
-      "Height: 11.63 cm (4.58'')",
-      "Length: 11.13 cm (4.38'')",
-      "Thickness: 0.66 cm (0.26'')",
-      "Angle: 35.5 degree",
-      "Scope of delivery: 3 fin set with fin key"
-    ]
+    ebay:
+      "https://rover.ebay.com/rover/1/707-53477-19255-0/1?icep_id=114&ipn=icep&toolid=20004&campid=5338456795&mpre=https%3A%2F%2Fwww.ebay.de%2Fitm%2F183534256900",
+    amazon: "https://amzn.to/2Vr6Gt7",
+    more: {
+      en: [
+        "Set of 3 fins with center fin and the two side fins (right and left) with inside profile in standard size G5 / M5.",
+        "Fits any surfboard with double tab FCS1 plug system - whether bodyboard, shortboard, funboard or kiteboard, making it ideal for surfing, river surfing, paddle boarding or water sports in general.",
+        "High quality materials make the fins durable and flexible.",
+        "All our products come in a sustainable and environmentally friendly packaging.",
+        "Height: 11.63 cm (4.58'')",
+        "Length: 11.13 cm (4.38'')",
+        "Thickness: 0.66 cm (0.26'')",
+        "Angle: 35.5 degree",
+        "Scope of delivery: 3 fin set with fin key"
+      ],
+      de: [
+        "Set of 3 fins with center fin and the two side fins (right and left) with inside profile in standard size G5 / M5.",
+        "Fits any surfboard with double tab FCS1 plug system - whether bodyboard, shortboard, funboard or kiteboard, making it ideal for surfing, river surfing, paddle boarding or water sports in general.",
+        "High quality materials make the fins durable and flexible.",
+        "All our products come in a sustainable and environmentally friendly packaging.",
+        "Height: 11.63 cm (4.58'')",
+        "Length: 11.13 cm (4.38'')",
+        "Thickness: 0.66 cm (0.26'')",
+        "Angle: 35.5 degree",
+        "Scope of delivery: 3 fin set with fin key"
+      ]
+    }
   },
   {
     name: "RailProtect Tape",
     images: [product2, product2_img1, product2_img2, product2_img3],
     price: "24.90",
-    ebay: "http://www.ebay.de/itm/183498197638",
-    amazon: "https://www.amazon.de/dp/B07K8W9TG9",
-    more: [
-      "The particularly durable diamond structure protects the edges of your board against dings and bumps, thus preventing the ingress of water.",
-      "Fits any surfboard up to 6ft (1.83m) - whether its bodyboard, shortboard, funboard or kiteboard, making it ideal for surfing, river surfing, paddle boarding or SUP (stand up paddling).",
-      "The two adhesive strips (each 191 x 6.3 cm (6'3 x 2.5)) are easy to attach and will last a long time on your board.",
-      "All our products come in a sustainable and environmentally friendly handcrafted packaging.",
-      "Scope of delivery: 2 piece set surfboard RailProtect tape"
-    ]
+    ebay:
+      "https://rover.ebay.com/rover/1/707-53477-19255-0/1?icep_id=114&ipn=icep&toolid=20004&campid=5338456795&mpre=https%3A%2F%2Fwww.ebay.de%2Fitm%2F183498197638",
+    amazon: "https://amzn.to/2GTx3Vh",
+    more: {
+      en: [
+        "The particularly durable diamond structure protects the edges of your board against dings and bumps, thus preventing the ingress of water.",
+        "Fits any surfboard up to 6ft (1.83m) - whether its bodyboard, shortboard, funboard or kiteboard, making it ideal for surfing, river surfing, paddle boarding or SUP (stand up paddling).",
+        "The two adhesive strips (each 191 x 6.3 cm (6'3 x 2.5)) are easy to attach and will last a long time on your board.",
+        "All our products come in a sustainable and environmentally friendly handcrafted packaging.",
+        "Scope of delivery: 2 piece set surfboard RailProtect tape"
+      ],
+      de: [
+        "The particularly durable diamond structure protects the edges of your board against dings and bumps, thus preventing the ingress of water.",
+        "Fits any surfboard up to 6ft (1.83m) - whether its bodyboard, shortboard, funboard or kiteboard, making it ideal for surfing, river surfing, paddle boarding or SUP (stand up paddling).",
+        "The two adhesive strips (each 191 x 6.3 cm (6'3 x 2.5)) are easy to attach and will last a long time on your board.",
+        "All our products come in a sustainable and environmentally friendly handcrafted packaging.",
+        "Scope of delivery: 2 piece set surfboard RailProtect tape"
+      ]
+    }
   },
   {
     name: "Future Single Tab Thruster Fin Set with Fin Key",
@@ -69,16 +93,29 @@ export const products = [
     price: "19.90",
     ebay: "http://www.ebay.de/itm/183498170584",
     amazon: null,
-    more: [
-      "Set of 3 fins with center fin and the two side fins (right and left) with inside profile in standard size G5 / M5.",
-      "Fits any surfboard with single tab Future plug system - whether bodyboard, shortboard, funboard or kiteboard, making it ideal for surfing, river surfing, paddle boarding or water sports in general.",
-      "High quality materials make the fins durable and flexible.",
-      "All our products come in a sustainable and environmentally friendly packaging.",
-      "Height: 11.63 cm (4.58'')",
-      "Length: 11.13 cm (4.38'')",
-      "Thickness: 0.66 cm (0.26'')",
-      "Angle: 35.5 degree",
-      "Scope of delivery: 3 fin set with fin key"
-    ]
+    more: {
+      en: [
+        "Set of 3 fins with center fin and the two side fins (right and left) with inside profile in standard size G5 / M5.",
+        "Fits any surfboard with single tab Future plug system - whether bodyboard, shortboard, funboard or kiteboard, making it ideal for surfing, river surfing, paddle boarding or water sports in general.",
+        "High quality materials make the fins durable and flexible.",
+        "All our products come in a sustainable and environmentally friendly packaging.",
+        "Height: 11.63 cm (4.58'')",
+        "Length: 11.13 cm (4.38'')",
+        "Thickness: 0.66 cm (0.26'')",
+        "Angle: 35.5 degree",
+        "Scope of delivery: 3 fin set with fin key"
+      ],
+      de: [
+        "Set of 3 fins with center fin and the two side fins (right and left) with inside profile in standard size G5 / M5.",
+        "Fits any surfboard with single tab Future plug system - whether bodyboard, shortboard, funboard or kiteboard, making it ideal for surfing, river surfing, paddle boarding or water sports in general.",
+        "High quality materials make the fins durable and flexible.",
+        "All our products come in a sustainable and environmentally friendly packaging.",
+        "Height: 11.63 cm (4.58'')",
+        "Length: 11.13 cm (4.38'')",
+        "Thickness: 0.66 cm (0.26'')",
+        "Angle: 35.5 degree",
+        "Scope of delivery: 3 fin set with fin key"
+      ]
+    }
   }
 ];

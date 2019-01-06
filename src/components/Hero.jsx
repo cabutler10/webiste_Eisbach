@@ -35,7 +35,6 @@ const styles = theme => ({
     }
   },
   text: {
-    textTransform: "capitalize",
     letterSpacing: 3,
     fontWeight: 600,
     color: theme.status.white,

@@ -365,7 +365,7 @@ class Footer extends Component {
                 variant="outlined"
                 aria-label="linkedin"
                 className={classes.button}
-                href="https://www.facebook.com/EisbachRiders/"
+                href="https://www.facebook.com/EisbachRiders-262685337908914/"
                 target="_blank"
                 rel="noopener"
                 disableFocusRipple

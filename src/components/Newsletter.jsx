@@ -333,19 +333,6 @@ class Newsletter extends Component {
             <form className={classes.form}>
               <TextField
                 required
-                id="email"
-                type="text"
-                label="Email"
-                error={errorEmail}
-                placeholder={t("common.email")}
-                value={email}
-                onChange={this.handleChange("email")}
-                className={classes.textField}
-                margin="normal"
-                variant="outlined"
-              />
-              <TextField
-                required
                 id="name"
                 type="text"
                 label="Name"
@@ -353,6 +340,19 @@ class Newsletter extends Component {
                 placeholder={t("common.name")}
                 value={name}
                 onChange={this.handleChange("name")}
+                className={classes.textField}
+                margin="normal"
+                variant="outlined"
+              />
+              <TextField
+                required
+                id="email"
+                type="text"
+                label="Email"
+                error={errorEmail}
+                placeholder={t("common.email")}
+                value={email}
+                onChange={this.handleChange("email")}
                 className={classes.textField}
                 margin="normal"
                 variant="outlined"

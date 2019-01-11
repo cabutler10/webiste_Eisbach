@@ -1,4 +1,8 @@
 {
+  "tracking": {
+    "message": "some cookie message",
+    "agree": "I agree"
+  },
   "header": {
     "about": "about",
     "products": "products",

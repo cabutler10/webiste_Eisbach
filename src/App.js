@@ -6,11 +6,13 @@ import Footer from "./pages/Footer";
 import Homepage from "./pages/Homepage";
 import Legal from "./pages/Legal";
 import Privacy from "./pages/Privacy";
+import Tracking from "./components/Tracking";
 
 class App extends Component {
   state = {
     activePage: "/",
-    language: "en"
+    language: "en",
+    isSnackbarOpen: true
   };
 
   handlePageChange = activePage => {
@@ -28,8 +30,12 @@ class App extends Component {
     });
   };
 
+  handleSnackbarClose = () => {
+    this.setState({ isSnackbarOpen: false });
+  };
+
   render() {
-    const { activePage, language } = this.state;
+    const { activePage, language, isSnackbarOpen } = this.state;
     return (
       <Fragment>
         <Header
@@ -42,6 +48,10 @@ class App extends Component {
         {activePage === "/legal" && <Legal />}
         {activePage === "/privacy" && <Privacy />}
         <Footer handlePageChange={this.handlePageChange} />
+        <Tracking
+          isSnackbarOpen={isSnackbarOpen}
+          handleClose={this.handleSnackbarClose}
+        />
       </Fragment>
     );
   }

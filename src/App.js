@@ -6,7 +6,7 @@ import Footer from "./pages/Footer";
 import Homepage from "./pages/Homepage";
 import Legal from "./pages/Legal";
 import Privacy from "./pages/Privacy";
-import Tracking from "./components/Tracking";
+//import Tracking from "./components/Tracking";
 
 class App extends Component {
   state = {

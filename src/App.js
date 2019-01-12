@@ -6,8 +6,7 @@ import Footer from "./pages/Footer";
 import Homepage from "./pages/Homepage";
 import Legal from "./pages/Legal";
 import Privacy from "./pages/Privacy";
-//import Tracking from "./components/Tracking";
-
+import Tracking from "./components/Tracking";
 class App extends Component {
   state = {
     activePage: "/",
@@ -30,7 +29,11 @@ class App extends Component {
     });
   };
 
-  handleSnackbarClose = () => {
+  handleSnackbarAccept = () => {
+    this.setState({ isSnackbarOpen: false });
+  };
+
+  handleSnackbarDecline = () => {
     this.setState({ isSnackbarOpen: false });
   };
 
@@ -44,15 +47,15 @@ class App extends Component {
           language={language}
           activePage={activePage}
         />
-        TEST
         {activePage === "/" && <Homepage />}
         {activePage === "/legal" && <Legal />}
         {activePage === "/privacy" && <Privacy />}
         <Footer handlePageChange={this.handlePageChange} />
-        {/* <Tracking
+        <Tracking
           isSnackbarOpen={isSnackbarOpen}
-          handleClose={this.handleSnackbarClose}
-        /> */}
+          handleAccept={this.handleSnackbarAccept}
+          handleDecline={this.handleSnackbarDecline}
+        />
       </Fragment>
     );
   }

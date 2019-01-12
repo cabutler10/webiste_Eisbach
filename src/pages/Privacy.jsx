@@ -25,6 +25,10 @@ const styles = {
   },
   listItem: {
     padding: 0
+  },
+  link: {
+    paddingLeft: 60,
+    fontSize: 12
   }
 };
 
@@ -35,13 +39,10 @@ const Privacy = props => {
       <Typography variant="h6" className={classes.title}>
         {t("privacy.privacy")}
       </Typography>
-
       <Typography variant="subtitle1">{t("privacy.title1")}</Typography>
-
       <Typography className={classes.text}>{t("privacy.terms1_1")}</Typography>
       <Typography className={classes.text}>{t("privacy.terms1_2")}</Typography>
       <Typography className={classes.text}>{t("privacy.terms1_3")}</Typography>
-
       <Typography variant="subtitle1">{t("privacy.title2")}</Typography>
       <Typography className={classes.text}>{t("privacy.terms2_1")}</Typography>
       <List>
@@ -89,9 +90,7 @@ const Privacy = props => {
         </ListItem>
       </List>
       <Typography className={classes.text}>{t("privacy.terms2_2")}</Typography>
-
       <Typography variant="subtitle1">{t("privacy.title3")}</Typography>
-
       <Typography className={classes.text}>{t("privacy.terms3_1")}</Typography>
       <Typography className={classes.text}>{t("privacy.terms3_2")}</Typography>
       <Typography className={classes.text}>{t("privacy.terms3_3")}</Typography>
@@ -134,28 +133,31 @@ const Privacy = props => {
         </ListItem>
       </List>
       <Typography className={classes.text}>{t("privacy.terms3_5")}</Typography>
-
       <Typography variant="subtitle1">{t("privacy.title4")}</Typography>
       <Typography className={classes.text}>{t("privacy.terms4_1")}</Typography>
-
       <Typography variant="subtitle1">{t("privacy.title5")}</Typography>
       <Typography className={classes.text}>{t("privacy.terms5_1")}</Typography>
-
       <Typography variant="subtitle1">{t("privacy.title6")}</Typography>
       <Typography className={classes.text}>{t("privacy.terms6_1")}</Typography>
       <Typography className={classes.text}>{t("privacy.terms6_2")}</Typography>
-
       <Typography variant="subtitle1">{t("privacy.title7")}</Typography>
       <Typography className={classes.text}>{t("privacy.terms7_1")}</Typography>
       <Typography className={classes.text}>{t("privacy.terms7_2")}</Typography>
       <Typography className={classes.text}>{t("privacy.terms7_3")}</Typography>
-
       <Typography variant="subtitle1">{t("privacy.title8")}</Typography>
       <Typography className={classes.text}>{t("privacy.terms8_1")}</Typography>
-
+      {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+      <a
+        className={classes.link}
+        onClick={() => alert(`${t("privacy.terms8_2")}`)}
+        //eslint-disable-next-line
+        href="javascript:gaOptout()"
+      >
+        {t("privacy.terms8_3")}
+      </a>
+      <Typography className={classes.text}>{t("privacy.terms8_4")}</Typography>
       <Typography variant="subtitle1">{t("privacy.title9")}</Typography>
       <Typography className={classes.text}>{t("privacy.terms9_1")}</Typography>
-
       <Typography variant="subtitle1">{t("privacy.title10")}</Typography>
       <Typography className={classes.text}>{t("privacy.terms10_1")}</Typography>
       <List>
@@ -210,7 +212,6 @@ const Privacy = props => {
       </List>
       <Typography variant="subtitle1">{t("privacy.title10_2")}</Typography>
       <Typography className={classes.text}>{t("privacy.terms10_2")}</Typography>
-
       <Typography variant="subtitle1">{t("privacy.title11")}</Typography>
       <Typography className={classes.text}>{t("privacy.terms11_1")}</Typography>
     </div>

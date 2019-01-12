@@ -44,6 +44,7 @@ class App extends Component {
           language={language}
           activePage={activePage}
         />
+        TEST
         {activePage === "/" && <Homepage />}
         {activePage === "/legal" && <Legal />}
         {activePage === "/privacy" && <Privacy />}

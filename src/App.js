@@ -48,10 +48,10 @@ class App extends Component {
         {activePage === "/legal" && <Legal />}
         {activePage === "/privacy" && <Privacy />}
         <Footer handlePageChange={this.handlePageChange} />
-        <Tracking
+        {/* <Tracking
           isSnackbarOpen={isSnackbarOpen}
           handleClose={this.handleSnackbarClose}
-        />
+        /> */}
       </Fragment>
     );
   }

@@ -22,7 +22,7 @@ const styles = theme => ({
     backgroundColor: theme.palette.common.black
   },
   message: {
-    flexBasis: "85%"
+    flexBasis: "80%"
   },
   action: {
     marginLeft: "none",
@@ -33,11 +33,27 @@ const styles = theme => ({
     marginLeft: 35,
     paddingLeft: 50,
     paddingRight: 50
+  },
+  buttonDecline: {
+    color: theme.palette.common.white
+  },
+  link: {
+    color: theme.palette.common.white,
+    textTransform: "capitalize",
+    textDecoration: "underline"
   }
 });
 
 function Tracking(props) {
-  const { handleAccept, handleDecline, isSnackbarOpen, classes, t } = props;
+  const {
+    handleClose,
+    handleAccept,
+    handleDecline,
+    handlePageChange,
+    isSnackbarOpen,
+    classes,
+    t
+  } = props;
 
   return (
     <Snackbar
@@ -46,24 +62,43 @@ function Tracking(props) {
         horizontal: "center"
       }}
       open={isSnackbarOpen}
-      onClose={handleAccept}
+      onClose={handleClose}
       className={classes.snackbar}
     >
       <SnackbarContent
         className={classes.snackbarContent}
         classes={{ message: classes.message, action: classes.action }}
         aria-describedby="client-snackbar"
-        message={<span id="client-snackbar">{t("tracking.message")}</span>}
+        onClose={handleClose}
+        message={
+          <span id="client-snackbar">
+            {t("tracking.message")}
+            <Button
+              className={classes.link}
+              onClick={() => handlePageChange("/privacy")}
+            >
+              {t("tracking.privacyLink")}
+            </Button>
+          </span>
+        }
         action={[
-          <Button
-            key="button"
-            color="secondary"
-            variant="contained"
-            className={classes.button}
-            onClick={handleDecline}
-          >
-            {t("tracking.accept")}
-          </Button>
+          <div key="button">
+            <Button
+              className={classes.buttonDecline} //eslint-disable-next-line
+              href="javascript:gaOptout();"
+              onClick={handleDecline}
+            >
+              {t("tracking.decline")}
+            </Button>
+            <Button
+              color="secondary"
+              variant="contained"
+              className={classes.button}
+              onClick={handleAccept}
+            >
+              {t("tracking.accept")}
+            </Button>
+          </div>
         ]}
       />
     </Snackbar>
@@ -74,6 +109,7 @@ Tracking.propTypes = {
   classes: PropTypes.object.isRequired,
   handleAccept: PropTypes.func,
   handleDecline: PropTypes.func,
+  handlePageChange: PropTypes.func,
   isSnackbarOpen: PropTypes.bool
 };
 

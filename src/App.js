@@ -29,11 +29,16 @@ class App extends Component {
     });
   };
 
+  handleSnackbarClose = () => {
+    this.setState({ isSnackbarOpen: true });
+  };
+
   handleSnackbarAccept = () => {
     this.setState({ isSnackbarOpen: false });
   };
 
   handleSnackbarDecline = () => {
+    window["ga-disable-UA-130658859-1"] = true;
     this.setState({ isSnackbarOpen: false });
   };
 
@@ -53,8 +58,10 @@ class App extends Component {
         <Footer handlePageChange={this.handlePageChange} />
         <Tracking
           isSnackbarOpen={isSnackbarOpen}
+          handleClose={this.handleSnackbarClose}
           handleAccept={this.handleSnackbarAccept}
           handleDecline={this.handleSnackbarDecline}
+          handlePageChange={this.handlePageChange}
         />
       </Fragment>
     );

@@ -1,8 +1,9 @@
 {
   "tracking": {
-    "message": "Wir verwenden Cookies, um sicherzustellen, dass wir dir die beste Erfahrung auf unserer Website bieten. Wenn du weitersurfst, werten wir dies als Zustimmung. Mehr erfahren",
-    "accept": "ok",
-    "decline": "decline"
+    "message": "By using our website, you agree with the use of cookies.",
+    "accept": "accept",
+    "decline": "decline",
+    "privacyLink": "more information"
   },
   "header": {
     "about": "about",

@@ -49,10 +49,24 @@ class Stores extends Component {
           {t("stores.sectionTitle")}
         </Typography>
         <div className={classes.container}>
-          <Button variant="contained" color="secondary">
+          <Button
+            variant="contained"
+            color="secondary"
+            href={"https://amzn.to/2CfbQiW"}
+            target="_blank"
+            rel="noopener"
+          >
             Amazon
           </Button>
-          <Button variant="contained" color="secondary">
+          <Button
+            variant="contained"
+            color="secondary"
+            href={
+              "https://rover.ebay.com/rover/1/707-53477-19255-0/1?icep_id=114&ipn=icep&toolid=20004&campid=5338456795&mpre=https%3A%2F%2Fwww.ebay.de%2Fsch%2Feisbach-riders%2Fm.html%3Fitem%3D183534256900%26rt%3Dnc%26_trksid%3Dp2047675.l2562"
+            }
+            target="_blank"
+            rel="noopener"
+          >
             ebay
           </Button>
         </div>

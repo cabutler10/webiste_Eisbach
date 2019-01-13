@@ -13,7 +13,7 @@ const Homepage = () => {
       <Newsletter />
       <About />
       <Products />
-      <Stores />
+      {/* <Stores /> */}
       <Instagram />
     </div>
   );

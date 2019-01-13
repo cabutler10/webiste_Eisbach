@@ -22,7 +22,10 @@ const styles = theme => ({
     backgroundColor: theme.palette.common.black
   },
   message: {
-    flexBasis: "80%"
+    flexBasis: "60%",
+    [theme.breakpoints.up("lg")]: {
+      flexBasis: "80%"
+    }
   },
   action: {
     marginLeft: "none",

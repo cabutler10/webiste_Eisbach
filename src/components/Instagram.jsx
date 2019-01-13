@@ -43,14 +43,15 @@ const styles = theme => ({
   },
   overlay: {
     marginTop: 30,
-    position: "relative"
+    flexBasis: "30%",
+    position: "relative",
+    [theme.breakpoints.up("md")]: {
+      flexBasis: "15%"
+    }
   },
   img: {
     display: "block",
-    height: 100,
-    [theme.breakpoints.up("md")]: {
-      height: 200
-    }
+    width: "100%"
   },
   link: {
     textDecoration: "none",

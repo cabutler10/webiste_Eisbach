@@ -8,20 +8,40 @@ import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 
-const styles = {
+const styles = theme => ({
   container: {
-    paddingBottom: 100,
-    paddingLeft: "15%",
-    paddingRight: "15%"
+    background: theme.status.white,
+    paddingLeft: 15,
+    paddingRight: 15,
+    paddingBottom: 30,
+    textAlign: "center",
+    [theme.breakpoints.up("sm")]: {
+      paddingLeft: 60,
+      paddingRight: 60,
+      paddingBottom: 30
+    },
+    [theme.breakpoints.up("md")]: {
+      paddingLeft: 90,
+      paddingRight: 90,
+      paddingBottom: 90,
+      paddingTop: 30
+    }
   },
   title: {
-    paddingTop: 45,
-    paddingBottom: 30,
-    textAlign: "center"
+    paddingBottom: 15,
+    textAlign: "center",
+    [theme.breakpoints.up("sm")]: {
+      paddingBottom: 30,
+      paddingTop: 30
+    }
   },
   text: {
     fontSize: 12,
-    paddingLeft: 30
+    textTransform: "capitalize",
+    wordBreak: "break-word",
+    [theme.breakpoints.up("sm")]: {
+      paddingLeft: 30
+    }
   },
   listItem: {
     padding: 0
@@ -30,7 +50,7 @@ const styles = {
     paddingLeft: 60,
     fontSize: 12
   }
-};
+});
 
 const Privacy = props => {
   const { classes, t } = props;

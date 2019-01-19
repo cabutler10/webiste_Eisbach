@@ -4,22 +4,42 @@ import { withNamespaces } from "react-i18next";
 import { withStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 
-const styles = {
+const styles = theme => ({
   container: {
-    paddingBottom: 100,
-    paddingLeft: "15%",
-    paddingRight: "15%"
+    background: theme.status.white,
+    paddingLeft: 15,
+    paddingRight: 15,
+    paddingBottom: 30,
+    textAlign: "center",
+    [theme.breakpoints.up("sm")]: {
+      paddingLeft: 60,
+      paddingRight: 60,
+      paddingBottom: 30
+    },
+    [theme.breakpoints.up("md")]: {
+      paddingLeft: 90,
+      paddingRight: 90,
+      paddingBottom: 90,
+      paddingTop: 30
+    }
   },
   title: {
-    paddingTop: 45,
-    paddingBottom: 30,
-    textAlign: "center"
+    paddingBottom: 15,
+    textTransform: "capitalize",
+    textAlign: "center",
+    [theme.breakpoints.up("sm")]: {
+      paddingBottom: 30,
+      paddingTop: 30
+    }
   },
   text: {
     fontSize: 12,
-    paddingLeft: 30
+    wordBreak: "break-word",
+    [theme.breakpoints.up("sm")]: {
+      paddingLeft: 30
+    }
   }
-};
+});
 
 const Legal = props => {
   const { classes, t } = props;

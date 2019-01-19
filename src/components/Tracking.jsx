@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import PropTypes from "prop-types";
 import { withNamespaces } from "react-i18next";
 import Button from "@material-ui/core/Button";
@@ -17,12 +17,19 @@ const styles = theme => ({
     width: "100%",
     minWidth: "0",
     maxWidth: "none",
-    paddingLeft: 60,
-    paddingRight: 60,
-    backgroundColor: theme.palette.common.black
+    paddingLeft: 30,
+    paddingRight: 30,
+    backgroundColor: theme.palette.common.black,
+    [theme.breakpoints.up("md")]: {
+      paddingLeft: 60,
+      paddingRight: 60
+    }
   },
   message: {
-    flexBasis: "60%",
+    flexBasis: "100%",
+    [theme.breakpoints.up("sm")]: {
+      flexBasis: "60%"
+    },
     [theme.breakpoints.up("lg")]: {
       flexBasis: "80%"
     }
@@ -42,8 +49,15 @@ const styles = theme => ({
   },
   link: {
     color: theme.palette.common.white,
+    paddingLeft: 8,
     textTransform: "capitalize",
-    textDecoration: "underline"
+    textDecoration: "underline",
+    [theme.breakpoints.up("sm")]: {
+      paddingLeft: 0
+    },
+    [theme.breakpoints.up("md")]: {
+      paddingLeft: 8
+    }
   }
 });
 
@@ -85,7 +99,7 @@ function Tracking(props) {
           </span>
         }
         action={[
-          <div key="button">
+          <Fragment key="button">
             <Button
               className={classes.buttonDecline} //eslint-disable-next-line
               href="javascript:gaOptout();"
@@ -101,7 +115,7 @@ function Tracking(props) {
             >
               {t("tracking.accept")}
             </Button>
-          </div>
+          </Fragment>
         ]}
       />
     </Snackbar>

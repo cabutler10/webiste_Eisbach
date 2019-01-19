@@ -63,19 +63,28 @@ const styles = theme => ({
     width: "100%",
     height: "100%",
     opacity: 0,
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
     transition: ".3s ease",
     background: "rgba(0,0,0,.5)",
     "&:hover": {
       opacity: 1
+    },
+    [theme.breakpoints.up("sm")]: {
+      flexDirection: "row"
     }
   },
   iconContainer: {
     display: "flex",
-    justifyContent: "center",
     alignItems: "center",
-    top: "50%",
-    left: "25%",
-    position: "absolute"
+    paddingLeft: "25%",
+    paddingBottom: 10,
+    [theme.breakpoints.up("sm")]: {
+      justifyContent: "center",
+      paddingLeft: 0,
+      paddingBottom: 0
+    }
   },
   icon: {
     marginLeft: 5,
@@ -130,6 +139,8 @@ class Instagram extends Component {
                   <Typography className={classes.count}>
                     {tile.likes.count}
                   </Typography>
+                </div>
+                <div className={classes.iconContainer}>
                   <CommentIcon className={classes.icon} />
                   <Typography className={classes.count}>
                     {tile.comments.count}

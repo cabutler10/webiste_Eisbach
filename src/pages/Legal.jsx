@@ -155,6 +155,10 @@ const Legal = props => {
       </Typography>
 
       <Typography className={classes.text}>{t("imprint.terms12_2")}</Typography>
+
+      <Typography variant="h5" className={classes.title}>
+        {t("imprint.credits")}
+      </Typography>
     </div>
   );
 };

@@ -159,6 +159,145 @@ const Legal = props => {
       <Typography variant="h5" className={classes.title}>
         {t("imprint.credits")}
       </Typography>
+      <a
+        style={{
+          backgroundColor: "black",
+          color: "white",
+          textDecoration: "none",
+          padding: "4px 6px",
+          fontFamily:
+            '-apple-system, BlinkMacSystemFont, "San Francisco", "Helvetica Neue", Helvetica, Ubuntu, Roboto, Noto, "Segoe UI", Arial, sans-serif',
+          fontSize: 12,
+          fontWeight: "bold",
+          lineHeight: 1.2,
+          display: "inline-block",
+          borderRadius: 3
+        }}
+        href="https://unsplash.com/@thefoxicon?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="Download free do whatever you want high-resolution photos from Mike Fox"
+      >
+        <span style={{ display: "inline-block", padding: "2px 3px" }}>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            style={{
+              height: 12,
+              width: "auto",
+              position: "relative",
+              verticalAlign: "middle",
+              top: -2,
+              fill: "white"
+            }}
+            viewBox="0 0 32 32"
+          >
+            <title>unsplash-logo</title>
+            <path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z" />
+          </svg>
+        </span>
+        <span style={{ display: "inline-block", padding: "2px 3px" }}>
+          Mike Fox
+        </span>
+      </a>
+      <a
+        style={{
+          backgroundColor: "black",
+          color: "white",
+          textDecoration: "none",
+          padding: "4px 6px",
+          fontFamily:
+            '-apple-system, BlinkMacSystemFont, "San Francisco", "Helvetica Neue", Helvetica, Ubuntu, Roboto, Noto, "Segoe UI", Arial, sans-serif',
+          fontSize: 12,
+          fontWeight: "bold",
+          lineHeight: 1.2,
+          display: "inline-block",
+          borderRadius: 3
+        }}
+        href="https://unsplash.com/@jeremybishop?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="Download free do whatever you want high-resolution photos from Jeremy Bishop"
+      >
+        <span style={{ display: "inline-block", padding: "2px 3px" }}>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            style={{
+              height: 12,
+              width: "auto",
+              position: "relative",
+              verticalAlign: "middle",
+              top: -2,
+              fill: "white"
+            }}
+            viewBox="0 0 32 32"
+          >
+            <title>unsplash-logo</title>
+            <path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z" />
+          </svg>
+        </span>
+        <span style={{ display: "inline-block", padding: "2px 3px" }}>
+          Jeremy Bishop
+        </span>
+      </a>
+      <a
+        style={{
+          backgroundColor: "black",
+          color: "white",
+          textDecoration: "none",
+          padding: "4px 6px",
+          fontFamily:
+            '-apple-system, BlinkMacSystemFont, "San Francisco", "Helvetica Neue", Helvetica, Ubuntu, Roboto, Noto, "Segoe UI", Arial, sans-serif',
+          fontSize: 12,
+          fontWeight: "bold",
+          lineHeight: 1.2,
+          display: "inline-block",
+          borderRadius: 3
+        }}
+        href="https://unsplash.com/@timmarshall?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="Download free do whatever you want high-resolution photos from Tim Marshall"
+      >
+        <span style={{ display: "inline-block", padding: "2px 3px" }}>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            style={{
+              height: 12,
+              width: "auto",
+              position: "relative",
+              verticalAlign: "middle",
+              top: -2,
+              fill: "white"
+            }}
+            viewBox="0 0 32 32"
+          >
+            <title>unsplash-logo</title>
+            <path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z" />
+          </svg>
+        </span>
+        <span style={{ display: "inline-block", padding: "2px 3px" }}>
+          Tim Marshall
+        </span>
+      </a>
+      <div>
+        Icons made by{" "}
+        <a href="https://www.flaticon.com/authors/ocha" title="OCHA">
+          OCHA
+        </a>{" "}
+        from{" "}
+        <a href="https://www.flaticon.com/" title="Flaticon">
+          www.flaticon.com
+        </a>{" "}
+        is licensed by{" "}
+        <a
+          href="http://creativecommons.org/licenses/by/3.0/"
+          title="Creative Commons BY 3.0"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          CC 3.0 BY
+        </a>
+      </div>
     </div>
   );
 };

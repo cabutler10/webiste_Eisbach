@@ -12,7 +12,8 @@ const status = {
   tealDk: "#45a29e",
   green: "#00942b",
   yellow: "#fcf166",
-  red: "#FF0012"
+  red: "#FF0012",
+  greyBlue: "#f3f8fc"
 };
 
 const theme = createMuiTheme({

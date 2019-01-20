@@ -7,7 +7,7 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Hidden from "@material-ui/core/Hidden";
 import IconButton from "@material-ui/core/IconButton";
 import Button from "@material-ui/core/Button";
-import logoWhite from "../assets/logos/logoWhite_small.png";
+import logoWhite from "../assets/logos/ER_minimal_black.svg";
 
 const styles = theme => ({
   grow: {
@@ -37,12 +37,12 @@ const styles = theme => ({
   },
   logo: {
     marginTop: 5,
-    width: 40
+    width: 60
   },
   button: {
-    color: theme.palette.common.white,
+    color: theme.palette.common.black,
     fontSize: 18,
-    textShadow: "1px 1px 1px black",
+    fontWeight: 700,
     letterSpacing: 1.5,
     "&:hover": {
       color: theme.palette.secondary.main
@@ -120,7 +120,7 @@ class Template extends Component {
                   className={classes.button}
                   onClick={handleLanguageChange}
                 >
-                  {language=== "en" ? "de" : "en"}
+                  {language === "en" ? "de" : "en"}
                 </Button>
               </div>
             </Hidden>

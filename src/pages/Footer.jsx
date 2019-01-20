@@ -11,11 +11,11 @@ import { InstagramIcon, FacebookIcon } from "../assets/icons/icons";
 
 const styles = theme => ({
   root: {
-    backgroundColor: theme.status.grey,
+    backgroundColor: theme.status.black,
     width: "100%"
   },
   legal: {
-    backgroundColor: theme.palette.common.black
+    backgroundColor: theme.status.black
   },
   copyright: {
     fontSize: 12,
@@ -51,6 +51,7 @@ const styles = theme => ({
     }
   },
   text: {
+    color: theme.palette.common.white,
     fontSize: 12,
     lineHeight: 1.5,
     [theme.breakpoints.up("sm")]: {
@@ -61,6 +62,7 @@ const styles = theme => ({
     borderTop: `1px solid ${theme.status.greyDk}`
   },
   textHeading: {
+    color: theme.palette.common.white,
     letterSpacing: 3,
     fontSize: 12,
     textTransform: "uppercase",
@@ -78,6 +80,7 @@ const styles = theme => ({
   },
   input: {
     fontSize: 12,
+    color: theme.palette.common.white,
     border: "1px solid"
   },
   inputError: {
@@ -97,7 +100,7 @@ const styles = theme => ({
   icon: {
     width: 18,
     height: 18,
-    fill: theme.status.black
+    fill: theme.palette.common.white
   },
   iconContainer: {
     display: "flex",
@@ -128,7 +131,7 @@ const styles = theme => ({
   inputLabel: {
     fontSize: 12,
     paddingLeft: 20,
-    color: theme.palette.common.black
+    color: theme.palette.common.white
   }
 });
 
@@ -277,8 +280,8 @@ class Footer extends Component {
               notification === "success"
                 ? "Your email has been sent successfully"
                 : notification === "warning"
-                  ? "Please check the form has been filled out correctly"
-                  : "An error has occured."
+                ? "Please check the form has been filled out correctly"
+                : "An error has occured."
             }
           />
         </Snackbar>

@@ -26,8 +26,8 @@ const styles = theme => ({
       paddingRight: 60
     },
     [theme.breakpoints.up("md")]: {
-      paddingTop: 45,
-      paddingBottom: 45,
+      paddingTop: 90,
+      paddingBottom: 90,
       paddingLeft: 170,
       paddingRight: 170
     }

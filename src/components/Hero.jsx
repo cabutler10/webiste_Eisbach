@@ -7,6 +7,7 @@ import Typography from "@material-ui/core/Typography";
 import Hidden from "@material-ui/core/Hidden";
 import img from "../assets/images/backsplash.jpg";
 import logo from "../assets/logos/logoWhite_small.png";
+
 const styles = theme => ({
   root: {
     height: 250,
@@ -14,7 +15,7 @@ const styles = theme => ({
     backgroundImage: `url(${img})`,
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",
-    marginTop: -65,
+    marginTop: -74,
     [theme.breakpoints.up("sm")]: {
       height: 300
     },
@@ -24,9 +25,8 @@ const styles = theme => ({
   },
   container: {
     paddingTop: 40,
-    paddingLeft: 15,
+    paddingLeft: 200,
     paddingRight: 15,
-    textAlign: "center",
     [theme.breakpoints.up("sm")]: {
       paddingTop: 130
     },
@@ -37,10 +37,24 @@ const styles = theme => ({
   text: {
     letterSpacing: 3,
     fontWeight: 600,
-    color: theme.status.white,
-    textShadow: "2px 2px 4px #404040"
+    color: theme.status.black,
+    textShadow: "2px 2px 4px #ccc"
   },
   title: {
+    textTransform: "capitalize",
+    fontSize: 35,
+    margin: 0,
+    [theme.breakpoints.up("sm")]: {
+      fontSize: 48
+    },
+    [theme.breakpoints.up("md")]: {
+      fontSize: 122
+    }
+  },
+  title2: {
+    paddingLeft: 150
+  },
+  small: {
     fontSize: 35,
     [theme.breakpoints.up("sm")]: {
       fontSize: 48
@@ -51,6 +65,7 @@ const styles = theme => ({
   },
   subtitle: {
     fontSize: 14,
+    paddingTop: 30,
     [theme.breakpoints.up("sm")]: {
       fontSize: 18
     },
@@ -79,7 +94,14 @@ const Hero = props => {
           gutterBottom
           className={classnames(classes.text, classes.title)}
         >
-          Eisbach Riders
+          E<span className={classes.small}>ISBACH</span>
+        </Typography>
+        <Typography
+          variant="h2"
+          gutterBottom
+          className={classnames(classes.text, classes.title, classes.title2)}
+        >
+          R<span className={classes.small}>IDERS</span>
         </Typography>
         <Typography className={classnames(classes.text, classes.subtitle)}>
           {t("hero.subtitle")}

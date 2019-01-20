@@ -21,10 +21,30 @@
     "privacy": "privacy"
   },
   "hero": {
-    "subtitle": "Surf Equipment and Accessories from Munich"
+    "subtitle": "Surf Equipment from Munich"
+  },
+  "feature": {
+    "featuredProduct": "featured product",
+    "surfConditions": "surf conditions",
+    "surfDetail1": "knee high",
+    "surfDetail2": "waist-head high",
+    "experience": "experience",
+    "beginner": "beginner",
+    "intermediate": "intermediate",
+    "pro": "pro",
+    "more": "more info",
+    "highlight": "High performance",
+    "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+  },
+  "newProduct": {
+    "imgAlt": "surfer",
+    "logo": "logo",
+    "more": "find out more",
+    "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
   },
   "about": {
-    "sectionTitle": "who we are",
+    "sectionTitle1": "about",
+    "sectionTitle2": " Eisbach Riders",
     "message": "Eisbach Riders is a young local surf brand from Munich and offers equipment for surfing. Whether you are in the sea, in the river or on the city wave. We, Michael and Robin, are passionate surfers ourselves and value quality products at comparable prices. Packed in sustainable and environmentally friendly packaging, we will ship as fast as possible so that you can jump right back into the water with a smile on your face."
   },
   "products": {

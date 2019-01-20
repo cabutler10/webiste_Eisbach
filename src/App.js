@@ -11,7 +11,7 @@ class App extends Component {
   state = {
     activePage: "/",
     language: "en",
-    isSnackbarOpen: true
+    isSnackbarOpen: false
   };
 
   handlePageChange = activePage => {

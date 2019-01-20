@@ -23,6 +23,25 @@
   "hero": {
     "subtitle": "Surf Equipment und Zubehör aus München"
   },
+  "feature": {
+    "featuredProduct": "featured product",
+    "surfConditions": "surf conditions",
+    "surfDetail1": "knee high",
+    "surfDetail2": "waist-head high",
+    "experience": "experience",
+    "beginner": "beginner",
+    "intermediate": "intermediate",
+    "pro": "pro",
+    "more": "more info",
+    "highlight": "High performance",
+    "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+  },
+  "newProduct": {
+    "imgAlt": "surfer",
+    "logo": "logo",
+    "more": "find out more",
+    "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+  },
   "about": {
     "sectionTitle": "Wer sind wir",
     "message": "Eisbach Riders ist eine junge lokale Surf-Marke aus München und bietet Equipment rund ums Surfen an, egal ob du im Meer, im Fluss oder auf der Citywave unterwegs bist. Wir, Michael und Robin, sind selbst surfbegeistert und legen großen Wert auf Qualität. Eingepackt in einer nachhaltigen und umweltfreundlichen Verpackung schicken wir deine Bestellung schnellstmöglich los, damit du dich gleich wieder in die Fluten stürzen kannst."

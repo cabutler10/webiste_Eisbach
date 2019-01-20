@@ -16,7 +16,7 @@ const styles = theme => ({
     background: theme.status.greyBlue,
     backgroundImage: `url(${background})`,
     backgroundRepeat: "no-repeat",
-    backgroundSize: "100% 60px",
+    backgroundSize: "100% 80px",
     backgroundPosition: "bottom",
     display: "flex",
     alignItems: "center",

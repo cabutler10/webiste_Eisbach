@@ -64,6 +64,7 @@ const styles = theme => ({
     }
   },
   subtitle: {
+    textTransform: "uppercase",
     fontSize: 14,
     paddingTop: 30,
     [theme.breakpoints.up("sm")]: {

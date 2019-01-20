@@ -41,7 +41,7 @@ const styles = theme => ({
     flexBasis: "30%"
   },
   containerImg: {
-    flexBasis: "30%"
+    flexBasis: "35%"
   },
   detailTitle: {
     textTransform: "uppercase",

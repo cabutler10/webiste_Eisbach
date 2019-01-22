@@ -5,7 +5,7 @@ import classnames from "classnames";
 import { withStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import featuredProduct from "../assets/images/featuredProduct.png";
-import { SurfIcon } from "../assets/icons/icons";
+import { SurfIcon, FeatherIcon } from "../assets/icons/icons";
 import ProductDialog from "./ProductDialog";
 import { featureProduct } from "../data/ProductData";
 
@@ -24,8 +24,8 @@ const styles = theme => ({
       paddingRight: 60
     },
     [theme.breakpoints.up("md")]: {
-      paddingTop: 90,
-      paddingBottom: 90,
+      paddingTop: 30,
+      paddingBottom: 30,
       paddingLeft: 170,
       paddingRight: 170
     }
@@ -56,7 +56,7 @@ const styles = theme => ({
     fontWeight: 700,
     letterSpacing: 3,
     paddingBottom: 5,
-    paddingTop: 35,
+    //paddingTop: 35, temp remove until we have main title back in
     fontSize: 16,
     color: theme.palette.secondary.main
   },
@@ -100,6 +100,9 @@ const styles = theme => ({
     height: 5,
     background: theme.status.grey,
     marginLeft: 5
+  },
+  padding: {
+    marginTop: 30
   }
 });
 
@@ -124,24 +127,28 @@ class Feature extends Component {
     return (
       <div className={classes.root} id="products">
         <div className={classes.containerDetails}>
-          {/* <Typography className={classes.detailTitle}>
+          <Typography className={classes.detailTitle}>
             {t("feature.surfConditions")}
           </Typography>
-          <Typography className={classes.detailText}>
-            {t("feature.surfDetail1")}
-          </Typography>
-          <Typography className={classes.detailText}>
-            {t("feature.surfDetail2")}
-          </Typography>
-          <div className={classes.containerIcon}>
-            <SurfIcon className={classes.icon} fontSize="small" />
+          <div className={classes.containerIcon2}>
+            <Typography className={classes.detailText}>
+              {t("feature.surfDetail2")}
+            </Typography>
+            <FeatherIcon className={classes.icon} />
+            <FeatherIcon className={classes.icon} />
+            <FeatherIcon className={classnames(classes.off, classes.icon)} />
+          </div>
+          <div className={classes.containerIcon2} style={{ paddingTop: 5 }}>
+            <Typography className={classes.detailText}>
+              {t("feature.surfDetail1")}
+            </Typography>
             <SurfIcon className={classes.icon} />
-            <SurfIcon
-              className={classnames(classes.off, classes.icon)}
-              fontSize="large"
-            />
-          </div> */}
-          <Typography className={classes.detailTitle}>
+            <SurfIcon className={classes.icon} />
+            <SurfIcon className={classes.icon} />
+          </div>
+          <Typography
+            className={classnames(classes.detailTitle, classes.padding)}
+          >
             {t("feature.experience")}
           </Typography>
           <div className={classes.containerIcon2}>

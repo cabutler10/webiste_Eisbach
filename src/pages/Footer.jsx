@@ -8,6 +8,7 @@ import TextField from "@material-ui/core/TextField";
 import Snackbar from "@material-ui/core/Snackbar";
 import Notification from "../components/Snackbar";
 import { InstagramIcon, FacebookIcon } from "../assets/icons/icons";
+import { Link } from "@reach/router";
 
 const styles = theme => ({
   root: {
@@ -123,7 +124,10 @@ const styles = theme => ({
     color: theme.palette.common.white,
     border: "none",
     background: "transparent",
-    cursor: "pointer"
+    textDecoration: "none",
+    cursor: "pointer",
+    paddingLeft: 5,
+    paddingRight: 5
   },
   textArea: {
     paddingLeft: 20
@@ -251,7 +255,7 @@ class Footer extends Component {
     }
   };
   render() {
-    const { handlePageChange, classes, t } = this.props;
+    const { classes, t } = this.props;
     const {
       emailAddress,
       name,
@@ -415,21 +419,13 @@ class Footer extends Component {
             className={classes.copyright}
           >
             &copy; Eisbach Riders |{" "}
-            <button
-              onClick={() => handlePageChange("/legal")}
-              className={classes.link}
-              href="#legal"
-            >
-              {t("footer.imprint")}
-            </button>
-            |{" "}
-            <button
-              onClick={() => handlePageChange("/privacy")}
-              className={classes.link}
-              href="#privacy"
-            >
-              {t("footer.privacy")}
-            </button>
+            <Link to="/legal" className={classes.link} href="#legal">
+              Legal
+            </Link>
+            |
+            <Link to="/privacy" className={classes.link} href="#privacy">
+              Privacy
+            </Link>
           </Typography>
         </div>
       </div>

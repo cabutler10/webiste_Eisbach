@@ -16,6 +16,12 @@ import product3_img1 from "../assets/images/Future/img1.jpg";
 import product3_img2 from "../assets/images/Future/img2.jpg";
 import product3_img3 from "../assets/images/Future/img3.jpg";
 import product3_img4 from "../assets/images/Future/img4.jpg";
+//Wax
+import product4 from "../assets/images/Wax/main.jpg";
+import product4_img1 from "../assets/images/Wax/img1.jpg";
+import product4_img2 from "../assets/images/Wax/img2.jpg";
+import product4_img3 from "../assets/images/Wax/img3.jpg";
+import product4_img4 from "../assets/images/Wax/img4.jpg";
 
 export const products = [
   {
@@ -115,6 +121,42 @@ export const products = [
         "Thickness: 0.66 cm (0.26'')",
         "Angle: 35.5 degree",
         "Scope of delivery: 3 fin set with fin key"
+      ]
+    }
+  }
+];
+
+export const newProduct = [
+  {
+    name: "Bee Swell Wax",
+    images: [
+      product4,
+      product4_img1,
+      product4_img2,
+      product4_img3,
+      product4_img4,
+      product4_img5
+    ],
+    price: "6.95",
+    ebay: "https://www.ebay.de/itm/183636677740",
+    more: {
+      en: [
+        "Helfe mit! - Ein Teil des Umsatzes wird aktiv zur Rettung von Honigbienen",
+        "Größe: 5.7 x 5.7 x 2.2 cm",
+        "Grip-Bee ist das extra griffige Wachs für kaltes Wasser (58°F / 14°C und kälter). es ist ideal für kühle Europäische Herbsttage oder für das Flussurfen, z.B. auf dem Münchner Eisbach.",
+        "Hana Hou ist ideal für tropische Temperaturen (70°F / 21°C und wärmer) oder auch als Grundiereung für kühler Temperaturen.",
+        "Ist nicht nur schonend zur Umwelt und sondern auch zu deiner Haut und duftet verdammt gut",
+        "Handgefertig bei Bee Swell in den USA",
+        "Surfwachs aus 100% ökologischer Herstellung"
+      ],
+      de: [
+        "Help bees! - Part of the profits will be active in the rescue of honey bees",
+        "Size of bar is 2.25” x 2.25” x 0.875”",
+        "Grip-Bee is the extra grippy cold water wax (58°F / 14°C and below). This wax is perfect for cold-water river and wake surfing.",
+        "Hana Hou is the tropical wax (70°F / 21°C and warmer). This wax can also be used as a base coat in cooler temp water.",
+        "Not only is it gentle on the environment but also on your skin and it smells damn good",
+        "Handcrafted at Bee Swell in the USA",
+        "All our products come in a sustainable and environmentally friendly packaging."
       ]
     }
   }

@@ -5,8 +5,10 @@ import { withStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import Paper from "@material-ui/core/Paper";
+import ProductDialog from "./ProductDialog";
 import img from "../assets/images/surfWax.jpg";
 import logo from "../assets/images/waxLogo.jpg";
+import { newProduct } from "../data/ProductData";
 
 const styles = theme => ({
   root: {
@@ -58,8 +60,23 @@ const styles = theme => ({
 });
 
 class NewProduct extends Component {
+  state = {
+    isDialogOpen: false
+  };
+
+  handleDialogOpen = () => {
+    this.setState({
+      isDialogOpen: true
+    });
+  };
+
+  handleDialogClose = () => {
+    this.setState({ isDialogOpen: false });
+  };
+
   render() {
     const { classes, t } = this.props;
+    const { isDialogOpen } = this.state;
 
     return (
       <div className={classes.root} id="products">
@@ -76,6 +93,12 @@ class NewProduct extends Component {
             {t("newProduct.more")}
           </Button>
         </Paper>
+        <ProductDialog
+          product={newProduct}
+          handleDialogOpen={this.handleDialogOpen}
+          handleDialogClose={this.handleDialogClose}
+          isDialogOpen={isDialogOpen}
+        />
       </div>
     );
   }

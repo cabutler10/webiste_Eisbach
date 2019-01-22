@@ -62,7 +62,7 @@ const styles = theme => ({
   },
   detailText: {
     textTransform: "capitalize",
-    color: theme.status.grey,
+    color: theme.status.greyDk,
     letterSpacing: 3,
     fontSize: 12,
     paddingBottom: 5
@@ -86,7 +86,8 @@ const styles = theme => ({
     color: theme.status.grey
   },
   img: {
-    width: "100%"
+    width: "100%",
+    marginTop: 100
   },
   barOn: {
     width: 25,
@@ -123,7 +124,7 @@ class Feature extends Component {
     return (
       <div className={classes.root} id="products">
         <div className={classes.containerDetails}>
-          <Typography className={classes.detailTitle}>
+          {/* <Typography className={classes.detailTitle}>
             {t("feature.surfConditions")}
           </Typography>
           <Typography className={classes.detailText}>
@@ -139,7 +140,7 @@ class Feature extends Component {
               className={classnames(classes.off, classes.icon)}
               fontSize="large"
             />
-          </div>
+          </div> */}
           <Typography className={classes.detailTitle}>
             {t("feature.experience")}
           </Typography>
@@ -179,10 +180,12 @@ class Feature extends Component {
           />
         </div>
         <div className={classes.containerInfo}>
-          <Typography className={classes.detailTitle}>Honeycomb Fin</Typography>
           <Typography className={classes.detailTitle2}>
-            {t("feature.highlight")}
+            Honeycomb Fin
           </Typography>
+          {/* <Typography className={classes.detailTitle2}>
+            {t("feature.highlight")}
+          </Typography> */}
           <Typography className={classes.detailText}>
             {t("feature.text")}
           </Typography>

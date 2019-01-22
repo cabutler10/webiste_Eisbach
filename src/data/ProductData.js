@@ -24,11 +24,10 @@ import product4_img3 from "../assets/images/New/img3.jpg";
 import product4_img4 from "../assets/images/New/img4.jpg";
 import product4_img5 from "../assets/images/New/img5.jpg";
 //Feature
-import product5 from "../assets/images/Feature/main.jpg";
-// import product5_img1 from "../assets/images/Feature/img1.jpg";
-// import product5_img2 from "../assets/images/Feature/img2.jpg";
-// import product5_img3 from "../assets/images/Feature/img3.jpg";
-// import product5_img4 from "../assets/images/Feature/img4.jpg";
+import product5 from "../assets/images/Feature/main.png";
+import product5_img1 from "../assets/images/Feature/img1.jpg";
+import product5_img2 from "../assets/images/Feature/img2.jpg";
+import product5_img3 from "../assets/images/Feature/img3.jpg";
 export const products = [
   {
     name: "FCS Double Tab Thruster Fin Set with Fin Key",
@@ -144,7 +143,8 @@ export const newProduct = [
       product4_img5
     ],
     price: "6.95",
-    ebay: "https://www.ebay.de/itm/183636677740",
+    ebay:
+      "https://rover.ebay.com/rover/1/707-53477-19255-0/1?icep_id=114&ipn=icep&toolid=20004&campid=5338456795&mpre=https%3A%2F%2Fwww.ebay.de%2Fitm%2F183636677740",
     more: {
       en: [
         "Help bees! - Part of the profits will be active in the rescue of honey bees",
@@ -171,19 +171,14 @@ export const newProduct = [
 export const featureProduct = [
   {
     name: "Fiberglass Honeycomb FCS 1",
-    images: [
-      product5
-      // product5_img1,
-      // product5_img2,
-      // product5_img3,
-      // product5_img4
-    ],
+    images: [product5, product5_img1, product5_img2, product5_img3],
     price: "39.90",
-    ebay: "https://www.ebay.de/itm/1835125620820",
+    ebay:
+      "https://rover.ebay.com/rover/1/707-53477-19255-0/1?icep_id=114&ipn=icep&toolid=20004&campid=5338456795&mpre=https%3A%2F%2Fwww.ebay.de%2Fitm%2F183646902812",
     more: {
       en: [
-        "3 piece set with center fin and both side fins (left and right)elp bees! - Part of the profits will be active in the rescue of honey bees",
-        "SConfiguration: Thruster",
+        "3 piece set with center fin and both side fins (left and right)",
+        "Configuration: Thruster",
         "Material: Fiberglass (glass-reinforced plastic (GRP)) with Honeycomb core",
         "System: FCS 1 Plug System",
         "Size: G5/M5 standard size",

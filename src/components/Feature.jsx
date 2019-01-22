@@ -4,9 +4,10 @@ import { withNamespaces } from "react-i18next";
 import classnames from "classnames";
 import { withStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
-import Button from "@material-ui/core/Button";
 import featuredProduct from "../assets/images/featuredProduct.png";
 import { SurfIcon } from "../assets/icons/icons";
+import ProductDialog from "./ProductDialog";
+import { featureProduct } from "../data/ProductData";
 
 const styles = theme => ({
   root: {
@@ -98,16 +99,26 @@ const styles = theme => ({
     height: 5,
     background: theme.status.grey,
     marginLeft: 5
-  },
-  button: {
-    marginTop: 10,
-    color: theme.palette.common.black
   }
 });
 
 class Feature extends Component {
+  state = {
+    isDialogOpen: false
+  };
+
+  handleDialogOpen = () => {
+    this.setState({
+      isDialogOpen: true
+    });
+  };
+
+  handleDialogClose = () => {
+    this.setState({ isDialogOpen: false });
+  };
   render() {
     const { classes, t } = this.props;
+    const { isDialogOpen } = this.state;
 
     return (
       <div className={classes.root} id="products">
@@ -175,13 +186,13 @@ class Feature extends Component {
           <Typography className={classes.detailText}>
             {t("feature.text")}
           </Typography>
-          <Button
-            variant="outlined"
-            color="secondary"
-            className={classes.button}
-          >
-            {t("feature.more")}
-          </Button>
+          <ProductDialog
+            product={featureProduct[0]}
+            buttonText={t("newProduct.more")}
+            handleDialogOpen={this.handleDialogOpen}
+            handleDialogClose={this.handleDialogClose}
+            isDialogOpen={isDialogOpen}
+          />
         </div>
       </div>
     );

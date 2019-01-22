@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import { withNamespaces } from "react-i18next";
 import { withStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
-import Button from "@material-ui/core/Button";
 import Paper from "@material-ui/core/Paper";
 import ProductDialog from "./ProductDialog";
 import img from "../assets/images/surfWax.jpg";

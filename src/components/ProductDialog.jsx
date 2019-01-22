@@ -98,6 +98,9 @@ const styles = theme => ({
   icon: {
     fontSize: 18
   },
+  iconButton: {
+    fontSize: 36
+  },
   priceContainer: {
     display: "flex",
     justifyContent: "space-between",
@@ -254,24 +257,22 @@ class ProductDialog extends Component {
                   <div className={classes.iconContainer}>
                     {product.amazon && (
                       <IconButton
-                        className={classes.button}
                         aria-label="Amazon"
                         href={product.amazon}
                         target="_blank"
                         rel="noopener"
                       >
-                        <AmazonIcon className={classes.icon} />
+                        <AmazonIcon className={classes.iconButton} />
                       </IconButton>
                     )}
                     {product.ebay && (
                       <IconButton
-                        className={classes.button}
                         aria-label="Ebay"
                         href={product.ebay}
                         target="_blank"
                         rel="noopener"
                       >
-                        <EbayIcon className={classes.icon} />
+                        <EbayIcon className={classes.iconButton} />
                       </IconButton>
                     )}
                   </div>

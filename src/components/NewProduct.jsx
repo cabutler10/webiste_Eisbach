@@ -52,10 +52,6 @@ const styles = theme => ({
     letterSpacing: 3,
     paddingBottom: 5,
     fontSize: 16
-  },
-  button: {
-    marginTop: 30,
-    color: theme.palette.common.black
   }
 });
 
@@ -85,20 +81,14 @@ class NewProduct extends Component {
           <img src={logo} alt={t("newProduct.logo")} className={classes.logo} />
           <Typography className={classes.title}>Bee Swell Surf Wax</Typography>
           <Typography>{t("newProduct.text")}</Typography>
-          <Button
-            color="secondary"
-            variant="outlined"
-            className={classes.button}
-          >
-            {t("newProduct.more")}
-          </Button>
+          <ProductDialog
+            product={newProduct[0]}
+            buttonText={t("newProduct.more")}
+            handleDialogOpen={this.handleDialogOpen}
+            handleDialogClose={this.handleDialogClose}
+            isDialogOpen={isDialogOpen}
+          />
         </Paper>
-        <ProductDialog
-          product={newProduct}
-          handleDialogOpen={this.handleDialogOpen}
-          handleDialogClose={this.handleDialogClose}
-          isDialogOpen={isDialogOpen}
-        />
       </div>
     );
   }

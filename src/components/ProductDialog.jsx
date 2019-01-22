@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from "react";
 import PropTypes from "prop-types";
 import i18n from "../i18n/i18n";
+import classnames from "classnames";
 import { withNamespaces } from "react-i18next";
 import SwipeableViews from "react-swipeable-views";
 import { withStyles } from "@material-ui/core/styles";
@@ -22,11 +23,15 @@ import KeyboardArrowRight from "@material-ui/icons/KeyboardArrowRight";
 import { AmazonIcon, EbayIcon } from "../assets/icons/icons";
 
 const styles = theme => ({
-  more: {
+  buttonFull: {
     width: "100%",
     [theme.breakpoints.up("md")]: {
       width: "50%"
     }
+  },
+  button: {
+    marginTop: 30,
+    color: theme.palette.common.black
   },
   paper: {
     margin: 15,
@@ -161,20 +166,24 @@ class ProductDialog extends Component {
       isDialogOpen,
       idx,
       product,
+      buttonText,
+      buttonFull,
       classes,
       t
     } = this.props;
     const { activeStep } = this.state;
     const lng = i18n.language;
-
     return (
       <Fragment>
         <Button
+          color="secondary"
           variant="outlined"
-          className={classes.more}
+          className={classnames(classes.button, {
+            [classes.buttonFull]: buttonFull
+          })}
           onClick={() => handleDialogOpen(idx)}
         >
-          {t("products.features")}
+          {buttonText}
         </Button>
         <Dialog
           open={isDialogOpen}

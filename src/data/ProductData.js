@@ -22,6 +22,7 @@ import product4_img1 from "../assets/images/Wax/img1.jpg";
 import product4_img2 from "../assets/images/Wax/img2.jpg";
 import product4_img3 from "../assets/images/Wax/img3.jpg";
 import product4_img4 from "../assets/images/Wax/img4.jpg";
+import product4_img5 from "../assets/images/Wax/img5.jpg";
 
 export const products = [
   {
@@ -141,15 +142,6 @@ export const newProduct = [
     ebay: "https://www.ebay.de/itm/183636677740",
     more: {
       en: [
-        "Helfe mit! - Ein Teil des Umsatzes wird aktiv zur Rettung von Honigbienen",
-        "Größe: 5.7 x 5.7 x 2.2 cm",
-        "Grip-Bee ist das extra griffige Wachs für kaltes Wasser (58°F / 14°C und kälter). es ist ideal für kühle Europäische Herbsttage oder für das Flussurfen, z.B. auf dem Münchner Eisbach.",
-        "Hana Hou ist ideal für tropische Temperaturen (70°F / 21°C und wärmer) oder auch als Grundiereung für kühler Temperaturen.",
-        "Ist nicht nur schonend zur Umwelt und sondern auch zu deiner Haut und duftet verdammt gut",
-        "Handgefertig bei Bee Swell in den USA",
-        "Surfwachs aus 100% ökologischer Herstellung"
-      ],
-      de: [
         "Help bees! - Part of the profits will be active in the rescue of honey bees",
         "Size of bar is 2.25” x 2.25” x 0.875”",
         "Grip-Bee is the extra grippy cold water wax (58°F / 14°C and below). This wax is perfect for cold-water river and wake surfing.",
@@ -157,6 +149,15 @@ export const newProduct = [
         "Not only is it gentle on the environment but also on your skin and it smells damn good",
         "Handcrafted at Bee Swell in the USA",
         "All our products come in a sustainable and environmentally friendly packaging."
+      ],
+      de: [
+        "Helfe mit! - Ein Teil des Umsatzes wird aktiv zur Rettung von Honigbienen",
+        "Größe: 5.7 x 5.7 x 2.2 cm",
+        "Grip-Bee ist das extra griffige Wachs für kaltes Wasser (58°F / 14°C und kälter). es ist ideal für kühle Europäische Herbsttage oder für das Flussurfen, z.B. auf dem Münchner Eisbach.",
+        "Hana Hou ist ideal für tropische Temperaturen (70°F / 21°C und wärmer) oder auch als Grundiereung für kühler Temperaturen.",
+        "Ist nicht nur schonend zur Umwelt und sondern auch zu deiner Haut und duftet verdammt gut",
+        "Handgefertig bei Bee Swell in den USA",
+        "Surfwachs aus 100% ökologischer Herstellung"
       ]
     }
   }

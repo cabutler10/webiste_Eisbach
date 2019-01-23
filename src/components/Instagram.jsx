@@ -114,7 +114,7 @@ class Instagram extends Component {
   render() {
     const { classes, t } = this.props;
     const { photos } = this.state;
-    console.log(photos[0]);
+
     return (
       <div className={classes.root}>
         <Typography className={classes.text} variant="h5">
@@ -122,7 +122,7 @@ class Instagram extends Component {
         </Typography>
         <div className={classes.container}>
           {photos.map((tile, idx) => (
-            <div className={classes.overlay}>
+            <div className={classes.overlay} key={`insta${idx}`}>
               <img
                 className={classes.img}
                 src={tile.images.standard_resolution.url}

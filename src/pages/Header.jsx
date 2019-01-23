@@ -5,9 +5,9 @@ import { withStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Hidden from "@material-ui/core/Hidden";
-import IconButton from "@material-ui/core/IconButton";
 import Button from "@material-ui/core/Button";
-import logoWhite from "../assets/logos/logoWhite_small.png";
+import logoWhite from "../assets/logos/ER_minimal_black.svg";
+import { Link } from "@reach/router";
 
 const styles = theme => ({
   grow: {
@@ -37,12 +37,12 @@ const styles = theme => ({
   },
   logo: {
     marginTop: 5,
-    width: 40
+    width: 60
   },
   button: {
-    color: theme.palette.common.white,
+    color: theme.palette.common.black,
     fontSize: 18,
-    textShadow: "1px 1px 1px black",
+    fontWeight: 700,
     letterSpacing: 1.5,
     "&:hover": {
       color: theme.palette.secondary.main
@@ -67,14 +67,7 @@ const styles = theme => ({
 });
 class Template extends Component {
   render() {
-    const {
-      handlePageChange,
-      activePage,
-      handleLanguageChange,
-      language,
-      classes,
-      t
-    } = this.props;
+    const { loc, handleLanguageChange, language, classes, t } = this.props;
     const links = ["/About/", "/Products/", "contact"];
     const linkLabels = [
       t("header.about"),
@@ -87,23 +80,19 @@ class Template extends Component {
         <AppBar
           position="static"
           className={
-            activePage === "/legal" || activePage === "/privacy"
+            loc === "/legal" || loc === "/privacy"
               ? classes.appbarDarkTheme
               : classes.appbar
           }
         >
           <Toolbar className={classes.toolbar}>
             <Hidden xsDown>
-              <IconButton
-                className={classes.logoButton}
-                aria-label="home"
-                onClick={() => handlePageChange("/")}
-              >
+              <Link to="/" className={classes.logoButton}>
                 <img alt="" src={logoWhite} className={classes.logo} />
-              </IconButton>
+              </Link>
               <div>
-                {activePage !== "/legal" &&
-                  (activePage !== "/privacy" && (
+                {loc !== "/legal" &&
+                  (loc !== "/privacy" && (
                     <Fragment>
                       {links.map((link, idx) => (
                         <Button
@@ -120,7 +109,7 @@ class Template extends Component {
                   className={classes.button}
                   onClick={handleLanguageChange}
                 >
-                  {language=== "en" ? "de" : "en"}
+                  {language === "en" ? "de" : "en"}
                 </Button>
               </div>
             </Hidden>

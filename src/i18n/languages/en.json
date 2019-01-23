@@ -21,10 +21,30 @@
     "privacy": "privacy"
   },
   "hero": {
-    "subtitle": "Surf Equipment and Accessories from Munich"
+    "subtitle": "Surf Equipment from Munich"
+  },
+  "feature": {
+    "featuredProduct": "featured product",
+    "surfConditions": "response",
+    "surfDetail1": "stiffness",
+    "surfDetail2": "weight",
+    "experience": "experience",
+    "beginner": "beginner",
+    "intermediate": "intermediate",
+    "pro": "pro",
+    "more": "more info",
+    "highlight": "High performance",
+    "text": "The New Eisbach Riders Double Tab FCS 1 Fiberglass Fin With A Honeycomb Core Is Extra Lightweight And Provides An Immediate Response During The Turns. With a moderate flex it is ideal for making fast changes of direction. The Fin Design Is Suited For Any Waves As Well As For River Surfing."
+  },
+  "newProduct": {
+    "imgAlt": "surfer",
+    "logo": "logo",
+    "more": "more info",
+    "text": "We are so excited to be able to bring you this premium, eco-friendly surf wax! Ride waves with confidence and a clear conscience! Bee Swell Eco-Friendly surf wax is made with 100% pure beeswax that has been ethically sourced by natural beekeepers. Proceeds help to provide pollinator habitat and resources for honeybee rescues."
   },
   "about": {
-    "sectionTitle": "who we are",
+    "sectionTitle1": "about",
+    "sectionTitle2": " Eisbach Riders",
     "message": "Eisbach Riders is a young local surf brand from Munich and offers equipment for surfing. Whether you are in the sea, in the river or on the city wave. We, Michael and Robin, are passionate surfers ourselves and value quality products at comparable prices. Packed in sustainable and environmentally friendly packaging, we will ship as fast as possible so that you can jump right back into the water with a smile on your face."
   },
   "products": {
@@ -56,6 +76,7 @@
     "sectionTitle": "More Stores"
   },
   "imprint": {
+    "credits": "photo credits",
     "imprint": "imprint",
     "terms": "General Terms and Conditions",
     "title1": "1) Scope of Application",

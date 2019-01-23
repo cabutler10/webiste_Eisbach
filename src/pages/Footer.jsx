@@ -8,14 +8,15 @@ import TextField from "@material-ui/core/TextField";
 import Snackbar from "@material-ui/core/Snackbar";
 import Notification from "../components/Snackbar";
 import { InstagramIcon, FacebookIcon } from "../assets/icons/icons";
+import { Link } from "@reach/router";
 
 const styles = theme => ({
   root: {
-    backgroundColor: theme.status.grey,
+    backgroundColor: theme.status.black,
     width: "100%"
   },
   legal: {
-    backgroundColor: theme.palette.common.black
+    backgroundColor: theme.status.black
   },
   copyright: {
     fontSize: 12,
@@ -51,6 +52,7 @@ const styles = theme => ({
     }
   },
   text: {
+    color: theme.palette.common.white,
     fontSize: 12,
     lineHeight: 1.5,
     [theme.breakpoints.up("sm")]: {
@@ -61,6 +63,7 @@ const styles = theme => ({
     borderTop: `1px solid ${theme.status.greyDk}`
   },
   textHeading: {
+    color: theme.palette.common.white,
     letterSpacing: 3,
     fontSize: 12,
     textTransform: "uppercase",
@@ -78,6 +81,7 @@ const styles = theme => ({
   },
   input: {
     fontSize: 12,
+    color: theme.palette.common.white,
     border: "1px solid"
   },
   inputError: {
@@ -97,7 +101,7 @@ const styles = theme => ({
   icon: {
     width: 18,
     height: 18,
-    fill: theme.status.black
+    fill: theme.palette.common.white
   },
   iconContainer: {
     display: "flex",
@@ -120,7 +124,10 @@ const styles = theme => ({
     color: theme.palette.common.white,
     border: "none",
     background: "transparent",
-    cursor: "pointer"
+    textDecoration: "none",
+    cursor: "pointer",
+    paddingLeft: 5,
+    paddingRight: 5
   },
   textArea: {
     paddingLeft: 20
@@ -128,7 +135,7 @@ const styles = theme => ({
   inputLabel: {
     fontSize: 12,
     paddingLeft: 20,
-    color: theme.palette.common.black
+    color: theme.palette.common.white
   }
 });
 
@@ -248,7 +255,7 @@ class Footer extends Component {
     }
   };
   render() {
-    const { handlePageChange, classes, t } = this.props;
+    const { classes, t } = this.props;
     const {
       emailAddress,
       name,
@@ -277,8 +284,8 @@ class Footer extends Component {
               notification === "success"
                 ? "Your email has been sent successfully"
                 : notification === "warning"
-                  ? "Please check the form has been filled out correctly"
-                  : "An error has occured."
+                ? "Please check the form has been filled out correctly"
+                : "An error has occured."
             }
           />
         </Snackbar>
@@ -412,21 +419,13 @@ class Footer extends Component {
             className={classes.copyright}
           >
             &copy; Eisbach Riders |{" "}
-            <button
-              onClick={() => handlePageChange("/legal")}
-              className={classes.link}
-              href="#legal"
-            >
-              {t("footer.imprint")}
-            </button>
-            |{" "}
-            <button
-              onClick={() => handlePageChange("/privacy")}
-              className={classes.link}
-              href="#privacy"
-            >
-              {t("footer.privacy")}
-            </button>
+            <Link to="/legal" className={classes.link} href="#legal">
+              Legal
+            </Link>
+            |
+            <Link to="/privacy" className={classes.link} href="#privacy">
+              Privacy
+            </Link>
           </Typography>
         </div>
       </div>

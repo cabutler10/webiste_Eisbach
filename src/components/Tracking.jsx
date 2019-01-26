@@ -126,6 +126,7 @@ Tracking.propTypes = {
   classes: PropTypes.object.isRequired,
   handleAccept: PropTypes.func,
   handleDecline: PropTypes.func,
+  handleClose: PropTypes.func,
   handlePageChange: PropTypes.func,
   isSnackbarOpen: PropTypes.bool
 };

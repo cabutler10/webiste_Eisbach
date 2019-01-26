@@ -4,6 +4,7 @@ import { withNamespaces } from "react-i18next";
 import { withStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import Paper from "@material-ui/core/Paper";
+import Hidden from "@material-ui/core/Hidden";
 import ProductDialog from "./ProductDialog";
 import img from "../assets/images/surfWax.jpg";
 import logo from "../assets/images/waxLogo.jpg";
@@ -34,13 +35,22 @@ const styles = theme => ({
   img: {
     height: "auto",
     width: "60%",
-    marginLeft: 50
+    [theme.breakpoints.up("md")]: {
+      marginLeft: 50
+    }
   },
   paper: {
     padding: 30,
-    width: 400,
-    margin: -100,
-    textAlign: "center"
+    width: "90%",
+    textAlign: "center",
+    [theme.breakpoints.up("sm")]: {
+      flexBasis: "50%",
+      marginLeft: -100
+    },
+    [theme.breakpoints.up("md")]: {
+      width: 400,
+      margin: -100
+    }
   },
   logo: {
     width: 125
@@ -75,7 +85,9 @@ class NewProduct extends Component {
 
     return (
       <div className={classes.root} id="products">
-        <img src={img} alt={t("newProduct.imgAlt")} className={classes.img} />
+        <Hidden xsDown>
+          <img src={img} alt={t("newProduct.imgAlt")} className={classes.img} />
+        </Hidden>
         <Paper className={classes.paper} elevation={10}>
           <img src={logo} alt={t("newProduct.logo")} className={classes.logo} />
           <Typography className={classes.title}>Bee Swell Surf Wax</Typography>

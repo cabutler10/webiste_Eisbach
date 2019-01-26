@@ -56,22 +56,30 @@ const styles = theme => ({
   sideText: {
     position: "relative",
     float: "right",
-    marginTop: -150,
-    marginRight: -40,
+    marginTop: -100,
+    marginRight: -20,
     transform: "rotate(-270deg)",
     WebkitTransform: "rotate(-270deg)",
     MozTransform: "rotate(-270deg)",
     MsTransform: "rotate(-270deg)",
     OTransform: "rotate(-270deg)",
-    filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=3)"
+    filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=3)",
+    [theme.breakpoints.up("md")]: {
+      marginTop: -150,
+      marginRight: -40
+    }
   },
   img: {
-    width: 400,
-    height: 300,
+    width: 200,
+    height: 150,
     backgroundImage: `url(${img})`,
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",
-    backgroundPosition: "center"
+    backgroundPosition: "center",
+    [theme.breakpoints.up("md")]: {
+      width: 400,
+      height: 300
+    }
   },
   title: {
     textTransform: "uppercase",

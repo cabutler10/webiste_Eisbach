@@ -3,11 +3,12 @@ import PropTypes from "prop-types";
 import { withNamespaces } from "react-i18next";
 import classnames from "classnames";
 import { withStyles } from "@material-ui/core/styles";
+import Hidden from "@material-ui/core/Hidden";
 import Typography from "@material-ui/core/Typography";
-import featuredProduct from "../assets/images/featuredProduct.png";
-import { SurfIcon, FeatherIcon } from "../assets/icons/icons";
 import ProductDialog from "./ProductDialog";
 import { featureProduct } from "../data/ProductData";
+import { SurfIcon, FeatherIcon } from "../assets/icons/icons";
+import featuredProduct from "../assets/images/featuredProduct.png";
 
 const styles = theme => ({
   root: {
@@ -18,8 +19,11 @@ const styles = theme => ({
     background: theme.status.greyBlue,
     display: "flex",
     alignItems: "center",
+    flexDirection: "column",
+    flexWrap: "wrap",
     justifyContent: "center",
     [theme.breakpoints.up("sm")]: {
+      flexDirection: "row",
       paddingLeft: 60,
       paddingRight: 60
     },
@@ -38,11 +42,17 @@ const styles = theme => ({
     flexBasis: "30%"
   },
   containerInfo: {
-    marginLeft: 30,
-    flexBasis: "30%"
+    flexBasis: "100%",
+    [theme.breakpoints.up("md")]: {
+      marginLeft: 30,
+      flexBasis: "30%"
+    }
   },
   containerImg: {
-    flexBasis: "35%"
+    flexBasis: "100%",
+    [theme.breakpoints.up("sm")]: {
+      flexBasis: "35%"
+    }
   },
   detailTitle: {
     textTransform: "uppercase",
@@ -87,7 +97,9 @@ const styles = theme => ({
   },
   img: {
     width: "100%",
-    marginTop: 100
+    [theme.breakpoints.up("sm")]: {
+      marginTop: 100
+    }
   },
   barOn: {
     width: 25,
@@ -126,59 +138,61 @@ class Feature extends Component {
 
     return (
       <div className={classes.root} id="products">
-        <div className={classes.containerDetails}>
-          <Typography className={classes.detailTitle}>
-            {t("feature.surfConditions")}
-          </Typography>
-          <div className={classes.containerIcon2}>
-            <Typography className={classes.detailText}>
-              {t("feature.surfDetail2")}
+        <Hidden xsDown>
+          <div className={classes.containerDetails}>
+            <Typography className={classes.detailTitle}>
+              {t("feature.surfConditions")}
             </Typography>
-            <FeatherIcon className={classes.icon} />
-            <FeatherIcon className={classes.icon} />
-            <FeatherIcon className={classnames(classes.off, classes.icon)} />
-          </div>
-          <div className={classes.containerIcon2} style={{ paddingTop: 5 }}>
-            <Typography className={classes.detailText}>
-              {t("feature.surfDetail1")}
+            <div className={classes.containerIcon2}>
+              <Typography className={classes.detailText}>
+                {t("feature.surfDetail2")}
+              </Typography>
+              <FeatherIcon className={classes.icon} />
+              <FeatherIcon className={classes.icon} />
+              <FeatherIcon className={classnames(classes.off, classes.icon)} />
+            </div>
+            <div className={classes.containerIcon2} style={{ paddingTop: 5 }}>
+              <Typography className={classes.detailText}>
+                {t("feature.surfDetail1")}
+              </Typography>
+              <SurfIcon className={classes.icon} />
+              <SurfIcon className={classes.icon} />
+              <SurfIcon className={classes.icon} />
+            </div>
+            <Typography
+              className={classnames(classes.detailTitle, classes.padding)}
+            >
+              {t("feature.experience")}
             </Typography>
-            <SurfIcon className={classes.icon} />
-            <SurfIcon className={classes.icon} />
-            <SurfIcon className={classes.icon} />
+            <div className={classes.containerIcon2}>
+              <Typography className={classes.detailText}>
+                {t("feature.beginner")}
+              </Typography>
+              <div className={classes.barOff} />
+              <div className={classes.barOff} />
+              <div className={classes.barOff} />
+              <div className={classes.barOff} />
+            </div>
+            <div className={classes.containerIcon2}>
+              <Typography className={classes.detailText}>
+                {t("feature.intermediate")}
+              </Typography>
+              <div className={classes.barOn} />
+              <div className={classes.barOn} />
+              <div className={classes.barOn} />
+              <div className={classes.barOff} />
+            </div>
+            <div className={classes.containerIcon2}>
+              <Typography className={classes.detailText}>
+                {t("feature.pro")}
+              </Typography>
+              <div className={classes.barOn} />
+              <div className={classes.barOn} />
+              <div className={classes.barOn} />
+              <div className={classes.barOn} />
+            </div>
           </div>
-          <Typography
-            className={classnames(classes.detailTitle, classes.padding)}
-          >
-            {t("feature.experience")}
-          </Typography>
-          <div className={classes.containerIcon2}>
-            <Typography className={classes.detailText}>
-              {t("feature.beginner")}
-            </Typography>
-            <div className={classes.barOff} />
-            <div className={classes.barOff} />
-            <div className={classes.barOff} />
-            <div className={classes.barOff} />
-          </div>
-          <div className={classes.containerIcon2}>
-            <Typography className={classes.detailText}>
-              {t("feature.intermediate")}
-            </Typography>
-            <div className={classes.barOn} />
-            <div className={classes.barOn} />
-            <div className={classes.barOn} />
-            <div className={classes.barOff} />
-          </div>
-          <div className={classes.containerIcon2}>
-            <Typography className={classes.detailText}>
-              {t("feature.pro")}
-            </Typography>
-            <div className={classes.barOn} />
-            <div className={classes.barOn} />
-            <div className={classes.barOn} />
-            <div className={classes.barOn} />
-          </div>
-        </div>
+        </Hidden>
         <div className={classes.containerImg}>
           <img
             src={featuredProduct}

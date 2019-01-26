@@ -4,9 +4,7 @@ import { withNamespaces } from "react-i18next";
 import classnames from "classnames";
 import { withStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
-import Hidden from "@material-ui/core/Hidden";
 import img from "../assets/images/backsplash.jpg";
-import logo from "../assets/logos/logoWhite_small.png";
 
 const styles = theme => ({
   root: {
@@ -24,13 +22,15 @@ const styles = theme => ({
     }
   },
   container: {
-    paddingTop: 40,
-    paddingLeft: 200,
+    paddingTop: 100,
+    paddingLeft: 30,
     paddingRight: 15,
     [theme.breakpoints.up("sm")]: {
-      paddingTop: 130
+      paddingLeft: 120,
+      paddingTop: 110
     },
     [theme.breakpoints.up("md")]: {
+      paddingLeft: 200,
       paddingTop: 250
     }
   },
@@ -50,9 +50,6 @@ const styles = theme => ({
     [theme.breakpoints.up("md")]: {
       fontSize: 122
     }
-  },
-  title2: {
-    paddingLeft: 150
   },
   small: {
     fontSize: 35,
@@ -87,9 +84,6 @@ const Hero = props => {
   return (
     <div className={classes.root}>
       <div className={classes.container}>
-        <Hidden smUp>
-          <img src={logo} className={classes.logo} alt="" />
-        </Hidden>
         <Typography
           variant="h2"
           gutterBottom

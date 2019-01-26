@@ -6,6 +6,7 @@ import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Hidden from "@material-ui/core/Hidden";
 import Button from "@material-ui/core/Button";
+import MobileHeaderList from "../components/MobileHeaderList";
 import logoWhite from "../assets/logos/ER_minimal_black.svg";
 import { Link } from "@reach/router";
 
@@ -22,8 +23,8 @@ const styles = theme => ({
     backgroundColor: theme.palette.primary.main
   },
   toolbar: {
-    paddingLeft: 0,
-    paddingRight: 0,
+    paddingLeft: 15,
+    paddingRight: 15,
     [theme.breakpoints.up("sm")]: {
       paddingLeft: 60,
       paddingRight: 60,
@@ -86,10 +87,10 @@ class Template extends Component {
           }
         >
           <Toolbar className={classes.toolbar}>
+            <Link to="/" className={classes.logoButton}>
+              <img alt="" src={logoWhite} className={classes.logo} />
+            </Link>
             <Hidden xsDown>
-              <Link to="/" className={classes.logoButton}>
-                <img alt="" src={logoWhite} className={classes.logo} />
-              </Link>
               <div>
                 {loc !== "/legal" &&
                   (loc !== "/privacy" && (
@@ -112,6 +113,9 @@ class Template extends Component {
                   {language === "en" ? "de" : "en"}
                 </Button>
               </div>
+            </Hidden>
+            <Hidden xsUp>
+              <MobileHeaderList />
             </Hidden>
           </Toolbar>
         </AppBar>

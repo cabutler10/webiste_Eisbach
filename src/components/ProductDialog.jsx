@@ -30,8 +30,10 @@ const styles = theme => ({
     }
   },
   button: {
-    marginTop: 30,
-    color: theme.palette.common.black
+    color: theme.palette.common.black,
+    [theme.breakpoints.up("sm")]: {
+      marginTop: 30
+    }
   },
   paper: {
     margin: 15,
@@ -306,7 +308,14 @@ class ProductDialog extends Component {
 }
 
 ProductDialog.propTypes = {
-  classes: PropTypes.object.isRequired
+  classes: PropTypes.object.isRequired,
+  handleDialogOpen: PropTypes.func.isRequired,
+  handleDialogClose: PropTypes.func.isRequired,
+  isDialogOpen: PropTypes.bool.isRequired,
+  idx: PropTypes.number,
+  product: PropTypes.object.isRequired,
+  buttonText: PropTypes.string.isRequired,
+  buttonFull: PropTypes.bool
 };
 
 export default withNamespaces()(withStyles(styles)(ProductDialog));

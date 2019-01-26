@@ -274,6 +274,8 @@ class Products extends Component {
                       </div>
                       <ProductDialog
                         product={elem}
+                        buttonText={t("products.features")}
+                        buttonFull
                         idx={idx}
                         handleDialogOpen={this.handleDialogOpen}
                         handleDialogClose={this.handleDialogClose}

@@ -28,6 +28,7 @@ const styles = theme => ({
       paddingRight: 60
     },
     [theme.breakpoints.up("md")]: {
+      flexWrap: "nowrap",
       paddingTop: 30,
       paddingBottom: 30,
       paddingLeft: 170,

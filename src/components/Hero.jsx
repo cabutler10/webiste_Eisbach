@@ -51,6 +51,9 @@ const styles = theme => ({
       fontSize: 122
     }
   },
+  title2: {
+    marginLeft: 60
+  },
   small: {
     fontSize: 35,
     [theme.breakpoints.up("sm")]: {

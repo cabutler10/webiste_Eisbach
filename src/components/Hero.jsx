@@ -5,17 +5,18 @@ import classnames from "classnames";
 import { withStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import img from "../assets/images/backsplash.jpg";
+import Newsletter from "./Newsletter";
 
 const styles = theme => ({
   root: {
-    height: 250,
+    height: 280,
     width: "100%",
     backgroundImage: `url(${img})`,
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",
     marginTop: -74,
     [theme.breakpoints.up("sm")]: {
-      height: 300
+      height: 350
     },
     [theme.breakpoints.up("md")]: {
       height: 700
@@ -27,11 +28,13 @@ const styles = theme => ({
     paddingRight: 15,
     [theme.breakpoints.up("sm")]: {
       paddingLeft: 120,
-      paddingTop: 110
+      paddingTop: 110,
+      width: 350
     },
     [theme.breakpoints.up("md")]: {
       paddingLeft: 200,
-      paddingTop: 250
+      paddingTop: 250,
+      width: 465
     }
   },
   text: {
@@ -52,7 +55,11 @@ const styles = theme => ({
     }
   },
   title2: {
-    marginLeft: 60
+    marginLeft: 40,
+    [theme.breakpoints.up("sm")]: {
+      textAlign: "right",
+      margin: 0
+    }
   },
   small: {
     fontSize: 35,
@@ -66,9 +73,10 @@ const styles = theme => ({
   subtitle: {
     textTransform: "uppercase",
     fontSize: 14,
-    paddingTop: 30,
+    paddingTop: 15,
     [theme.breakpoints.up("sm")]: {
-      fontSize: 18
+      fontSize: 16,
+      paddingTop: 15
     },
     [theme.breakpoints.up("md")]: {
       fontSize: 24
@@ -104,6 +112,7 @@ const Hero = props => {
         <Typography className={classnames(classes.text, classes.subtitle)}>
           {t("hero.subtitle")}
         </Typography>
+        <Newsletter />
       </div>
     </div>
   );

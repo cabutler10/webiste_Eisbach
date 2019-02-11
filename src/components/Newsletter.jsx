@@ -17,25 +17,28 @@ import IconButton from "@material-ui/core/IconButton";
 import CloseIcon from "@material-ui/icons/Close";
 
 const styles = theme => ({
+  // containerNewsletter: {
+  //   background: theme.status.white,
+  //   paddingLeft: 15,
+  //   paddingRight: 15,
+  //   paddingBottom: 30,
+  //   paddingTop: 30,
+  //   textAlign: "center",
+  //   [theme.breakpoints.up("sm")]: {
+  //     paddingLeft: 60,
+  //     paddingRight: 60,
+  //     paddingBottom: 30,
+  //     paddingTop: 30
+  //   },
+  //   [theme.breakpoints.up("md")]: {
+  //     paddingLeft: 90,
+  //     paddingRight: 90,
+  //     paddingBottom: 90,
+  //     paddingTop: 90
+  //   }
+  // },
   containerNewsletter: {
-    background: theme.status.white,
-    paddingLeft: 15,
-    paddingRight: 15,
-    paddingBottom: 30,
-    paddingTop: 30,
-    textAlign: "center",
-    [theme.breakpoints.up("sm")]: {
-      paddingLeft: 60,
-      paddingRight: 60,
-      paddingBottom: 30,
-      paddingTop: 30
-    },
-    [theme.breakpoints.up("md")]: {
-      paddingLeft: 90,
-      paddingRight: 90,
-      paddingBottom: 90,
-      paddingTop: 90
-    }
+    marginTop: 15
   },
   textNewsletter: {
     textTransform: "uppercase",
@@ -303,15 +306,16 @@ class Newsletter extends Component {
             </IconButton>
           }
         />
-        <Typography className={classes.textNewsletter} variant="h5">
+        {/* <Typography className={classes.textNewsletter} variant="h5">
           {t("newsletter.sectionTitle")}
         </Typography>
         <Typography className={classes.subtitleNewsletter}>
           {t("newsletter.message")}
-        </Typography>
+        </Typography> */}
         <Button
           variant="contained"
-          color="primary"
+          color="secondary"
+          fullWidth
           className={classes.button}
           onClick={this.handleDialogOpen}
         >

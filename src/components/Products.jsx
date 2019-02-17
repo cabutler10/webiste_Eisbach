@@ -255,7 +255,17 @@ class Products extends Component {
                           {`€${elem.price}`}
                         </Typography>
                         <div className={classes.iconContainer}>
-                          {elem.amazon && (
+                          <Button
+                            color="secondary"
+                            variant="outlined"
+                            className={classnames(classes.button)}
+                            href={elem.amazon}
+                            target="_blank"
+                            rel="noopener"
+                          >
+                            {t("newProduct.more")}
+                          </Button>
+                          {/* {elem.amazon && (
                             <IconButton
                               className={classes.button}
                               aria-label="Amazon"
@@ -281,10 +291,10 @@ class Products extends Component {
                                 )}
                               />
                             </IconButton>
-                          )}
+                          )} */}
                         </div>
                       </div>
-                      <ProductDialog
+                      {/* <ProductDialog
                         product={elem}
                         buttonText={t("products.features")}
                         buttonFull
@@ -292,7 +302,7 @@ class Products extends Component {
                         handleDialogOpen={this.handleDialogOpen}
                         handleDialogClose={this.handleDialogClose}
                         isDialogOpen={isDialogOpen[idx]}
-                      />
+                      /> */}
                     </div>
                   </div>
                 </div>

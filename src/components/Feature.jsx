@@ -5,8 +5,9 @@ import classnames from "classnames";
 import { withStyles } from "@material-ui/core/styles";
 import Hidden from "@material-ui/core/Hidden";
 import Typography from "@material-ui/core/Typography";
-import ProductDialog from "./ProductDialog";
-import { featureProduct } from "../data/ProductData";
+// import ProductDialog from "./ProductDialog";
+// import { featureProduct } from "../data/ProductData";
+import Button from "@material-ui/core/Button";
 import { SurfIcon, FeatherIcon } from "../assets/icons/icons";
 import featuredProduct from "../assets/images/featuredProduct.png";
 
@@ -33,6 +34,12 @@ const styles = theme => ({
       paddingBottom: 30,
       paddingLeft: 170,
       paddingRight: 170
+    }
+  },
+  button: {
+    color: theme.palette.common.black,
+    [theme.breakpoints.up("sm")]: {
+      marginTop: 30
     }
   },
   containerDetails: {
@@ -135,7 +142,7 @@ class Feature extends Component {
   };
   render() {
     const { classes, t } = this.props;
-    const { isDialogOpen } = this.state;
+    // const { isDialogOpen } = this.state;
 
     return (
       <div className={classes.root} id="products">
@@ -211,13 +218,23 @@ class Feature extends Component {
           <Typography className={classes.detailText}>
             {t("feature.text")}
           </Typography>
-          <ProductDialog
+          <Button
+            color="secondary"
+            variant="outlined"
+            className={classnames(classes.button)}
+            href="https://amzn.to/2TUCq8D"
+            target="_blank"
+            rel="noopener"
+          >
+            {t("newProduct.more")}
+          </Button>
+          {/* <ProductDialog
             product={featureProduct[0]}
             buttonText={t("newProduct.more")}
             handleDialogOpen={this.handleDialogOpen}
             handleDialogClose={this.handleDialogClose}
             isDialogOpen={isDialogOpen}
-          />
+          /> */}
         </div>
       </div>
     );

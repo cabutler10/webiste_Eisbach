@@ -103,7 +103,7 @@ export const products = [
     ],
     price: "19.90",
     ebay: "http://www.ebay.de/itm/183498170584",
-    amazon: null,
+    amazon: "https://amzn.to/2EgwUb3",
     more: {
       en: [
         "Set of 3 fins with center fin and the two side fins (right and left) with inside profile in standard size G5 / M5.",

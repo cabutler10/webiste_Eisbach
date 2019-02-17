@@ -7,6 +7,7 @@ import { withStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import IconButton from "@material-ui/core/IconButton";
 import Hidden from "@material-ui/core/Hidden";
+import Button from "@material-ui/core/Button";
 import MobileStepper from "@material-ui/core/MobileStepper";
 import KeyboardArrowLeft from "@material-ui/icons/KeyboardArrowLeft";
 import KeyboardArrowRight from "@material-ui/icons/KeyboardArrowRight";
@@ -62,7 +63,7 @@ const styles = theme => ({
     paddingTop: 15,
     paddingBottom: 10,
     fontWeight: 600,
-    textAlign: "center"
+    textAlign: "left"
   },
   descriptionContainer: {
     height: "100%",
@@ -79,7 +80,7 @@ const styles = theme => ({
     paddingRight: 15,
     paddingLeft: 15,
     [theme.breakpoints.up("sm")]: {
-      justifyContent: "center",
+      //justifyContent: "center",
       paddingRight: 0,
       paddingLeft: 0
     }
@@ -179,7 +180,7 @@ class Products extends Component {
                       <Typography variant="h6" className={classes.price}>
                         {`€${elem.price}`}
                       </Typography>
-                      <div className={classes.iconContainer}>
+                      {/* <div className={classes.iconContainer}>
                         {elem.amazon && (
                           <IconButton
                             className={classes.button}
@@ -203,10 +204,21 @@ class Products extends Component {
                               className={classnames(classes.icon, classes.ebay)}
                             />
                           </IconButton>
-                        )}
+                        )} 
                       </div>
+                    </div>*/}
+                      <Button
+                        color="secondary"
+                        variant="outlined"
+                        className={classnames(classes.button)}
+                        href={elem.amazon}
+                        target="_blank"
+                        rel="noopener"
+                      >
+                        {t("newProduct.more")}
+                      </Button>
                     </div>
-                    <ProductDialog
+                    {/* <ProductDialog
                       product={elem}
                       buttonText={t("products.features")}
                       buttonFull
@@ -214,7 +226,7 @@ class Products extends Component {
                       handleDialogOpen={this.handleDialogOpen}
                       handleDialogClose={this.handleDialogClose}
                       isDialogOpen={isDialogOpen[idx]}
-                    />
+                    /> */}
                   </div>
                 </div>
               </div>

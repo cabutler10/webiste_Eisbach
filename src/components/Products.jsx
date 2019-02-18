@@ -11,8 +11,8 @@ import Button from "@material-ui/core/Button";
 import MobileStepper from "@material-ui/core/MobileStepper";
 import KeyboardArrowLeft from "@material-ui/icons/KeyboardArrowLeft";
 import KeyboardArrowRight from "@material-ui/icons/KeyboardArrowRight";
-import { AmazonIcon, EbayIcon } from "../assets/icons/icons";
-import ProductDialog from "./ProductDialog";
+// import { AmazonIcon, EbayIcon } from "../assets/icons/icons";
+// import ProductDialog from "./ProductDialog";
 import { products } from "../data/ProductData";
 
 const styles = theme => ({
@@ -156,7 +156,7 @@ class Products extends Component {
 
   render() {
     const { classes, t } = this.props;
-    const { activeStep, isDialogOpen } = this.state;
+    const { activeStep } = this.state;
 
     return (
       <div className={classes.root} id="products">

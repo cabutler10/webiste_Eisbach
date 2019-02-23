@@ -111,9 +111,9 @@ const About = props => {
         <Typography className={classes.title} variant="h5">
           {t("about.sectionTitle2")}
         </Typography>
-        <Typography className={classes.text} variant="body1">
+        {/* <Typography className={classes.text} variant="body1">
           {t("about.message")}
-        </Typography>
+        </Typography> */}
       </div>
       <Hidden xsDown>
         <div className={classes.imgContainer}>

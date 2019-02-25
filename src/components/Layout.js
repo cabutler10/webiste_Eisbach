@@ -7,7 +7,7 @@ import { withNamespaces } from "react-i18next";
 class Layout extends Component {
   state = {
     language: "en",
-    isSnackbarOpen: false
+    isSnackbarOpen: true
   };
 
   componentDidMount() {

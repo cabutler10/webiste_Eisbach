@@ -42,7 +42,7 @@ export const products = [
     price: "19.90",
     ebay:
       "https://rover.ebay.com/rover/1/707-53477-19255-0/1?icep_id=114&ipn=icep&toolid=20004&campid=5338456795&mpre=https%3A%2F%2Fwww.ebay.de%2Fitm%2F183534256900",
-    amazon: "https://amzn.to/2Vr6Gt7",
+    amazon: "https://amzn.to/2OfsJjc",
     more: {
       en: [
         "Set of 3 fins with center fin and the two side fins (right and left) with inside profile in standard size G5 / M5.",
@@ -74,7 +74,7 @@ export const products = [
     price: "24.90",
     ebay:
       "https://rover.ebay.com/rover/1/707-53477-19255-0/1?icep_id=114&ipn=icep&toolid=20004&campid=5338456795&mpre=https%3A%2F%2Fwww.ebay.de%2Fitm%2F183498197638",
-    amazon: "https://amzn.to/2GTx3Vh",
+    amazon: "https://amzn.to/2Y7BDDQ",
     more: {
       en: [
         "The particularly durable diamond structure protects the edges of your board against dings and bumps, thus preventing the ingress of water.",
@@ -103,7 +103,7 @@ export const products = [
     ],
     price: "19.90",
     ebay: "http://www.ebay.de/itm/183498170584",
-    amazon: "https://amzn.to/2EgwUb3",
+    amazon: "https://amzn.to/2OkhqGA",
     more: {
       en: [
         "Set of 3 fins with center fin and the two side fins (right and left) with inside profile in standard size G5 / M5.",
@@ -173,6 +173,7 @@ export const featureProduct = [
     name: "Fiberglass Honeycomb FCS 1",
     images: [product5, product5_img1, product5_img2, product5_img3],
     price: "39.90",
+    amazon: "https://amzn.to/2Wf7yQP",
     ebay:
       "https://rover.ebay.com/rover/1/707-53477-19255-0/1?icep_id=114&ipn=icep&toolid=20004&campid=5338456795&mpre=https%3A%2F%2Fwww.ebay.de%2Fitm%2F183646902812",
     more: {

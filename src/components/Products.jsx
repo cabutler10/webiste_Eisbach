@@ -75,7 +75,7 @@ const styles = theme => ({
   },
   priceContainer: {
     display: "flex",
-    justifyContent: "space-between",
+    justifyContent: "center",
     alignItems: "center",
     paddingRight: 15,
     paddingLeft: 15,
@@ -177,9 +177,9 @@ class Products extends Component {
                   <Typography className={classes.name}>{elem.name}</Typography>
                   <div className={classes.fullWidth}>
                     <div className={classes.priceContainer}>
-                      <Typography variant="h6" className={classes.price}>
+                      {/* <Typography variant="h6" className={classes.price}>
                         {`€${elem.price}`}
-                      </Typography>
+                      </Typography> */}
                       {/* <div className={classes.iconContainer}>
                         {elem.amazon && (
                           <IconButton

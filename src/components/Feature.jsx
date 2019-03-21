@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
 import { makeStyles } from "@material-ui/styles";
 import classnames from "classnames";
@@ -223,9 +222,5 @@ function Feature() {
     </div>
   );
 }
-
-Feature.propTypes = {
-  classes: PropTypes.object.isRequired
-};
 
 export default Feature;

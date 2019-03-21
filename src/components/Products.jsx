@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
 import SwipeableViews from "react-swipeable-views";
 import classnames from "classnames";
@@ -136,7 +135,7 @@ function Products() {
   };
 
   return (
-    <div className={classes.root} id="products">
+    <div className={classes.root} id={"header.products"}>
       <Typography className={classes.title} variant="h5">
         {t("products.sectionTitle")}
       </Typography>
@@ -313,9 +312,5 @@ function Products() {
     </div>
   );
 }
-
-Products.propTypes = {
-  classes: PropTypes.object.isRequired
-};
 
 export default Products;

@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
 import { makeStyles } from "@material-ui/styles";
 import Typography from "@material-ui/core/Typography";
@@ -285,10 +284,6 @@ const Privacy = ({ location }) => {
       </div>
     </Layout>
   );
-};
-
-Privacy.propTypes = {
-  classes: PropTypes.object.isRequired
 };
 
 export default Privacy;

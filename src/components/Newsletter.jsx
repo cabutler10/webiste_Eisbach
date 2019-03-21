@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import PropTypes from "prop-types";
 import jsonp from "jsonp";
 import { useTranslation } from "react-i18next";
 import { makeStyles } from "@material-ui/styles";
@@ -283,7 +282,7 @@ function Newsletter() {
               error={isEmailValid === null ? null : !isEmailValid}
               placeholder={t("common.email")}
               value={email}
-              onChange={() => handleChange("email")}
+              onChange={handleChange("email")}
               className={classes.textField}
               margin="normal"
               variant="outlined"
@@ -296,7 +295,7 @@ function Newsletter() {
               error={isNameValid === null ? null : !isNameValid}
               placeholder={t("common.name")}
               value={name}
-              onChange={() => handleChange("name")}
+              onChange={handleChange("name")}
               className={classes.textField}
               margin="normal"
               variant="outlined"
@@ -334,7 +333,7 @@ function Newsletter() {
           </Button>
           <Button
             data-testid="submit"
-            onClick={() => handleSubmit}
+            onClick={handleSubmit}
             className={classes.actionButton}
             color="primary"
             autoFocus
@@ -347,9 +346,5 @@ function Newsletter() {
     </div>
   );
 }
-
-Newsletter.propTypes = {
-  classes: PropTypes.object.isRequired
-};
 
 export default Newsletter;

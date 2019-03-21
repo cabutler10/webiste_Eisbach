@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { makeStyles } from "@material-ui/styles";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
@@ -108,10 +107,6 @@ const MobileHeaderList = ({ links, linkLabels, handlePageChange }) => {
       </List>
     </div>
   );
-};
-
-MobileHeaderList.propTypes = {
-  classes: PropTypes.object.isRequired
 };
 
 export default MobileHeaderList;

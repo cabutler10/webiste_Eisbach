@@ -1,62 +1,46 @@
-import React, { Component } from "react";
+import React, { useEffect, useState } from "react";
 import Header from "../pages/Header";
 import Footer from "../pages/Footer";
 import Tracking from "./Tracking";
 import i18n from "../i18n/i18n";
-class Layout extends Component {
-  state = {
-    language: "en",
-    isSnackbarOpen: true
-  };
 
-  componentDidMount() {
+function Layout({ loc, children }) {
+  const [language, setLanguage] = useState("en");
+  const [isSnackbarOpen, setSnackbar] = useState(true);
+
+  useEffect(() => {
     requestAnimationFrame(() => {
       window.scrollTo(0, 0);
     });
-  }
+  });
 
-  handleLanguageChange = () => {
-    const lng = this.state.language === "en" ? "de" : "en";
-    i18n.changeLanguage(lng);
-    this.setState({
-      language: lng
-    });
+  const handleLanguageChange = () => {
+    i18n.changeLanguage(language === "en" ? "de" : "en");
+    setLanguage(language === "en" ? "de" : "en");
   };
 
-  handleSnackbarClose = () => {
-    this.setState({ isSnackbarOpen: true });
-  };
-
-  handleSnackbarAccept = () => {
-    this.setState({ isSnackbarOpen: false });
-  };
-
-  handleSnackbarDecline = () => {
+  const handleSnackbarDecline = () => {
     window["ga-disable-UA-130658859-1"] = true;
-    this.setState({ isSnackbarOpen: false });
+    setSnackbar(false);
   };
 
-  render() {
-    const { loc, children } = this.props;
-    const { language, isSnackbarOpen } = this.state;
-    return (
-      <>
-        <Header
-          handleLanguageChange={this.handleLanguageChange}
-          language={language}
-          loc={loc}
-        />
-        {children}
-        <Footer />
-        <Tracking
-          isSnackbarOpen={isSnackbarOpen}
-          handleClose={this.handleClose}
-          handleAccept={this.handleAccept}
-          handleDecline={this.handleDecline}
-        />
-      </>
-    );
-  }
+  return (
+    <>
+      <Header
+        handleLanguageChange={handleLanguageChange}
+        language={language}
+        loc={loc}
+      />
+      {children}
+      <Footer />
+      <Tracking
+        isSnackbarOpen={isSnackbarOpen}
+        handleClose={() => setSnackbar(false)}
+        handleAccept={() => setSnackbar(false)}
+        handleDecline={handleSnackbarDecline}
+      />
+    </>
+  );
 }
 
 export default Layout;

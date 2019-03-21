@@ -76,7 +76,6 @@ function Notification({ className, message, onClose, variant, ...other }) {
 }
 
 Notification.propTypes = {
-  classes: PropTypes.object.isRequired,
   className: PropTypes.string,
   message: PropTypes.node,
   onClose: PropTypes.func,

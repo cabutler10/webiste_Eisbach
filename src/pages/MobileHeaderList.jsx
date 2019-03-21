@@ -45,7 +45,6 @@ const MobileHeaderList = ({ links, linkLabels }) => {
 };
 
 MobileHeaderList.propTypes = {
-  classes: PropTypes.object.isRequired,
   linkLabels: PropTypes.array.isRequired,
   links: PropTypes.array.isRequired
 };

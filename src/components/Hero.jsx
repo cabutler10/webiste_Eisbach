@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import classnames from "classnames";
 import { useTranslation } from "react-i18next";
 import { makeStyles } from "@material-ui/styles";
@@ -117,10 +116,6 @@ const Hero = () => {
       </div>
     </div>
   );
-};
-
-Hero.propTypes = {
-  classes: PropTypes.object.isRequired
 };
 
 export default Hero;

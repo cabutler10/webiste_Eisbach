@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
 import { makeStyles } from "@material-ui/styles";
 import Typography from "@material-ui/core/Typography";
@@ -231,7 +230,7 @@ function Footer() {
   };
 
   return (
-    <div className={classes.root} id="contact">
+    <div className={classes.root} id={t("header.contact")}>
       <Snackbar
         anchorOrigin={{
           vertical: "top",
@@ -351,7 +350,7 @@ function Footer() {
               variant="outlined"
               aria-label="facebook"
               className={classes.button}
-              href="hhttps://www.facebook.com/EisbachRiders-262685337908914/"
+              href="https://www.facebook.com/EisbachRiders-262685337908914/"
               target="_blank"
               rel="noopener"
               disableFocusRipple
@@ -393,9 +392,5 @@ function Footer() {
     </div>
   );
 }
-
-Footer.propTypes = {
-  classes: PropTypes.object.isRequired
-};
 
 export default Footer;

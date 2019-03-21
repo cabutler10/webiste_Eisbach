@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import PropTypes from "prop-types";
 import SwipeableViews from "react-swipeable-views";
 import { useTranslation } from "react-i18next";
 import { makeStyles } from "@material-ui/styles";
@@ -217,9 +216,5 @@ function NewProduct() {
     </div>
   );
 }
-
-NewProduct.propTypes = {
-  classes: PropTypes.object.isRequired
-};
 
 export default NewProduct;

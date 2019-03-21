@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
 import { makeStyles } from "@material-ui/styles";
 import Typography from "@material-ui/core/Typography";
@@ -104,7 +103,7 @@ function About() {
   const classes = useStyles();
   const { t } = useTranslation();
   return (
-    <div className={classes.root} id="about">
+    <div className={classes.root} id={t("header.about")}>
       <div className={classes.textContainer}>
         <Typography className={classes.title} variant="h5">
           {t("about.sectionTitle1")}
@@ -127,9 +126,5 @@ function About() {
     </div>
   );
 }
-
-About.propTypes = {
-  classes: PropTypes.object.isRequired
-};
 
 export default About;

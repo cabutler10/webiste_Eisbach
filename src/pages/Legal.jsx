@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
 import { makeStyles } from "@material-ui/styles";
 import Typography from "@material-ui/core/Typography";
@@ -394,10 +393,6 @@ const Legal = ({ location }) => {
       </div>
     </Layout>
   );
-};
-
-Legal.propTypes = {
-  classes: PropTypes.object.isRequired
 };
 
 export default Legal;

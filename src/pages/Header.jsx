@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
 import { makeStyles } from "@material-ui/styles";
 import AppBar from "@material-ui/core/AppBar";
@@ -67,7 +66,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-function Template({ loc, handleLanguageChange, language }) {
+function Header({ loc, handleLanguageChange, language }) {
   const classes = useStyles();
   const { t } = useTranslation();
   const links = ["/About/", "/Products/", "contact"];
@@ -121,8 +120,4 @@ function Template({ loc, handleLanguageChange, language }) {
   );
 }
 
-Template.propTypes = {
-  classes: PropTypes.object.isRequired
-};
-
-export default Template;
+export default Header;

@@ -1,13 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { withNamespaces } from "react-i18next";
-import { withStyles } from "@material-ui/core/styles";
+import { useTranslation } from "react-i18next";
+import { makeStyles } from "@material-ui/styles";
 import Typography from "@material-ui/core/Typography";
 import Hidden from "@material-ui/core/Hidden";
 import img from "../assets/images/about2.jpg";
 import background from "../assets/images/waveBackground.png";
 
-const styles = theme => ({
+const useStyles = makeStyles(theme => ({
   root: {
     paddingTop: 30,
     paddingBottom: 30,
@@ -98,10 +98,11 @@ const styles = theme => ({
       fontSize: 14
     }
   }
-});
+}));
 
-const About = props => {
-  const { classes, t } = props;
+function About() {
+  const classes = useStyles();
+  const { t } = useTranslation();
   return (
     <div className={classes.root} id="about">
       <div className={classes.textContainer}>
@@ -125,10 +126,10 @@ const About = props => {
       </Hidden>
     </div>
   );
-};
+}
 
 About.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
-export default withNamespaces()(withStyles(styles)(About));
+export default About;

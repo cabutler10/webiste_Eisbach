@@ -1,7 +1,7 @@
-import React, { Component, Fragment } from "react";
+import React from "react";
 import PropTypes from "prop-types";
-import { withNamespaces } from "react-i18next";
-import { withStyles } from "@material-ui/core/styles";
+import { useTranslation } from "react-i18next";
+import { makeStyles } from "@material-ui/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Hidden from "@material-ui/core/Hidden";
@@ -10,7 +10,7 @@ import MobileHeaderList from "../components/MobileHeaderList";
 import logoWhite from "../assets/logos/ER_minimal_black.svg";
 import { Link } from "@reach/router";
 
-const styles = theme => ({
+const useStyles = makeStyles(theme => ({
   grow: {
     flexGrow: 1
   },
@@ -65,67 +65,64 @@ const styles = theme => ({
   primary: {
     backgroundColor: theme.palette.primary.main
   }
-});
-class Template extends Component {
-  render() {
-    const { loc, handleLanguageChange, language, classes, t } = this.props;
-    const links = ["/About/", "/Products/", "contact"];
-    const linkLabels = [
-      t("header.about"),
-      t("header.products"),
-      t("header.contact")
-    ];
+}));
 
-    return (
-      <div className={classes.root}>
-        <AppBar
-          position="static"
-          className={
-            loc === "/legal" || loc === "/privacy"
-              ? classes.appbarDarkTheme
-              : classes.appbar
-          }
-        >
-          <Toolbar className={classes.toolbar}>
-            <Link to="/" className={classes.logoButton}>
-              <img alt="" src={logoWhite} className={classes.logo} />
-            </Link>
-            <Hidden xsDown>
-              <div>
-                {loc !== "/legal" &&
-                  (loc !== "/privacy" && (
-                    <Fragment>
-                      {links.map((link, idx) => (
-                        <Button
-                          className={classes.button}
-                          key={`link_${link}`}
-                          href={`#${linkLabels[idx]}`}
-                        >
-                          {linkLabels[idx]}
-                        </Button>
-                      ))}
-                    </Fragment>
-                  ))}
-                <Button
-                  className={classes.button}
-                  onClick={handleLanguageChange}
-                >
-                  {language === "en" ? "de" : "en"}
-                </Button>
-              </div>
-            </Hidden>
-            <Hidden xsUp>
-              <MobileHeaderList />
-            </Hidden>
-          </Toolbar>
-        </AppBar>
-      </div>
-    );
-  }
+function Template({ loc, handleLanguageChange, language }) {
+  const classes = useStyles();
+  const { t } = useTranslation();
+  const links = ["/About/", "/Products/", "contact"];
+  const linkLabels = [
+    t("header.about"),
+    t("header.products"),
+    t("header.contact")
+  ];
+
+  return (
+    <div className={classes.root}>
+      <AppBar
+        position="static"
+        className={
+          loc === "/legal" || loc === "/privacy"
+            ? classes.appbarDarkTheme
+            : classes.appbar
+        }
+      >
+        <Toolbar className={classes.toolbar}>
+          <Link to="/" className={classes.logoButton}>
+            <img alt="" src={logoWhite} className={classes.logo} />
+          </Link>
+          <Hidden xsDown>
+            <div>
+              {loc !== "/legal" &&
+                (loc !== "/privacy" && (
+                  <>
+                    {links.map((link, idx) => (
+                      <Button
+                        className={classes.button}
+                        key={`link_${link}`}
+                        href={`#${linkLabels[idx]}`}
+                      >
+                        {linkLabels[idx]}
+                      </Button>
+                    ))}
+                  </>
+                ))}
+              <Button className={classes.button} onClick={handleLanguageChange}>
+                {language === "en" ? "de" : "en"}
+              </Button>
+            </div>
+          </Hidden>
+          <Hidden xsUp>
+            <MobileHeaderList />
+          </Hidden>
+        </Toolbar>
+      </AppBar>
+    </div>
+  );
 }
 
 Template.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
-export default withNamespaces()(withStyles(styles)(Template));
+export default Template;

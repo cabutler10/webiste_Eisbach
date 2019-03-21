@@ -1,12 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { withStyles } from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/styles";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import ArrowIcon from "@material-ui/icons/KeyboardArrowRight";
 
-const styles = theme => ({
+const useStyles = makeStyles(theme => ({
   list: {
     width: 200
   },
@@ -21,10 +21,10 @@ const styles = theme => ({
   icon: {
     color: theme.status.grey
   }
-});
+}));
 
-const MobileHeaderList = props => {
-  const { links, linkLabels, classes } = props;
+const MobileHeaderList = ({ links, linkLabels }) => {
+  const classes = useStyles();
 
   return (
     <div className={classes.list}>
@@ -50,4 +50,4 @@ MobileHeaderList.propTypes = {
   links: PropTypes.array.isRequired
 };
 
-export default withStyles(styles)(MobileHeaderList);
+export default MobileHeaderList;

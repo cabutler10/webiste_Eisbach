@@ -1,17 +1,14 @@
 import React from "react";
 import PropTypes from "prop-types";
-
-import { withNamespaces } from "react-i18next";
-
-import { withStyles } from "@material-ui/core/styles";
+import { useTranslation } from "react-i18next";
+import { makeStyles } from "@material-ui/styles";
 import Typography from "@material-ui/core/Typography";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
-
 import Layout from "../components/Layout";
 
-const styles = theme => ({
+const useStyles = makeStyles(theme => ({
   container: {
     background: theme.status.white,
     paddingLeft: 15,
@@ -53,10 +50,11 @@ const styles = theme => ({
     paddingLeft: 60,
     fontSize: 12
   }
-});
+}));
 
-const Privacy = props => {
-  const { location, classes, t } = props;
+const Privacy = ({ location }) => {
+  const classes = useStyles();
+  const { t } = useTranslation();
   return (
     <Layout loc={location.pathname}>
       <div className={classes.container} id="privacy">
@@ -293,4 +291,4 @@ Privacy.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
-export default withNamespaces()(withStyles(styles)(Privacy));
+export default Privacy;

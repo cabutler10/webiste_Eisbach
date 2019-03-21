@@ -1,9 +1,9 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import SwipeableViews from "react-swipeable-views";
-import { withNamespaces } from "react-i18next";
+import { useTranslation } from "react-i18next";
+import { makeStyles } from "@material-ui/styles";
 import classnames from "classnames";
-import { withStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import Paper from "@material-ui/core/Paper";
 import Hidden from "@material-ui/core/Hidden";
@@ -19,7 +19,7 @@ import logo_wax from "../assets/images/waxLogo.jpg";
 import logo_hangers from "../assets/images/hangerLogo.png";
 // import { newProduct } from "../data/ProductData";
 
-const styles = theme => ({
+const useStyles = makeStyles(theme => ({
   root: {
     paddingTop: 30,
     paddingBottom: 30,
@@ -105,145 +105,121 @@ const styles = theme => ({
       zIndex: 200
     }
   }
-});
+}));
 
-class NewProduct extends Component {
-  state = {
-    activeStep: 0
-    // isDialogOpen: false
+function NewProduct() {
+  const classes = useStyles();
+  const { t } = useTranslation();
+  const [activeStep, setActiveStep] = useState(0);
+
+  const handleIndexChange = activeStep => {
+    setActiveStep(activeStep);
   };
 
-  // handleDialogOpen = () => {
-  //   this.setState({
-  //     isDialogOpen: true
-  //   });
-  // };
-
-  handleDialogClose = () => {
-    this.setState({ isDialogOpen: false });
+  const handleNext = () => {
+    setActiveStep(activeStep + 1);
   };
 
-  handleIndexChange = activeStep => {
-    this.setState({
-      activeStep
-    });
+  const handleBack = () => {
+    setActiveStep(activeStep - 1);
   };
 
-  handleNext = () => {
-    this.setState(prevState => ({
-      activeStep: prevState.activeStep + 1
-    }));
-  };
-
-  handleBack = () => {
-    this.setState(prevState => ({
-      activeStep: prevState.activeStep - 1
-    }));
-  };
-
-  render() {
-    const { classes, t } = this.props;
-    const { activeStep } = this.state;
-    const products = [
-      {
-        product: "hangers",
-        title: "Hidden Surfboard Wall Rack",
-        amazon: "https://amzn.to/2BHjz9U",
-        img: img_hangers,
-        logo: logo_hangers
-      },
-      {
-        product: "wax",
-        title: "Bee Swell Surf Wax",
-        amazon: "",
-        img: img_wax,
-        logo: logo_wax
-      }
-    ];
-    return (
-      <div className={classes.root} id="products">
-        <SwipeableViews
-          enableMouseEvents
-          index={activeStep}
-          onChangeIndex={this.handleIndexChange}
-          className={classes.swipeable}
-        >
-          {products.map(elem => (
-            <div
-              key={`newproduct${elem.product}`}
-              className={classes.container}
-            >
-              <Hidden xsDown>
-                <img
-                  src={elem.img}
-                  alt={t("newProduct.imgAlt")}
-                  className={classes.img}
-                />
-              </Hidden>
-              <Paper className={classes.paper} elevation={10}>
-                <img
-                  src={elem.logo}
-                  alt={t(elem.product)}
-                  className={classes.logo}
-                />
-                <Typography className={classes.title}>{elem.title}</Typography>
-                <Typography>{t(`newProduct.text_${elem.product}`)}</Typography>
-                <Button
-                  color="secondary"
-                  variant="outlined"
-                  className={classnames(classes.button)}
-                  href={elem.amazon}
-                  target="_blank"
-                  rel="noopener"
-                >
-                  {t("newProduct.more")}
-                </Button>
-                {/* <ProductDialog
+  const products = [
+    {
+      product: "hangers",
+      title: "Hidden Surfboard Wall Rack",
+      amazon: "https://amzn.to/2BHjz9U",
+      img: img_hangers,
+      logo: logo_hangers
+    },
+    {
+      product: "wax",
+      title: "Bee Swell Surf Wax",
+      amazon: "",
+      img: img_wax,
+      logo: logo_wax
+    }
+  ];
+  return (
+    <div className={classes.root} id="products">
+      <SwipeableViews
+        enableMouseEvents
+        index={activeStep}
+        onChangeIndex={handleIndexChange}
+        className={classes.swipeable}
+      >
+        {products.map(elem => (
+          <div key={`newproduct${elem.product}`} className={classes.container}>
+            <Hidden xsDown>
+              <img
+                src={elem.img}
+                alt={t("newProduct.imgAlt")}
+                className={classes.img}
+              />
+            </Hidden>
+            <Paper className={classes.paper} elevation={10}>
+              <img
+                src={elem.logo}
+                alt={t(elem.product)}
+                className={classes.logo}
+              />
+              <Typography className={classes.title}>{elem.title}</Typography>
+              <Typography>{t(`newProduct.text_${elem.product}`)}</Typography>
+              <Button
+                color="secondary"
+                variant="outlined"
+                className={classnames(classes.button)}
+                href={elem.amazon}
+                target="_blank"
+                rel="noopener"
+              >
+                {t("newProduct.more")}
+              </Button>
+              {/* <ProductDialog
                   product={newProduct[0]}
                   buttonText={t("newProduct.more")}
                   handleDialogOpen={this.handleDialogOpen}
                   handleDialogClose={this.handleDialogClose}
                   isDialogOpen={isDialogOpen}
                 /> */}
-              </Paper>
-            </div>
-          ))}
-        </SwipeableViews>
-        <MobileStepper
-          steps={2}
-          position="static"
-          activeStep={activeStep}
-          className={classes.mobileStepper}
-          nextButton={
-            <IconButton
-              size="small"
-              className={classes.nextButton}
-              aria-label={t("common.scrollLeft")}
-              onClick={this.handleNext}
-              disabled={activeStep === 1}
-            >
-              <KeyboardArrowRight />
-            </IconButton>
-          }
-          backButton={
-            <IconButton
-              size="small"
-              className={classes.backButton}
-              aria-label={t("common.scrollRight")}
-              onClick={this.handleBack}
-              disabled={activeStep === 0}
-            >
-              <KeyboardArrowLeft />
-            </IconButton>
-          }
-        />
-      </div>
-    );
-  }
+            </Paper>
+          </div>
+        ))}
+      </SwipeableViews>
+      <MobileStepper
+        steps={2}
+        position="static"
+        activeStep={activeStep}
+        className={classes.mobileStepper}
+        nextButton={
+          <IconButton
+            size="small"
+            className={classes.nextButton}
+            aria-label={t("common.scrollLeft")}
+            onClick={handleNext}
+            disabled={activeStep === 1}
+          >
+            <KeyboardArrowRight />
+          </IconButton>
+        }
+        backButton={
+          <IconButton
+            size="small"
+            className={classes.backButton}
+            aria-label={t("common.scrollRight")}
+            onClick={handleBack}
+            disabled={activeStep === 0}
+          >
+            <KeyboardArrowLeft />
+          </IconButton>
+        }
+      />
+    </div>
+  );
 }
 
 NewProduct.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
-export default withNamespaces()(withStyles(styles)(NewProduct));
+export default NewProduct;

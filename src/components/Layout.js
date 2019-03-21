@@ -1,9 +1,8 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 import Header from "../pages/Header";
 import Footer from "../pages/Footer";
 import Tracking from "./Tracking";
 import i18n from "../i18n/i18n";
-import { withNamespaces } from "react-i18next";
 class Layout extends Component {
   state = {
     language: "en",
@@ -41,7 +40,7 @@ class Layout extends Component {
     const { loc, children } = this.props;
     const { language, isSnackbarOpen } = this.state;
     return (
-      <Fragment>
+      <>
         <Header
           handleLanguageChange={this.handleLanguageChange}
           language={language}
@@ -55,9 +54,9 @@ class Layout extends Component {
           handleAccept={this.handleAccept}
           handleDecline={this.handleDecline}
         />
-      </Fragment>
+      </>
     );
   }
 }
 
-export default withNamespaces()(Layout);
+export default Layout;

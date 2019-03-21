@@ -1,12 +1,12 @@
 import React, { Fragment } from "react";
 import PropTypes from "prop-types";
-import { withNamespaces } from "react-i18next";
+import { useTranslation } from "react-i18next";
+import { makeStyles } from "@material-ui/styles";
 import Button from "@material-ui/core/Button";
 import Snackbar from "@material-ui/core/Snackbar";
 import SnackbarContent from "@material-ui/core/SnackbarContent";
-import { withStyles } from "@material-ui/core/styles";
 
-const styles = theme => ({
+const useStyles = makeStyles(theme => ({
   snackbar: {
     left: 0,
     right: 0,
@@ -59,18 +59,17 @@ const styles = theme => ({
       paddingLeft: 8
     }
   }
-});
+}));
 
-function Tracking(props) {
-  const {
-    handleClose,
-    handleAccept,
-    handleDecline,
-    handlePageChange,
-    isSnackbarOpen,
-    classes,
-    t
-  } = props;
+function Tracking({
+  handleClose,
+  handleAccept,
+  handleDecline,
+  handlePageChange,
+  isSnackbarOpen
+}) {
+  const classes = useStyles();
+  const { t } = useTranslation();
 
   return (
     <Snackbar
@@ -131,4 +130,4 @@ Tracking.propTypes = {
   isSnackbarOpen: PropTypes.bool
 };
 
-export default withNamespaces()(withStyles(styles)(Tracking));
+export default Tracking;

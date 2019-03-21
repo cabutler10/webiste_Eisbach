@@ -1,8 +1,8 @@
-import React, { Component } from "react";
+import React from "react";
 import PropTypes from "prop-types";
-import { withNamespaces } from "react-i18next";
+import { useTranslation } from "react-i18next";
+import { makeStyles } from "@material-ui/styles";
 import classnames from "classnames";
-import { withStyles } from "@material-ui/core/styles";
 import Hidden from "@material-ui/core/Hidden";
 import Typography from "@material-ui/core/Typography";
 // import ProductDialog from "./ProductDialog";
@@ -11,7 +11,7 @@ import Button from "@material-ui/core/Button";
 import { SurfIcon, FeatherIcon } from "../assets/icons/icons";
 import featuredProduct from "../assets/images/featuredProduct.png";
 
-const styles = theme => ({
+const useStyles = makeStyles(theme => ({
   root: {
     paddingTop: 30,
     paddingBottom: 30,
@@ -124,125 +124,108 @@ const styles = theme => ({
   padding: {
     marginTop: 30
   }
-});
+}));
 
-class Feature extends Component {
-  state = {
-    isDialogOpen: false
-  };
+function Feature() {
+  const classes = useStyles();
+  const { t } = useTranslation();
 
-  handleDialogOpen = () => {
-    this.setState({
-      isDialogOpen: true
-    });
-  };
-
-  handleDialogClose = () => {
-    this.setState({ isDialogOpen: false });
-  };
-  render() {
-    const { classes, t } = this.props;
-    // const { isDialogOpen } = this.state;
-
-    return (
-      <div className={classes.root} id="products">
-        <Hidden xsDown>
-          <div className={classes.containerDetails}>
-            <Typography className={classes.detailTitle}>
-              {t("feature.surfConditions")}
-            </Typography>
-            <div className={classes.containerIcon2}>
-              <Typography className={classes.detailText}>
-                {t("feature.surfDetail2")}
-              </Typography>
-              <FeatherIcon className={classes.icon} />
-              <FeatherIcon className={classes.icon} />
-              <FeatherIcon className={classnames(classes.off, classes.icon)} />
-            </div>
-            <div className={classes.containerIcon2} style={{ paddingTop: 5 }}>
-              <Typography className={classes.detailText}>
-                {t("feature.surfDetail1")}
-              </Typography>
-              <SurfIcon className={classes.icon} />
-              <SurfIcon className={classes.icon} />
-              <SurfIcon className={classes.icon} />
-            </div>
-            <Typography
-              className={classnames(classes.detailTitle, classes.padding)}
-            >
-              {t("feature.experience")}
-            </Typography>
-            <div className={classes.containerIcon2}>
-              <Typography className={classes.detailText}>
-                {t("feature.beginner")}
-              </Typography>
-              <div className={classes.barOff} />
-              <div className={classes.barOff} />
-              <div className={classes.barOff} />
-              <div className={classes.barOff} />
-            </div>
-            <div className={classes.containerIcon2}>
-              <Typography className={classes.detailText}>
-                {t("feature.intermediate")}
-              </Typography>
-              <div className={classes.barOn} />
-              <div className={classes.barOn} />
-              <div className={classes.barOn} />
-              <div className={classes.barOff} />
-            </div>
-            <div className={classes.containerIcon2}>
-              <Typography className={classes.detailText}>
-                {t("feature.pro")}
-              </Typography>
-              <div className={classes.barOn} />
-              <div className={classes.barOn} />
-              <div className={classes.barOn} />
-              <div className={classes.barOn} />
-            </div>
-          </div>
-        </Hidden>
-        <div className={classes.containerImg}>
-          <img
-            src={featuredProduct}
-            alt={t("feature.featureProduct")}
-            className={classes.img}
-          />
-        </div>
-        <div className={classes.containerInfo}>
-          <Typography className={classes.detailTitle2}>
-            Honeycomb Fin
+  return (
+    <div className={classes.root} id="products">
+      <Hidden xsDown>
+        <div className={classes.containerDetails}>
+          <Typography className={classes.detailTitle}>
+            {t("feature.surfConditions")}
           </Typography>
-          {/* <Typography className={classes.detailTitle2}>
+          <div className={classes.containerIcon2}>
+            <Typography className={classes.detailText}>
+              {t("feature.surfDetail2")}
+            </Typography>
+            <FeatherIcon className={classes.icon} />
+            <FeatherIcon className={classes.icon} />
+            <FeatherIcon className={classnames(classes.off, classes.icon)} />
+          </div>
+          <div className={classes.containerIcon2} style={{ paddingTop: 5 }}>
+            <Typography className={classes.detailText}>
+              {t("feature.surfDetail1")}
+            </Typography>
+            <SurfIcon className={classes.icon} />
+            <SurfIcon className={classes.icon} />
+            <SurfIcon className={classes.icon} />
+          </div>
+          <Typography
+            className={classnames(classes.detailTitle, classes.padding)}
+          >
+            {t("feature.experience")}
+          </Typography>
+          <div className={classes.containerIcon2}>
+            <Typography className={classes.detailText}>
+              {t("feature.beginner")}
+            </Typography>
+            <div className={classes.barOff} />
+            <div className={classes.barOff} />
+            <div className={classes.barOff} />
+            <div className={classes.barOff} />
+          </div>
+          <div className={classes.containerIcon2}>
+            <Typography className={classes.detailText}>
+              {t("feature.intermediate")}
+            </Typography>
+            <div className={classes.barOn} />
+            <div className={classes.barOn} />
+            <div className={classes.barOn} />
+            <div className={classes.barOff} />
+          </div>
+          <div className={classes.containerIcon2}>
+            <Typography className={classes.detailText}>
+              {t("feature.pro")}
+            </Typography>
+            <div className={classes.barOn} />
+            <div className={classes.barOn} />
+            <div className={classes.barOn} />
+            <div className={classes.barOn} />
+          </div>
+        </div>
+      </Hidden>
+      <div className={classes.containerImg}>
+        <img
+          src={featuredProduct}
+          alt={t("feature.featureProduct")}
+          className={classes.img}
+        />
+      </div>
+      <div className={classes.containerInfo}>
+        <Typography className={classes.detailTitle2}>Honeycomb Fin</Typography>
+        {/* <Typography className={classes.detailTitle2}>
             {t("feature.highlight")}
           </Typography> */}
-          <Typography className={classes.detailText}>
-            {t("feature.text")}
-          </Typography>
-          <Button
-            color="secondary"
-            variant="outlined"
-            className={classnames(classes.button)}
-            href="https://amzn.to/2TUCq8D"
-            target="_blank"
-            rel="noopener"
-          >
-            {t("newProduct.more")}
-          </Button>
-          {/* <ProductDialog
+        <Typography className={classes.detailText}>
+          {t("feature.text")}
+        </Typography>
+        <Button
+          color="secondary"
+          variant="outlined"
+          className={classnames(classes.button)}
+          href="https://amzn.to/2TUCq8D"
+          target="_blank"
+          rel="noopener"
+        >
+          {t("newProduct.more")}
+        </Button>
+        {/* <ProductDialog
             product={featureProduct[0]}
             buttonText={t("newProduct.more")}
             handleDialogOpen={this.handleDialogOpen}
             handleDialogClose={this.handleDialogClose}
             isDialogOpen={isDialogOpen}
           /> */}
-        </div>
       </div>
-    );
-  }
+    </div>
+  );
 }
 
 Feature.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
-export default withNamespaces()(withStyles(styles)(Feature));
+export default Feature;

@@ -1,13 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { withNamespaces } from "react-i18next";
 import classnames from "classnames";
-import { withStyles } from "@material-ui/core/styles";
+import { useTranslation } from "react-i18next";
+import { makeStyles } from "@material-ui/styles";
 import Typography from "@material-ui/core/Typography";
 import img from "../assets/images/backsplash.jpg";
 import Newsletter from "./Newsletter";
 
-const styles = theme => ({
+const useStyles = makeStyles(theme => ({
   root: {
     height: 280,
     width: "100%",
@@ -87,10 +87,11 @@ const styles = theme => ({
     paddingBottom: 20,
     textAlign: "center"
   }
-});
+}));
 
-const Hero = props => {
-  const { classes, t } = props;
+const Hero = () => {
+  const classes = useStyles();
+  const { t } = useTranslation();
 
   return (
     <div className={classes.root}>
@@ -122,4 +123,4 @@ Hero.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
-export default withNamespaces()(withStyles(styles)(Hero));
+export default Hero;
